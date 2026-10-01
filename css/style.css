@@ -743,3 +743,6 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .nieuwsbrief-band { margin-top: 2.5rem; background: var(--c4-t); border-radius: 1.25rem; padding: 1.6rem 1.8rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
 .nieuwsbrief-band h2 { margin: 0 0 0.3rem; font-size: 1.4rem; }
 .nieuwsbrief-band p { margin: 0; }
+
+/* Telefoonnummer zonder onderstreping */
+a[href^="tel:"] { text-decoration: none; }
