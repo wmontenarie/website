@@ -250,3 +250,18 @@ p { margin: 0 0 1em; max-width: 38em; }
 h2.h3 { font-size: 1.25rem; font-weight: 600; }
 
 .rollen { font-family: var(--kop); font-weight: 600; font-size: 1.05rem; color: var(--grijs); margin: 0 0 0.8rem; }
+
+.hero-foto {
+  width: 100%;
+  max-width: 26rem;
+  justify-self: center;
+  border-radius: 1.25rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.twee.midden { align-items: center; }
+.portret-foto { border-radius: 1.25rem; width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+@media (max-width: 52rem) {
+  .hero-foto { max-width: 20rem; }
+  .portret-foto { max-width: 18rem; }
+}
