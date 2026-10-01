@@ -52,6 +52,17 @@
           <div><span class="label">Verzuimdagen per jaar</span><span class="getal" id="rt-dagen">0</span></div>
           <div class="totaal"><span class="label">Totale verzuimkosten per jaar</span><span class="getal" id="rt-totaal">€ 0</span></div>
         </div>
+        <div class="rekentool-opbouw">
+          <h3>Opbouw kosten per verzuimdag</h3>
+          <dl>
+            <div><dt>Loonkosten inclusief werkgeverslasten</dt><dd id="rt-loon">€ 0</dd></div>
+            <div><dt>Verzuimbegeleiding en arbodienst</dt><dd>€ 25</dd></div>
+            <div><dt>Tijd van leidinggevende en HR</dt><dd>€ 20</dd></div>
+            <div><dt>Vervanging door inhuur of overwerk</dt><dd>€ 60</dd></div>
+            <div><dt>Werving en selectie</dt><dd>€ 15</dd></div>
+            <div class="som"><dt>Kosten per verzuimdag</dt><dd id="rt-dag2">€ 0</dd></div>
+          </dl>
+        </div>
         <p class="rekentool-winst" id="rt-winst"></p>
         <details class="rekentool-uitleg">
           <summary>Zo is dit berekend</summary>
@@ -219,6 +230,8 @@
     var dagen = pct * mw * WERKDAGEN;
     var totaal = dagen * perDag;
     document.getElementById('rt-dag').textContent = eur.format(perDag);
+    document.getElementById('rt-dag2').textContent = eur.format(perDag);
+    document.getElementById('rt-loon').textContent = eur.format(sal > 0 ? sal * (1 + OPSLAG) / WERKDAGEN : 0);
     document.getElementById('rt-dagen').textContent = num.format(dagen);
     document.getElementById('rt-totaal').textContent = eur.format(totaal);
     var winst = Math.min(0.01, pct) * mw * WERKDAGEN * perDag;

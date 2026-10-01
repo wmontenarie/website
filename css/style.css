@@ -449,3 +449,18 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 @media (max-width: 40rem) {
   .rekentool-velden, .rekentool-uitkomst { grid-template-columns: 1fr; }
 }
+
+/* Rekentool: uitkomst past altijd */
+.rekentool-uitkomst { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rekentool-uitkomst .totaal { grid-column: 1 / -1; }
+.rekentool-uitkomst .getal { font-size: clamp(1.3rem, 4vw, 1.7rem); overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.rekentool-uitkomst .totaal .getal { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+.rekentool-opbouw { background: rgba(255,255,255,0.08); border-radius: 0.8rem; padding: 1rem 1.1rem; margin-top: 1rem; }
+.rekentool-opbouw h3 { color: var(--wit); font-size: 1rem; margin: 0 0 0.6rem; }
+.rekentool-opbouw dl { margin: 0; display: grid; gap: 0.35rem; font-size: 0.92rem; }
+.rekentool-opbouw dl div { display: flex; justify-content: space-between; gap: 1rem; }
+.rekentool-opbouw dt { color: #c3d3ce; }
+.rekentool-opbouw dd { margin: 0; color: var(--wit); font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rekentool-opbouw .som { border-top: 1px solid rgba(255,255,255,0.3); padding-top: 0.45rem; margin-top: 0.2rem; }
+.rekentool-opbouw .som dt, .rekentool-opbouw .som dd { color: var(--wit); font-weight: 700; }
+@media (max-width: 40rem) { .rekentool-uitkomst { grid-template-columns: 1fr; } }
