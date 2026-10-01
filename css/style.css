@@ -465,3 +465,7 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .rekentool-opbouw .som dt, .rekentool-opbouw .som dd { color: var(--wit); font-weight: 700; }
 @media (max-width: 40rem) { .rekentool-uitkomst { grid-template-columns: 1fr; } }
 .artikel-breed { max-width: 50rem; }
+.hero-knoppen { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.6rem; }
+.hero-knoppen .knop { margin-top: 0; }
+.knop.omlijnd { background: transparent; color: var(--spar); box-shadow: inset 0 0 0 2px var(--spar); }
+.knop.omlijnd:hover { background: var(--spar); color: var(--wit); }
