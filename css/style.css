@@ -267,3 +267,20 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 }
 .ervaring-kop { margin: 1.6rem 0 0.4rem; }
 .ervaring { font-size: 1.05rem; }
+
+/* Hero: tekst bovenaan, daaronder foto met ervaring ernaast */
+.hero .wrap { grid-template-columns: 1fr; gap: clamp(2rem, 4vw, 3rem); }
+.hero h1 { max-width: 22em; }
+.foto-ervaring {
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+.foto-ervaring .hero-foto { max-width: 100%; justify-self: start; }
+.foto-ervaring .ervaring-kop { margin-top: 0; }
+.foto-ervaring .ervaring { font-size: 1.15rem; }
+@media (max-width: 36rem) {
+  .foto-ervaring { grid-template-columns: 1fr; }
+  .foto-ervaring .hero-foto { max-width: 18rem; }
+}
