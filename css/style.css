@@ -595,3 +595,16 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .merk-tekst { display: flex; flex-direction: column; }
 .merk-tekst span { font-size: 0.85rem; color: var(--grijs); }
 .klein { font-size: 0.95rem; color: var(--grijs); }
+
+/* Aanbod (trainingen, spreker) */
+.aanbod-lijst { display: grid; gap: 1.5rem; margin-top: 2rem; }
+.aanbod { background: var(--wit); border-radius: 1.25rem; padding: clamp(1.3rem, 4vw, 2rem); border-top: 6px solid var(--spar); scroll-margin-top: 1rem; }
+.aanbod:nth-child(2) { border-top-color: var(--oker); }
+.aanbod:nth-child(3) { border-top-color: #5b8fc7; }
+.aanbod-kop h2 { margin-bottom: 0.4rem; }
+.aanbod-feiten { display: grid; gap: 0.5rem; margin: 1.2rem 0; font-family: var(--kop); font-size: 0.98rem; }
+.aanbod-feiten div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; padding: 0.55rem 0; border-top: 1px solid var(--lijn); }
+.aanbod-feiten dt { font-weight: 600; color: var(--spar); }
+.aanbod-feiten dd { margin: 0; color: var(--inkt); }
+.ruim { margin-top: 3rem; }
+@media (max-width: 36rem) { .aanbod-feiten div { grid-template-columns: 1fr; gap: 0.2rem; } }
