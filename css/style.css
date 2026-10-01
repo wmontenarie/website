@@ -351,3 +351,5 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 }
 .aanpak { margin-top: 1.5rem; }
 .aanpak-tekst p { margin: 0; }
+.aanpak { align-items: start; }
+.aanpak-tekst p { margin-top: -0.2rem; }
