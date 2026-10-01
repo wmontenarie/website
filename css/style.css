@@ -469,3 +469,23 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .hero-knoppen .knop { margin-top: 0; }
 .knop.omlijnd { background: transparent; color: var(--spar); box-shadow: inset 0 0 0 2px var(--spar); }
 .knop.omlijnd:hover { background: var(--spar); color: var(--wit); }
+
+/* Scenario en vergelijking */
+.scenario { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+.scenario .pad { border-radius: 0.8rem; padding: 1.1rem; display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.92rem; line-height: 1.35; }
+.scenario .goed { background: var(--spar); color: var(--wit); }
+.scenario .goed .getal { color: var(--wit); }
+.scenario .slecht { background: var(--mineraal); color: var(--inkt); box-shadow: inset 0 0 0 2px var(--lijn); }
+.scenario .slecht .getal { color: var(--inkt); }
+.vergelijk { display: grid; gap: 1rem; }
+.vergelijk-rij { display: grid; grid-template-columns: minmax(0, 1fr) 3.5rem; gap: 0.4rem 0.75rem; align-items: center; font-size: 0.92rem; }
+.vergelijk-label { grid-column: 1 / -1; color: var(--inkt); }
+.vergelijk-spoor { height: 1.4rem; background: var(--mineraal); border-radius: 4px; overflow: hidden; }
+.vergelijk-balk { display: block; height: 100%; background: var(--spar); border-radius: 0 4px 4px 0; }
+.vergelijk-balk.laag { background: var(--oker); min-width: 4px; }
+.vergelijk-waarde { font-weight: 700; font-size: 1.1rem; color: var(--inkt); font-variant-numeric: tabular-nums; }
+.bouwblokken.acties { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bouwblokken.acties div:last-child { grid-column: 1 / -1; }
+@media (max-width: 36rem) {
+  .scenario, .bouwblokken.acties { grid-template-columns: 1fr; }
+}
