@@ -683,3 +683,19 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .balk-rij:first-child .balk { background: var(--c3); }
 .verdeling .wel { background: var(--c4-d); }
 .vergelijk-balk.laag { background: var(--c3); }
+
+/* Contactformulier */
+#formulier { scroll-margin-top: 1rem; }
+.contactformulier { display: grid; gap: 1rem; max-width: 46rem; margin-top: 1.5rem; font-family: var(--kop); }
+.veld-rij { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.veld { display: flex; flex-direction: column; gap: 0.35rem; }
+.veld label { font-weight: 600; font-size: 0.95rem; color: var(--inkt); }
+.optioneel { font-weight: 400; color: var(--grijs); }
+.contactformulier input, .contactformulier select, .contactformulier textarea {
+  font: inherit; font-size: 1rem; color: var(--inkt); background: var(--mineraal);
+  border: 2px solid var(--lijn); border-radius: 0.6rem; padding: 0.7rem 0.8rem; width: 100%; }
+.contactformulier input:focus, .contactformulier select:focus, .contactformulier textarea:focus { outline: none; border-color: var(--spar); background: var(--wit); }
+.contactformulier textarea { resize: vertical; }
+.contactformulier .knop { justify-self: start; border: 0; cursor: pointer; }
+.verborgen { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+@media (max-width: 36rem) { .veld-rij { grid-template-columns: 1fr; } }
