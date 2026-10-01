@@ -265,3 +265,5 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
   .hero-foto { max-width: 20rem; }
   .portret-foto { max-width: 18rem; }
 }
+.ervaring-kop { margin: 1.6rem 0 0.4rem; }
+.ervaring { font-size: 1.05rem; }
