@@ -421,3 +421,31 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 @media (min-width: 36.01rem) and (max-width: 46rem) {
   .bouwblokken { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Rekentool */
+.rekentool { background: var(--spar); color: #e6eeeb; border-radius: 1.25rem; padding: clamp(1.4rem, 4vw, 2.2rem); margin: 2rem 0 2.5rem; font-family: var(--kop); }
+.rekentool h2 { color: var(--wit); margin-top: 0; }
+.rekentool > p { font-family: var(--tekst); }
+.rekentool-velden { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 1.2rem 0; }
+.rekentool-velden label { display: flex; flex-direction: column; gap: 0.35rem; font-weight: 600; font-size: 0.95rem; color: var(--wit); }
+.rekentool-velden small { font-weight: 400; font-size: 0.8rem; color: #c3d3ce; margin-top: -0.2rem; }
+.invoer { display: flex; align-items: center; gap: 0.4rem; background: var(--wit); border-radius: 0.6rem; padding: 0 0.8rem; color: var(--inkt); margin-top: auto; }
+.invoer input { border: 0; background: transparent; font: inherit; font-size: 1.15rem; font-weight: 600; color: var(--inkt); padding: 0.65rem 0; width: 100%; min-width: 0; }
+.invoer input:focus { outline: none; }
+.invoer:focus-within { outline: 3px solid var(--oker); outline-offset: 2px; }
+.rekentool-uitkomst { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.rekentool-uitkomst div { display: flex; flex-direction: column; gap: 0.2rem; }
+.rekentool-uitkomst .label { font-size: 0.9rem; color: #c3d3ce; }
+.rekentool-uitkomst .getal { color: var(--wit); font-size: 1.7rem; }
+.rekentool-uitkomst .totaal { background: var(--oker); border-radius: 0.8rem; padding: 0.7rem 0.9rem; }
+.rekentool-uitkomst .totaal .label, .rekentool-uitkomst .totaal .getal { color: var(--inkt); }
+.rekentool-winst { font-family: var(--tekst); font-size: 1.15rem; color: var(--wit); margin: 1.2rem 0; }
+.rekentool-winst:empty { display: none; }
+.rekentool-uitleg { font-size: 0.9rem; color: #c3d3ce; margin-bottom: 1.4rem; }
+.rekentool-uitleg summary { cursor: pointer; color: var(--wit); font-weight: 600; }
+.rekentool-uitleg p, .rekentool-uitleg ul { font-family: var(--tekst); margin: 0.6rem 0; }
+.rekentool .knop { background: var(--wit); color: var(--spar); }
+.rekentool .knop:hover { background: var(--mineraal); color: var(--spar); }
+@media (max-width: 40rem) {
+  .rekentool-velden, .rekentool-uitkomst { grid-template-columns: 1fr; }
+}

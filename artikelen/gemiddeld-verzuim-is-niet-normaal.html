@@ -32,6 +32,41 @@
       <h1>Gemiddeld verzuim is niet normaal</h1>
       <p class="intro">Veel organisaties zijn tevreden zolang hun verzuim rond het landelijk gemiddelde ligt. Maar ook gemiddeld verzuim kost een organisatie met 1.000 medewerkers al snel 3 tot 5 miljoen euro per jaar. En dat is nog niet het hele verhaal.</p>
 
+      <section class="rekentool" aria-labelledby="rekentool-kop">
+        <h2 id="rekentool-kop">Wat kost verzuim jouw organisatie?</h2>
+        <p>Vul drie gegevens in en zie direct wat verzuim jouw organisatie per jaar kost.</p>
+        <form id="verzuimtool" class="rekentool-velden" novalidate>
+          <label for="rt-verzuim">Verzuimpercentage
+            <span class="invoer"><input id="rt-verzuim" type="number" inputmode="decimal" min="0" max="50" step="0.1" value="5.4"><span>%</span></span>
+          </label>
+          <label for="rt-medewerkers">Aantal medewerkers
+            <span class="invoer"><input id="rt-medewerkers" type="number" inputmode="numeric" min="1" step="1" value="250"></span>
+          </label>
+          <label for="rt-salaris">Gemiddeld bruto jaarsalaris
+            <small>inclusief vakantiegeld en eventuele 13e of 14e maand</small>
+            <span class="invoer"><span>€</span><input id="rt-salaris" type="number" inputmode="numeric" min="0" step="500" value="50000"></span>
+          </label>
+        </form>
+        <div class="rekentool-uitkomst" aria-live="polite">
+          <div><span class="label">Kosten per verzuimdag</span><span class="getal" id="rt-dag">€ 0</span></div>
+          <div><span class="label">Verzuimdagen per jaar</span><span class="getal" id="rt-dagen">0</span></div>
+          <div class="totaal"><span class="label">Totale verzuimkosten per jaar</span><span class="getal" id="rt-totaal">€ 0</span></div>
+        </div>
+        <p class="rekentool-winst" id="rt-winst"></p>
+        <details class="rekentool-uitleg">
+          <summary>Zo is dit berekend</summary>
+          <p>De loonkosten per dag zijn het jaarsalaris plus 30 procent werkgeverslasten (sociale premies en pensioen), gedeeld door 220 werkdagen. Bij ziekte loopt het loon door. Daar komen per verzuimdag gemiddeld deze kosten bij:</p>
+          <ul>
+            <li>verzuimbegeleiding en arbodienst: € 25</li>
+            <li>tijd van leidinggevende en HR: € 20</li>
+            <li>vervanging door inhuur of overwerk: € 60</li>
+            <li>werving en selectie bij langdurige uitval of vertrek: € 15</li>
+          </ul>
+          <p>Totale kosten = verzuimpercentage × aantal medewerkers × 220 werkdagen × kosten per verzuimdag. Het is een schatting. Productiviteitsverlies door medewerkers die ziek doorwerken is niet meegerekend.</p>
+        </details>
+        <a class="knop" href="../contact.html">Bespreek de uitkomst met mij</a>
+      </section>
+
       <h2>Het gemiddelde stijgt</h2>
       <p>Het ziekteverzuim in Nederland lag in 2025 op 5,4 procent. In het eerste kwartaal van 2026 liep het op naar 5,8 procent, hoger dan het gemiddelde van de afgelopen dertig jaar. In de zorg is het verzuim 8,2 procent, in het openbaar bestuur 6,8 procent, in de industrie 6,7 procent en in het onderwijs 6,3 procent.</p>
 
@@ -171,5 +206,30 @@
   </div>
 </footer>
 
+
+<script>
+(function () {
+  var OPSLAG = 0.30, WERKDAGEN = 220, EXTRA = 25 + 20 + 60 + 15;
+  var eur = new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  var num = new Intl.NumberFormat('nl-NL', { maximumFractionDigits: 0 });
+  function waarde(id) { var v = parseFloat(String(document.getElementById(id).value).replace(',', '.')); return isFinite(v) && v > 0 ? v : 0; }
+  function reken() {
+    var pct = waarde('rt-verzuim') / 100, mw = waarde('rt-medewerkers'), sal = waarde('rt-salaris');
+    var perDag = sal > 0 ? sal * (1 + OPSLAG) / WERKDAGEN + EXTRA : 0;
+    var dagen = pct * mw * WERKDAGEN;
+    var totaal = dagen * perDag;
+    document.getElementById('rt-dag').textContent = eur.format(perDag);
+    document.getElementById('rt-dagen').textContent = num.format(dagen);
+    document.getElementById('rt-totaal').textContent = eur.format(totaal);
+    var winst = Math.min(0.01, pct) * mw * WERKDAGEN * perDag;
+    document.getElementById('rt-winst').textContent = totaal > 0
+      ? 'Elk procentpunt minder verzuim levert jouw organisatie ongeveer ' + eur.format(winst) + ' per jaar op.'
+      : '';
+  }
+  document.getElementById('verzuimtool').addEventListener('input', reken);
+  document.getElementById('verzuimtool').addEventListener('submit', function (e) { e.preventDefault(); });
+  reken();
+})();
+</script>
 </body>
 </html>
