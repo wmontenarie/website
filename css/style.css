@@ -288,7 +288,7 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 /* Aanpak: cirkel met stappen ernaast */
 .aanpak {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
   margin-top: 2rem;
@@ -322,7 +322,7 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .stappen li:last-child::before { background: var(--oker); color: var(--inkt); }
 .stappen h3 { margin: 0 0 0.2rem; font-size: 1.1rem; }
 .stappen p { margin: 0; font-size: 1rem; }
-@media (max-width: 52rem) {
+@media (max-width: 36rem) {
   .aanpak { grid-template-columns: 1fr; }
   .aanpak .drie { max-width: 22rem; justify-self: center; }
 }
