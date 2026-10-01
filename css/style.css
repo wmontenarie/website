@@ -374,3 +374,50 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .artikellijst h2 { font-size: 1.5rem; margin: 0 0 0.4rem; }
 .artikellijst p { margin: 0; }
 .artikellijst li + li { margin-top: 1rem; }
+
+/* Infographics in artikelen */
+.infographic { margin: 2rem 0; padding: 1.5rem; background: var(--wit); border-radius: 1.25rem; font-family: var(--kop); }
+.infographic figcaption { font-size: 0.95rem; color: var(--grijs); margin-bottom: 1.2rem; }
+.infographic figcaption strong { display: block; font-size: 1.15rem; color: var(--spar); margin-bottom: 0.2rem; }
+.bron-regel { font-size: 0.8rem; color: var(--grijs); margin: 1rem 0 0; }
+
+.balken { position: relative; display: grid; gap: 0.6rem; }
+.balk-rij { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) 3rem; gap: 0.75rem; align-items: center; font-size: 0.92rem; }
+.balk-label { color: var(--inkt); line-height: 1.25; }
+.balk-spoor { position: relative; height: 1.1rem; }
+.balk { display: block; height: 100%; background: var(--spar); border-radius: 0 4px 4px 0; }
+.balk-waarde { font-weight: 600; font-variant-numeric: tabular-nums; color: var(--inkt); }
+.gem-lijn { position: absolute; top: -0.4rem; bottom: -1.6rem; left: calc(11rem + 0.75rem + (100% - 11rem - 3rem - 1.5rem) * 0.58); border-left: 2px dashed var(--oker); pointer-events: none; }
+.gem-lijn span { position: absolute; bottom: 0; left: 0.35rem; font-size: 0.8rem; font-weight: 600; color: var(--inkt); white-space: nowrap; }
+
+.kerncijfers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem 1.5rem; }
+.kerncijfers div, .rekensom div { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.92rem; color: var(--inkt); line-height: 1.3; }
+.getal { font-size: 1.9rem; font-weight: 700; color: var(--spar); line-height: 1.1; font-variant-numeric: tabular-nums; }
+
+.rekensom { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem 1rem; }
+.rekensom .getal { font-size: 1.45rem; }
+.rekensom .teken { font-size: 1.5rem; color: var(--oker); font-weight: 700; }
+.rekensom .uitkomst { background: var(--spar); color: var(--wit); padding: 0.7rem 1rem; border-radius: 0.8rem; }
+.rekensom .uitkomst .getal, .rekensom .uitkomst span { color: var(--wit); }
+
+.verdeling { display: flex; gap: 2px; font-size: 0.88rem; font-weight: 600; }
+.verdeling .deel { padding: 0.9rem 0.8rem; line-height: 1.25; min-width: 0; }
+.verdeling .niet { background: var(--lijn); color: var(--inkt); border-radius: 4px 0 0 4px; }
+.verdeling .wel { background: var(--spar); color: var(--wit); border-radius: 0 4px 4px 0; }
+
+.bouwblokken { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
+.bouwblokken div { background: var(--mineraal); border-radius: 0.8rem; padding: 1rem; border-top: 4px solid var(--spar); display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.9rem; color: var(--grijs); line-height: 1.35; }
+.bouwblokken strong { color: var(--spar); font-size: 1rem; }
+
+@media (max-width: 36rem) {
+  .balk-rij { grid-template-columns: minmax(0, 1fr) 3rem; }
+  .balk-label { grid-column: 1 / -1; }
+  .gem-lijn { display: none; }
+  .kerncijfers { grid-template-columns: 1fr; }
+  .bouwblokken { grid-template-columns: 1fr; }
+  .verdeling { flex-direction: column; }
+  .verdeling .deel { width: auto !important; border-radius: 4px; }
+}
+@media (min-width: 36.01rem) and (max-width: 46rem) {
+  .bouwblokken { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
