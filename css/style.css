@@ -356,3 +356,20 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .hero h1 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); max-width: 26em; }
 .foto-ervaring { align-items: start; }
 .foto-ervaring h2.ervaring-kop { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; margin: 0 0 1.2em; line-height: 1; }
+
+/* Artikelen */
+.artikel .wrap { max-width: 46rem; }
+.artikel h1 { font-size: clamp(2rem, 4.5vw, 3rem); }
+.artikel h2 { font-size: 1.5rem; margin-top: 2.2rem; }
+.artikel ul { padding-left: 1.2em; }
+.artikel li { margin-bottom: 0.6rem; }
+.artikel-meta, .artikel-datum { font-family: var(--kop); font-size: 0.95rem; color: var(--grijs); margin: 0 0 0.6rem; display: block; }
+.artikel-cta { background: var(--wit); border-radius: 1.25rem; padding: 1.8rem; margin: 2.5rem 0; }
+.artikel-cta h2 { margin-top: 0; }
+.bronnen { font-size: 0.95rem; color: var(--grijs); border-top: 1px solid var(--lijn); padding-top: 1rem; }
+.bronnen h2 { font-size: 1.1rem; margin-top: 1rem; }
+.artikellijst { list-style: none; padding: 0; margin: 2rem 0; max-width: 46rem; }
+.artikellijst a { display: block; text-decoration: none; color: inherit; background: var(--wit); border-radius: 1.25rem; padding: 1.5rem 1.8rem; }
+.artikellijst a:hover h2 { text-decoration: underline; }
+.artikellijst h2 { font-size: 1.5rem; margin: 0 0 0.4rem; }
+.artikellijst p { margin: 0; }
