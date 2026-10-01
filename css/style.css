@@ -520,3 +520,48 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
   .jdr-pijl { transform: rotate(90deg); margin: 0.1rem 0; }
   .jdr-buffer { padding-left: 0.5rem; }
 }
+
+/* Tools-pagina */
+.tool-inhoud { display: flex; flex-wrap: wrap; gap: 0.6rem; font-family: var(--kop); }
+.tool-inhoud a { text-decoration: none; padding: 0.4rem 0.9rem; border-radius: 999px; box-shadow: inset 0 0 0 2px var(--spar); font-weight: 600; font-size: 0.95rem; }
+.tool-sectie { margin-top: 3rem; }
+.tool-sectie h3 { color: var(--spar); margin-top: 0; }
+#rekentool-kop, #jdr-model { scroll-margin-top: 1rem; }
+
+/* JD-R-model met energiemeter */
+.jdr2-kolommen { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr) minmax(0, 1fr); gap: 0.8rem 1.4rem; }
+.jdr2-kop { background: var(--spar); color: var(--wit); font-weight: 700; text-align: center; padding: 0.5rem; border-radius: 0.6rem; font-size: 0.95rem; }
+.jdr2-werk { display: flex; flex-direction: column; gap: 0.5rem; }
+.jdr2-blok { border-radius: 0.7rem; padding: 0.75rem 0.9rem; font-weight: 700; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.15rem; }
+.jdr2-blok small { font-weight: 400; font-size: 0.8rem; line-height: 1.3; }
+.jdr2-blok.energie { background: var(--spar); color: var(--wit); }
+.jdr2-blok.energie small { color: #d6e2de; }
+.jdr2-blok.stress { background: #f3e2c4; color: var(--inkt); box-shadow: inset 0 0 0 2px var(--oker); }
+.jdr2-blok.stress small { color: var(--grijs); }
+.jdr2-blok.klein { background: var(--mineraal); color: var(--spar); font-size: 0.85rem; text-align: center; justify-content: center; }
+.jdr2-blok.gevolg { background: var(--mineraal); color: var(--spar); box-shadow: inset 0 0 0 2px var(--spar); text-align: center; justify-content: center; min-height: 4.5rem; }
+.jdr2-invloed { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+.jdr2-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; width: 100%; }
+.pijl-op, .pijl-neer { width: 0; height: 0; border-left: 0.5rem solid transparent; border-right: 0.5rem solid transparent; }
+.pijl-op { border-bottom: 0.65rem solid var(--spar); }
+.pijl-neer { border-top: 0.65rem solid var(--oker); }
+.jdr2-energie { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+.meter-label { font-weight: 700; font-size: 0.9rem; }
+.meter-label.boven { color: var(--spar); }
+.meter-label.onder { color: #9a3b26; }
+.meter { flex: 1; min-height: 12rem; width: 3.6rem; border-radius: 0.7rem; padding: 0.3rem; box-shadow: inset 0 0 0 3px var(--grijs); position: relative; }
+.meter::before { content: ""; position: absolute; top: -0.5rem; left: 50%; transform: translateX(-50%); width: 1.4rem; height: 0.5rem; border-radius: 0.2rem 0.2rem 0 0; background: var(--grijs); }
+.meter span { display: block; height: 100%; border-radius: 0.45rem; background: linear-gradient(to bottom, var(--spar) 0%, #6f9a8f 40%, var(--oker) 70%, #c0563f 100%); }
+.jdr2-gevolgen { display: flex; flex-direction: column; justify-content: center; gap: 0.8rem; }
+.jdr2-legenda { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 1rem; font-size: 0.85rem; color: var(--grijs); }
+.jdr2-legenda .lg { display: inline-block; width: 0.9rem; height: 0.9rem; border-radius: 3px; margin-right: 0.4rem; vertical-align: -0.1rem; }
+.lg.motief { background: var(--spar); }
+.lg.stressp { background: var(--oker); }
+@media (max-width: 40rem) {
+  .jdr2-kolommen { grid-template-columns: 1fr; }
+  .jdr2-kop:nth-child(2), .jdr2-kop:nth-child(3) { display: none; }
+  .jdr2-energie { flex-direction: row; justify-content: center; }
+  .meter { min-height: 3rem; height: 3rem; width: 100%; flex: 1; }
+  .meter::before { display: none; }
+  .meter span { background: linear-gradient(to right, var(--spar) 0%, #6f9a8f 40%, var(--oker) 70%, #c0563f 100%); }
+}
