@@ -373,3 +373,4 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .artikellijst a:hover h2 { text-decoration: underline; }
 .artikellijst h2 { font-size: 1.5rem; margin: 0 0 0.4rem; }
 .artikellijst p { margin: 0; }
+.artikellijst li + li { margin-top: 1rem; }
