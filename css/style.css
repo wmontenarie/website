@@ -338,3 +338,14 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 @media (max-width: 36rem) {
   .aanpak { grid-template-columns: 1fr; }
 }
+
+/* Aanpak in twee kolommen: links tekst met cirkel, rechts stappen */
+.aanpak { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.aanpak-links { display: grid; gap: 1.5rem; }
+.aanpak-links .drie { justify-self: center; }
+@media (max-width: 64rem) {
+  .aanpak { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 36rem) {
+  .aanpak { grid-template-columns: 1fr; }
+}
