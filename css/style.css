@@ -349,3 +349,5 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 @media (max-width: 36rem) {
   .aanpak { grid-template-columns: 1fr; }
 }
+.aanpak { margin-top: 1.5rem; }
+.aanpak-tekst p { margin: 0; }
