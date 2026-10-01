@@ -746,3 +746,27 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 
 /* Telefoonnummer zonder onderstreping */
 a[href^="tel:"] { text-decoration: none; }
+
+/* Dienstenpagina */
+.diensten-kaarten { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+.dienst { background: var(--wit); border-radius: 1.25rem; overflow: hidden; display: flex; flex-direction: column; scroll-margin-top: 1rem; }
+.dienst:first-child { grid-column: 1 / -1; }
+.dienst-kop { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; background: var(--c1); color: #fff; }
+.dienst-kop h2 { color: inherit; margin: 0; font-size: 1.5rem; }
+.dienst-ico { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 0.9rem; background: rgba(255,255,255,0.18); flex: none; }
+.dienst-ico svg { width: 1.6rem; height: 1.6rem; }
+.dienst.c2 .dienst-kop { background: var(--c2); color: var(--inkt); }
+.dienst.c2 .dienst-ico { background: rgba(255,255,255,0.45); }
+.dienst.c3 .dienst-kop { background: var(--c3-d); }
+.dienst.c4 .dienst-kop { background: var(--c4-d); }
+.dienst-body { padding: 1.3rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.2rem; flex: 1; }
+.dienst-body p { margin: 0 0 0.7rem; }
+.dienst-voor { font-family: var(--kop); font-size: 0.95rem; color: var(--inkt); }
+.dienst .label { display: inline-block; font-weight: 600; font-size: 0.85rem; padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--c1-t); color: var(--c1); margin-right: 0.3rem; }
+.dienst.c2 .label { background: var(--c2-t); color: var(--c2-d); }
+.dienst.c3 .label { background: var(--c3-t); color: var(--c3-d); }
+.dienst.c4 .label { background: var(--c4-t); color: var(--c4-d); }
+.dienst-links { margin-top: auto !important; display: flex; flex-wrap: wrap; gap: 0.5rem; font-family: var(--kop); font-size: 0.9rem; }
+.dienst-links a { text-decoration: none; font-weight: 600; padding: 0.35rem 0.8rem; border-radius: 999px; box-shadow: inset 0 0 0 2px var(--lijn); }
+.dienst-links a:hover { box-shadow: inset 0 0 0 2px var(--spar); }
+@media (max-width: 46rem) { .diensten-kaarten { grid-template-columns: 1fr; } }
