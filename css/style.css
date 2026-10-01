@@ -588,3 +588,9 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .foto-ervaring .hero-foto { box-shadow: 0.9rem 0.9rem 0 var(--oker); margin-bottom: 0.9rem; }
 .portret-foto { box-shadow: -0.9rem 0.9rem 0 #5b8fc7; }
 .site-kop { border-bottom: 4px solid var(--oker); }
+
+/* Logo */
+.merk { display: flex; align-items: center; gap: 0.7rem; }
+.merk-beeld { width: 2.6rem; height: 2.6rem; flex: none; }
+.merk-tekst { display: flex; flex-direction: column; }
+.merk-tekst span { font-size: 0.85rem; color: var(--grijs); }
