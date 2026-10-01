@@ -1,14 +1,14 @@
 /* Walter Montenarie | Strategisch advies & duurzame inzetbaarheid */
 
 :root {
-  --spar: #1d3b3a;        /* diepe groenblauwe hoofdkleur */
-  --spar-licht: #2f5654;
-  --mineraal: #eef2ef;    /* achtergrond */
+  --spar: #23406e;        /* diepe groenblauwe hoofdkleur */
+  --spar-licht: #2f5590;
+  --mineraal: #f2f5fa;    /* achtergrond */
   --wit: #ffffff;
-  --inkt: #17211f;        /* tekst */
-  --grijs: #56635f;       /* secundaire tekst */
-  --lijn: #cfd8d4;
-  --oker: #d99a1e;        /* accent, spaarzaam */
+  --inkt: #18213a;        /* tekst */
+  --grijs: #556079;       /* secundaire tekst */
+  --lijn: #d3dae6;
+  --oker: #f0a830;        /* accent, spaarzaam */
 
   --kop: "Schibsted Grotesk", system-ui, sans-serif;
   --tekst: "Newsreader", Georgia, serif;
@@ -110,7 +110,7 @@ p { margin: 0 0 1em; max-width: 38em; }
 }
 .knop:hover { background: var(--spar-licht); color: var(--wit); }
 .knop.licht { background: var(--oker); color: var(--inkt); }
-.knop.licht:hover { background: #e8ab33; color: var(--inkt); }
+.knop.licht:hover { background: #f5bb4f; color: var(--inkt); }
 
 /* Hero */
 .hero { padding: clamp(3rem, 8vw, 6rem) 0 clamp(3rem, 7vw, 5rem); }
@@ -133,7 +133,7 @@ p { margin: 0 0 1em; max-width: 38em; }
 /* Secties */
 .sectie { padding: clamp(3rem, 7vw, 5rem) 0; }
 .sectie.wit { background: var(--wit); }
-.sectie.donker { background: var(--spar); color: #e6eeeb; }
+.sectie.donker { background: var(--spar); color: #e7edf7; }
 .sectie.donker h2, .sectie.donker h3 { color: var(--wit); }
 .sectie.donker a { color: var(--wit); }
 
@@ -220,13 +220,13 @@ p { margin: 0 0 1em; max-width: 38em; }
 /* Voet */
 .site-voet {
   background: var(--inkt);
-  color: #b9c6c2;
+  color: #b8c3d9;
   font-family: var(--kop);
   font-size: 0.92rem;
   padding: 2.5rem 0;
 }
 .site-voet .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
-.site-voet a { color: #e6eeeb; }
+.site-voet a { color: #e7edf7; }
 .site-voet p { margin: 0; }
 
 /* Smalle schermen */
@@ -423,25 +423,25 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 }
 
 /* Rekentool */
-.rekentool { background: var(--spar); color: #e6eeeb; border-radius: 1.25rem; padding: clamp(1.4rem, 4vw, 2.2rem); margin: 2rem 0 2.5rem; font-family: var(--kop); }
+.rekentool { background: var(--spar); color: #e7edf7; border-radius: 1.25rem; padding: clamp(1.4rem, 4vw, 2.2rem); margin: 2rem 0 2.5rem; font-family: var(--kop); }
 .rekentool h2 { color: var(--wit); margin-top: 0; }
 .rekentool > p { font-family: var(--tekst); }
 .rekentool-velden { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 1.2rem 0; }
 .rekentool-velden label { display: flex; flex-direction: column; gap: 0.35rem; font-weight: 600; font-size: 0.95rem; color: var(--wit); }
-.rekentool-velden small { font-weight: 400; font-size: 0.8rem; color: #c3d3ce; margin-top: -0.2rem; }
+.rekentool-velden small { font-weight: 400; font-size: 0.8rem; color: #c3cfe3; margin-top: -0.2rem; }
 .invoer { display: flex; align-items: center; gap: 0.4rem; background: var(--wit); border-radius: 0.6rem; padding: 0 0.8rem; color: var(--inkt); margin-top: auto; }
 .invoer input { border: 0; background: transparent; font: inherit; font-size: 1.15rem; font-weight: 600; color: var(--inkt); padding: 0.65rem 0; width: 100%; min-width: 0; }
 .invoer input:focus { outline: none; }
 .invoer:focus-within { outline: 3px solid var(--oker); outline-offset: 2px; }
 .rekentool-uitkomst { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.4rem; }
 .rekentool-uitkomst div { display: flex; flex-direction: column; gap: 0.2rem; }
-.rekentool-uitkomst .label { font-size: 0.9rem; color: #c3d3ce; }
+.rekentool-uitkomst .label { font-size: 0.9rem; color: #c3cfe3; }
 .rekentool-uitkomst .getal { color: var(--wit); font-size: 1.7rem; }
 .rekentool-uitkomst .totaal { background: var(--oker); border-radius: 0.8rem; padding: 0.7rem 0.9rem; }
 .rekentool-uitkomst .totaal .label, .rekentool-uitkomst .totaal .getal { color: var(--inkt); }
 .rekentool-winst { font-family: var(--tekst); font-size: 1.15rem; color: var(--wit); margin: 1.2rem 0; }
 .rekentool-winst:empty { display: none; }
-.rekentool-uitleg { font-size: 0.9rem; color: #c3d3ce; margin-bottom: 1.4rem; }
+.rekentool-uitleg { font-size: 0.9rem; color: #c3cfe3; margin-bottom: 1.4rem; }
 .rekentool-uitleg summary { cursor: pointer; color: var(--wit); font-weight: 600; }
 .rekentool-uitleg p, .rekentool-uitleg ul { font-family: var(--tekst); margin: 0.6rem 0; }
 .rekentool .knop { background: var(--wit); color: var(--spar); }
@@ -459,7 +459,7 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .rekentool-opbouw h3 { color: var(--wit); font-size: 1rem; margin: 0 0 0.6rem; }
 .rekentool-opbouw dl { margin: 0; display: grid; gap: 0.35rem; font-size: 0.92rem; }
 .rekentool-opbouw dl div { display: flex; justify-content: space-between; gap: 1rem; }
-.rekentool-opbouw dt { color: #c3d3ce; }
+.rekentool-opbouw dt { color: #c3cfe3; }
 .rekentool-opbouw dd { margin: 0; color: var(--wit); font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .rekentool-opbouw .som { border-top: 1px solid rgba(255,255,255,0.3); padding-top: 0.45rem; margin-top: 0.2rem; }
 .rekentool-opbouw .som dt, .rekentool-opbouw .som dd { color: var(--wit); font-weight: 700; }
@@ -501,7 +501,7 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .jdr-blok strong { font-size: 0.98rem; }
 .eisen .jdr-blok { background: var(--mineraal); color: var(--grijs); box-shadow: inset 0 0 0 2px var(--oker); }
 .eisen .jdr-blok strong { color: var(--inkt); }
-.hulp .jdr-blok { background: var(--spar); color: #d6e2de; }
+.hulp .jdr-blok { background: var(--spar); color: #d3ddef; }
 .hulp .jdr-blok strong { color: var(--wit); }
 .jdr-pijl { align-self: center; justify-self: center; width: 0; height: 0; border-top: 0.45rem solid transparent; border-bottom: 0.45rem solid transparent; border-left: 0.6rem solid var(--grijs); }
 .jdr-buffer { display: flex; align-items: center; gap: 0.6rem; padding-left: 1.5rem; font-size: 0.85rem; font-weight: 600; color: var(--spar); }
@@ -535,8 +535,8 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .jdr2-blok { border-radius: 0.7rem; padding: 0.75rem 0.9rem; font-weight: 700; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.15rem; }
 .jdr2-blok small { font-weight: 400; font-size: 0.8rem; line-height: 1.3; }
 .jdr2-blok.energie { background: var(--spar); color: var(--wit); }
-.jdr2-blok.energie small { color: #d6e2de; }
-.jdr2-blok.stress { background: #f3e2c4; color: var(--inkt); box-shadow: inset 0 0 0 2px var(--oker); }
+.jdr2-blok.energie small { color: #d3ddef; }
+.jdr2-blok.stress { background: #fbe9c6; color: var(--inkt); box-shadow: inset 0 0 0 2px var(--oker); }
 .jdr2-blok.stress small { color: var(--grijs); }
 .jdr2-blok.klein { background: var(--mineraal); color: var(--spar); font-size: 0.85rem; text-align: center; justify-content: center; }
 .jdr2-blok.gevolg { background: var(--mineraal); color: var(--spar); box-shadow: inset 0 0 0 2px var(--spar); text-align: center; justify-content: center; min-height: 4.5rem; }
@@ -548,10 +548,10 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .jdr2-energie { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
 .meter-label { font-weight: 700; font-size: 0.9rem; }
 .meter-label.boven { color: var(--spar); }
-.meter-label.onder { color: #9a3b26; }
+.meter-label.onder { color: #a8441c; }
 .meter { flex: 1; min-height: 12rem; width: 3.6rem; border-radius: 0.7rem; padding: 0.3rem; box-shadow: inset 0 0 0 3px var(--grijs); position: relative; }
 .meter::before { content: ""; position: absolute; top: -0.5rem; left: 50%; transform: translateX(-50%); width: 1.4rem; height: 0.5rem; border-radius: 0.2rem 0.2rem 0 0; background: var(--grijs); }
-.meter span { display: block; height: 100%; border-radius: 0.45rem; background: linear-gradient(to bottom, var(--spar) 0%, #6f9a8f 40%, var(--oker) 70%, #c0563f 100%); }
+.meter span { display: block; height: 100%; border-radius: 0.45rem; background: linear-gradient(to bottom, var(--spar) 0%, #5b8fc7 40%, var(--oker) 70%, #e8742c 100%); }
 .jdr2-gevolgen { display: flex; flex-direction: column; justify-content: center; gap: 0.8rem; }
 .jdr2-legenda { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 1rem; font-size: 0.85rem; color: var(--grijs); }
 .jdr2-legenda .lg { display: inline-block; width: 0.9rem; height: 0.9rem; border-radius: 3px; margin-right: 0.4rem; vertical-align: -0.1rem; }
@@ -563,7 +563,7 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
   .jdr2-energie { flex-direction: row; justify-content: center; }
   .meter { min-height: 3rem; height: 3rem; width: 100%; flex: 1; }
   .meter::before { display: none; }
-  .meter span { background: linear-gradient(to right, var(--spar) 0%, #6f9a8f 40%, var(--oker) 70%, #c0563f 100%); }
+  .meter span { background: linear-gradient(to right, var(--spar) 0%, #5b8fc7 40%, var(--oker) 70%, #e8742c 100%); }
 }
 
 /* Kotter */
@@ -583,3 +583,8 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
   .kotter { grid-template-columns: 1fr; }
   .kotter-fase:nth-child(2), .kotter-fase:nth-child(3) { margin-top: 0; }
 }
+
+/* Mozaïek-accenten */
+.foto-ervaring .hero-foto { box-shadow: 0.9rem 0.9rem 0 var(--oker); margin-bottom: 0.9rem; }
+.portret-foto { box-shadow: -0.9rem 0.9rem 0 #5b8fc7; }
+.site-kop { border-bottom: 4px solid var(--oker); }
