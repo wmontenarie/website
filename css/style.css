@@ -353,3 +353,4 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .aanpak-tekst p { margin: 0; }
 .aanpak { align-items: start; }
 .aanpak-tekst p { margin-top: -0.2rem; }
+.hero h1 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); max-width: 26em; }
