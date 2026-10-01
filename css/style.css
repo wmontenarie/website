@@ -608,3 +608,5 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .aanbod-feiten dd { margin: 0; color: var(--inkt); }
 .ruim { margin-top: 3rem; }
 @media (max-width: 36rem) { .aanbod-feiten div { grid-template-columns: 1fr; gap: 0.2rem; } }
+.hero-contact { margin: 1rem 0 0; font-family: var(--kop); font-size: 1rem; color: var(--grijs); }
+.hero-contact a { font-weight: 600; white-space: nowrap; }
