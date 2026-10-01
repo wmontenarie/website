@@ -610,3 +610,14 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 @media (max-width: 36rem) { .aanbod-feiten div { grid-template-columns: 1fr; gap: 0.2rem; } }
 .hero-contact { margin: 1rem 0 0; font-family: var(--kop); font-size: 1rem; color: var(--grijs); }
 .hero-contact a { font-weight: 600; white-space: nowrap; }
+
+/* Kotter-artikel */
+.artikel h3 { display: flex; align-items: center; gap: 0.6rem; margin-top: 1.6rem; }
+.klein-nr { width: 1.8rem; height: 1.8rem; font-size: 0.85rem; flex: none; }
+.opbrengst { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+.opbrengst div { border-radius: 0.8rem; padding: 1rem 1.2rem; font-size: 0.95rem; }
+.opbrengst ul { margin: 0.4rem 0 0; padding-left: 1.1em; }
+.opbrengst .omhoog { background: var(--spar); color: var(--wit); }
+.opbrengst .omlaag { background: var(--mineraal); color: var(--inkt); box-shadow: inset 0 0 0 2px var(--oker); }
+.opbrengst strong { font-size: 1.15rem; }
+@media (max-width: 36rem) { .opbrengst { grid-template-columns: 1fr; } }
