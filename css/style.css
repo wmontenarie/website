@@ -248,3 +248,5 @@ p { margin: 0 0 1em; max-width: 38em; }
 }
 
 h2.h3 { font-size: 1.25rem; font-weight: 600; }
+
+.rollen { font-family: var(--kop); font-weight: 600; font-size: 1.05rem; color: var(--grijs); margin: 0 0 0.8rem; }
