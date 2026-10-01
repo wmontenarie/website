@@ -489,3 +489,34 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 @media (max-width: 36rem) {
   .scenario, .bouwblokken.acties { grid-template-columns: 1fr; }
 }
+
+/* Bevlogenheid: kenmerken, JD-R, ABC */
+.kenmerken { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
+.kenmerken div { display: flex; flex-direction: column; gap: 0.3rem; padding: 1rem; border-radius: 0.8rem; background: var(--mineraal); font-size: 0.9rem; color: var(--grijs); line-height: 1.35; }
+.kenmerken strong { color: var(--spar); font-size: 1.05rem; }
+
+.jdr { display: grid; gap: 0.5rem; }
+.jdr-rij { display: grid; grid-template-columns: minmax(0, 1fr) 1.6rem minmax(0, 1fr) 1.6rem minmax(0, 1fr); align-items: stretch; }
+.jdr-blok { border-radius: 0.8rem; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; line-height: 1.3; }
+.jdr-blok strong { font-size: 0.98rem; }
+.eisen .jdr-blok { background: var(--mineraal); color: var(--grijs); box-shadow: inset 0 0 0 2px var(--oker); }
+.eisen .jdr-blok strong { color: var(--inkt); }
+.bronnen .jdr-blok { background: var(--spar); color: #d6e2de; }
+.bronnen .jdr-blok strong { color: var(--wit); }
+.jdr-pijl { align-self: center; justify-self: center; width: 0; height: 0; border-top: 0.45rem solid transparent; border-bottom: 0.45rem solid transparent; border-left: 0.6rem solid var(--grijs); }
+.jdr-buffer { display: flex; align-items: center; gap: 0.6rem; padding-left: 1.5rem; font-size: 0.85rem; font-weight: 600; color: var(--spar); }
+.jdr-buffer::before { content: ""; width: 0; height: 2.2rem; border-left: 2px dashed var(--spar); }
+
+.abc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
+.abc div { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.1rem; border-radius: 0.8rem; background: var(--mineraal); font-size: 0.9rem; color: var(--grijs); line-height: 1.4; }
+.abc .letter { width: 2.8rem; height: 2.8rem; border-radius: 50%; background: var(--spar); color: var(--wit); display: grid; place-items: center; font-size: 1.5rem; font-weight: 700; }
+.abc div:nth-child(2) .letter { background: var(--oker); color: var(--inkt); }
+.abc strong { color: var(--spar); font-size: 1.1rem; }
+.abc em { font-style: normal; color: var(--inkt); border-top: 1px solid var(--lijn); padding-top: 0.45rem; margin-top: auto; }
+
+@media (max-width: 40rem) {
+  .kenmerken, .abc { grid-template-columns: 1fr; }
+  .jdr-rij { grid-template-columns: 1fr; gap: 0.3rem; }
+  .jdr-pijl { transform: rotate(90deg); margin: 0.1rem 0; }
+  .jdr-buffer { padding-left: 0.5rem; }
+}
