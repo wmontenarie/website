@@ -565,3 +565,21 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
   .meter::before { display: none; }
   .meter span { background: linear-gradient(to right, var(--spar) 0%, #6f9a8f 40%, var(--oker) 70%, #c0563f 100%); }
 }
+
+/* Kotter */
+#kotter { scroll-margin-top: 1rem; }
+.kotter { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; align-items: start; }
+.kotter-fase { background: var(--mineraal); border-radius: 0.8rem; padding: 1rem; }
+.kotter-fase:nth-child(2) { margin-top: 1.5rem; }
+.kotter-fase:nth-child(3) { margin-top: 3rem; }
+.kotter-fase h4 { margin: 0 0 0.7rem; color: var(--spar); font-size: 1rem; }
+.kotter-fase ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+.kotter-fase li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.6rem; align-items: start; }
+.kotter-fase li div { display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.85rem; color: var(--grijs); line-height: 1.35; }
+.kotter-fase li strong { color: var(--inkt); font-size: 0.95rem; }
+.stapnr { width: 2rem; height: 2rem; border-radius: 50%; background: var(--spar); color: var(--wit); display: grid; place-items: center; font-weight: 700; font-size: 0.9rem; }
+.kotter-fase:nth-child(3) li:last-child .stapnr { background: var(--oker); color: var(--inkt); }
+@media (max-width: 46rem) {
+  .kotter { grid-template-columns: 1fr; }
+  .kotter-fase:nth-child(2), .kotter-fase:nth-child(3) { margin-top: 0; }
+}
