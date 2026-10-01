@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tools | Walter Montenarie</title>
+<meta name="description" content="Bereken wat ziekteverzuim jouw organisatie per jaar kost.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Schibsted+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-kop">
+  <div class="wrap">
+    <a class="merk" href="index.html"><strong>Walter Montenarie</strong><span>Strategisch advies en duurzame inzetbaarheid</span></a>
+    <nav class="menu" aria-label="Hoofdmenu">
+      <a href="index.html">Home</a>
+      <a href="diensten.html">Diensten</a>
+      <a href="over-mij.html">Over mij</a>
+      <a href="artikelen.html">Artikelen</a>
+      <a href="tools.html" aria-current="page">Tools</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="sectie">
+    <div class="wrap artikel-breed">
+      <h1>Tools</h1>
+      <p class="intro">Praktische hulpmiddelen om inzicht te krijgen in de inzetbaarheid van jouw organisatie.</p>
+      <section class="rekentool" aria-labelledby="rekentool-kop">
+        <h2 id="rekentool-kop">Wat kost verzuim jouw organisatie?</h2>
+        <p>Vul drie gegevens in en zie direct wat verzuim jouw organisatie per jaar kost.</p>
+        <form id="verzuimtool" class="rekentool-velden" novalidate>
+          <label for="rt-verzuim">Verzuimpercentage
+            <span class="invoer"><input id="rt-verzuim" type="number" inputmode="decimal" min="0" max="50" step="0.1" value="5.4"><span>%</span></span>
+          </label>
+          <label for="rt-medewerkers">Aantal medewerkers
+            <span class="invoer"><input id="rt-medewerkers" type="number" inputmode="numeric" min="1" step="1" value="250"></span>
+          </label>
+          <label for="rt-salaris">Gemiddeld bruto jaarsalaris
+            <small>inclusief vakantiegeld en eventuele 13e of 14e maand</small>
+            <span class="invoer"><span>€</span><input id="rt-salaris" type="number" inputmode="numeric" min="0" step="500" value="50000"></span>
+          </label>
+        </form>
+        <div class="rekentool-uitkomst" aria-live="polite">
+          <div><span class="label">Kosten per verzuimdag</span><span class="getal" id="rt-dag">€ 0</span></div>
+          <div><span class="label">Verzuimdagen per jaar</span><span class="getal" id="rt-dagen">0</span></div>
+          <div class="totaal"><span class="label">Totale verzuimkosten per jaar</span><span class="getal" id="rt-totaal">€ 0</span></div>
+        </div>
+        <div class="rekentool-opbouw">
+          <h3>Opbouw kosten per verzuimdag</h3>
+          <dl>
+            <div><dt>Loonkosten inclusief werkgeverslasten</dt><dd id="rt-loon">€ 0</dd></div>
+            <div><dt>Verzuimbegeleiding en arbodienst</dt><dd>€ 25</dd></div>
+            <div><dt>Tijd van leidinggevende en HR</dt><dd>€ 20</dd></div>
+            <div><dt>Vervanging door inhuur of overwerk</dt><dd>€ 60</dd></div>
+            <div><dt>Werving en selectie</dt><dd>€ 15</dd></div>
+            <div class="som"><dt>Kosten per verzuimdag</dt><dd id="rt-dag2">€ 0</dd></div>
+          </dl>
+        </div>
+        <p class="rekentool-winst" id="rt-winst"></p>
+        <details class="rekentool-uitleg">
+          <summary>Zo is dit berekend</summary>
+          <p>De loonkosten per dag zijn het jaarsalaris plus 30 procent werkgeverslasten (sociale premies en pensioen), gedeeld door 220 werkdagen. Bij ziekte loopt het loon door. Daar komen per verzuimdag gemiddeld deze kosten bij:</p>
+          <ul>
+            <li>verzuimbegeleiding en arbodienst: € 25</li>
+            <li>tijd van leidinggevende en HR: € 20</li>
+            <li>vervanging door inhuur of overwerk: € 60</li>
+            <li>werving en selectie bij langdurige uitval of vertrek: € 15</li>
+          </ul>
+          <p>Totale kosten = verzuimpercentage × aantal medewerkers × 220 werkdagen × kosten per verzuimdag. Het is een schatting. Productiviteitsverlies door medewerkers die ziek doorwerken is niet meegerekend.</p>
+        </details>
+        <a class="knop" href="contact.html">Bespreek de uitkomst met mij</a>
+      </section>
+      <p>Meer achtergrond bij deze cijfers lees je in het artikel <a href="artikelen/gemiddeld-verzuim-is-niet-normaal.html">Gemiddeld verzuim is niet normaal</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-voet">
+  <div class="wrap">
+    <p>Walter Montenarie | Strategisch advies en duurzame inzetbaarheid | Den Haag</p>
+    <p><a href="contact.html">Contact</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var OPSLAG = 0.30, WERKDAGEN = 220, EXTRA = 25 + 20 + 60 + 15;
+  var eur = new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  var num = new Intl.NumberFormat('nl-NL', { maximumFractionDigits: 0 });
+  function waarde(id) { var v = parseFloat(String(document.getElementById(id).value).replace(',', '.')); return isFinite(v) && v > 0 ? v : 0; }
+  function reken() {
+    var pct = waarde('rt-verzuim') / 100, mw = waarde('rt-medewerkers'), sal = waarde('rt-salaris');
+    var perDag = sal > 0 ? sal * (1 + OPSLAG) / WERKDAGEN + EXTRA : 0;
+    var dagen = pct * mw * WERKDAGEN;
+    var totaal = dagen * perDag;
+    document.getElementById('rt-dag').textContent = eur.format(perDag);
+    document.getElementById('rt-dag2').textContent = eur.format(perDag);
+    document.getElementById('rt-loon').textContent = eur.format(sal > 0 ? sal * (1 + OPSLAG) / WERKDAGEN : 0);
+    document.getElementById('rt-dagen').textContent = num.format(dagen);
+    document.getElementById('rt-totaal').textContent = eur.format(totaal);
+    var winst = Math.min(0.01, pct) * mw * WERKDAGEN * perDag;
+    document.getElementById('rt-winst').textContent = totaal > 0
+      ? 'Elk procentpunt minder verzuim levert jouw organisatie ongeveer ' + eur.format(winst) + ' per jaar op.'
+      : '';
+  }
+  document.getElementById('verzuimtool').addEventListener('input', reken);
+  document.getElementById('verzuimtool').addEventListener('submit', function (e) { e.preventDefault(); });
+  reken();
+})();
+</script>
+</body>
+</html>
