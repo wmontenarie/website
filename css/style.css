@@ -631,3 +631,55 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .lees-ook h2 { font-size: 1.2rem; }
 .lees-ook ul { padding-left: 1.1em; }
 @media (max-width: 46rem) { .kort-lijst { grid-template-columns: 1fr; } }
+
+/* Meer kleur en symbolen */
+:root {
+  --c1: #23406e; --c1-t: #e3ebf8;
+  --c2: #f0a830; --c2-t: #fdf1d8; --c2-d: #8a5600;
+  --c3: #e8742c; --c3-t: #fce4d4; --c3-d: #a3460f;
+  --c4: #3aa5b2; --c4-t: #dcf1f3; --c4-d: #1b6a74;
+}
+.infographic { position: relative; overflow: hidden; padding-top: 1.9rem; }
+.infographic::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, var(--c1) 0 25%, var(--c4) 25% 50%, var(--c2) 50% 75%, var(--c3) 75% 100%); }
+
+.ico { display: inline-grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 0.8rem; background: var(--c1); color: #fff; flex: none; margin-bottom: 0.4rem; }
+.ico svg { width: 1.4rem; height: 1.4rem; }
+
+.kerncijfers > div, .bouwblokken > div, .kenmerken > div, .invalshoeken > div {
+  background: var(--c1-t); border-radius: 0.9rem; padding: 1rem 1.1rem; border-top: 0; }
+.kerncijfers > div:nth-child(4n+2), .bouwblokken > div:nth-child(4n+2), .kenmerken > div:nth-child(4n+2), .invalshoeken > div:nth-child(4n+2) { background: var(--c4-t); }
+.kerncijfers > div:nth-child(4n+3), .bouwblokken > div:nth-child(4n+3), .kenmerken > div:nth-child(4n+3), .invalshoeken > div:nth-child(4n+3) { background: var(--c2-t); }
+.kerncijfers > div:nth-child(4n+4), .bouwblokken > div:nth-child(4n+4), .kenmerken > div:nth-child(4n+4), .invalshoeken > div:nth-child(4n+4) { background: var(--c3-t); }
+:is(.kerncijfers, .bouwblokken, .kenmerken, .invalshoeken) > div:nth-child(4n+2) .ico { background: var(--c4); }
+:is(.kerncijfers, .bouwblokken, .kenmerken, .invalshoeken) > div:nth-child(4n+3) .ico { background: var(--c2); color: var(--inkt); }
+:is(.kerncijfers, .bouwblokken, .kenmerken, .invalshoeken) > div:nth-child(4n+4) .ico { background: var(--c3); }
+.kerncijfers > div:nth-child(4n+2) .getal { color: var(--c4-d); }
+.kerncijfers > div:nth-child(4n+3) .getal { color: var(--c2-d); }
+.kerncijfers > div:nth-child(4n+4) .getal { color: var(--c3-d); }
+.bouwblokken > div:nth-child(4n+2) strong { color: var(--c4-d); }
+.bouwblokken > div:nth-child(4n+3) strong { color: var(--c2-d); }
+.bouwblokken > div:nth-child(4n+4) strong { color: var(--c3-d); }
+.invalshoeken > div h3 { margin-top: 0.2rem; }
+.bouwblokken div { color: var(--inkt); }
+
+/* Kotter-fasen in eigen kleur */
+.kotter-fase:nth-child(1) { background: var(--c1-t); }
+.kotter-fase:nth-child(2) { background: var(--c4-t); }
+.kotter-fase:nth-child(2) .stapnr { background: var(--c4-d); }
+.kotter-fase:nth-child(3) { background: var(--c2-t); }
+.kotter-fase:nth-child(3) .stapnr { background: var(--c3-d); }
+.kotter-fase:nth-child(3) li:last-child .stapnr { background: var(--c2); color: var(--inkt); }
+
+/* ABC en scenario */
+.abc div:nth-child(1) { background: var(--c1-t); }
+.abc div:nth-child(2) { background: var(--c2-t); }
+.abc div:nth-child(3) { background: var(--c4-t); }
+.abc div:nth-child(3) .letter { background: var(--c4-d); }
+.scenario .slecht { background: var(--c3-t); box-shadow: none; }
+.opbrengst .omlaag { background: var(--c3-t); box-shadow: none; }
+
+/* Verzuimbalken: hoogste sector oranje */
+.balk-rij:first-child .balk { background: var(--c3); }
+.verdeling .wel { background: var(--c4-d); }
+.vergelijk-balk.laag { background: var(--c3); }
