@@ -1,0 +1,250 @@
+/* Walter Montenarie | Strategisch advies & duurzame inzetbaarheid */
+
+:root {
+  --spar: #1d3b3a;        /* diepe groenblauwe hoofdkleur */
+  --spar-licht: #2f5654;
+  --mineraal: #eef2ef;    /* achtergrond */
+  --wit: #ffffff;
+  --inkt: #17211f;        /* tekst */
+  --grijs: #56635f;       /* secundaire tekst */
+  --lijn: #cfd8d4;
+  --oker: #d99a1e;        /* accent, spaarzaam */
+
+  --kop: "Schibsted Grotesk", system-ui, sans-serif;
+  --tekst: "Newsreader", Georgia, serif;
+
+  --maat: 72rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--mineraal);
+  color: var(--inkt);
+  font-family: var(--tekst);
+  font-size: 1.1875rem;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--spar); text-underline-offset: 0.18em; }
+a:hover { color: var(--spar-licht); }
+
+:focus-visible {
+  outline: 3px solid var(--oker);
+  outline-offset: 3px;
+}
+
+h1, h2, h3 {
+  font-family: var(--kop);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.6em;
+  color: var(--spar);
+}
+h1 { font-size: clamp(2.2rem, 5.2vw, 3.6rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+
+p { margin: 0 0 1em; max-width: 38em; }
+
+.wrap {
+  max-width: var(--maat);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Kop */
+.site-kop {
+  background: var(--mineraal);
+  border-bottom: 1px solid var(--lijn);
+}
+.site-kop .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+.merk {
+  font-family: var(--kop);
+  text-decoration: none;
+  color: var(--spar);
+  line-height: 1.2;
+}
+.merk strong { display: block; font-size: 1.2rem; }
+.merk span { font-size: 0.85rem; color: var(--grijs); }
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.4rem;
+  font-family: var(--kop);
+  font-size: 0.98rem;
+}
+.menu a { text-decoration: none; color: var(--inkt); padding: 0.25rem 0; }
+.menu a:hover { color: var(--spar); }
+.menu a[aria-current="page"] {
+  color: var(--spar);
+  box-shadow: inset 0 -2px 0 var(--oker);
+}
+
+/* Knoppen */
+.knop {
+  display: inline-block;
+  font-family: var(--kop);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  background: var(--spar);
+  color: var(--wit);
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+}
+.knop:hover { background: var(--spar-licht); color: var(--wit); }
+.knop.licht { background: var(--oker); color: var(--inkt); }
+.knop.licht:hover { background: #e8ab33; color: var(--inkt); }
+
+/* Hero */
+.hero { padding: clamp(3rem, 8vw, 6rem) 0 clamp(3rem, 7vw, 5rem); }
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.hero .intro { font-size: 1.3rem; color: var(--grijs); }
+.hero .knop { margin-top: 0.6rem; }
+
+.drie {
+  width: 100%;
+  max-width: 30rem;
+  justify-self: center;
+}
+.drie text { font-family: var(--kop); }
+
+/* Secties */
+.sectie { padding: clamp(3rem, 7vw, 5rem) 0; }
+.sectie.wit { background: var(--wit); }
+.sectie.donker { background: var(--spar); color: #e6eeeb; }
+.sectie.donker h2, .sectie.donker h3 { color: var(--wit); }
+.sectie.donker a { color: var(--wit); }
+
+.twee {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+/* Drie invalshoeken */
+.invalshoeken {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.invalshoeken div { border-top: 3px solid var(--oker); padding-top: 1rem; }
+.invalshoeken p { font-size: 1.05rem; }
+
+/* Klanten */
+.klanten {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2.2rem;
+  font-family: var(--kop);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--wit);
+}
+
+/* Diensten */
+.diensten { margin: 2rem 0 0; padding: 0; list-style: none; }
+.diensten li {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  gap: 0.5rem 3rem;
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--lijn);
+}
+.diensten li:last-child { border-bottom: 1px solid var(--lijn); }
+.diensten h3 { margin: 0; }
+.diensten p { margin: 0 0 0.5em; }
+.diensten .voor { font-size: 0.98rem; color: var(--grijs); }
+.diensten .voor b { font-family: var(--kop); font-weight: 600; color: var(--inkt); }
+
+.kort { columns: 2; column-gap: 3rem; padding-left: 1.1em; }
+.kort li { margin-bottom: 0.4rem; break-inside: avoid; }
+
+.noot {
+  border-left: 3px solid var(--oker);
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  font-size: 1rem;
+  color: var(--grijs);
+  margin-top: 2.5rem;
+}
+
+/* Over mij */
+.portret {
+  aspect-ratio: 4 / 5;
+  background: var(--lijn);
+  border-radius: 1.25rem;
+  display: grid;
+  place-items: center;
+  color: var(--grijs);
+  font-family: var(--kop);
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 1rem;
+}
+.over-grid { grid-template-columns: 1fr 1.6fr; align-items: start; }
+
+/* Contact */
+.contactlijst { list-style: none; padding: 0; margin: 0 0 1.5rem; font-size: 1.15rem; }
+.contactlijst li { padding: 0.5rem 0; border-bottom: 1px solid var(--lijn); }
+.contactlijst b { font-family: var(--kop); font-weight: 600; display: inline-block; min-width: 6.5rem; }
+
+/* Afsluiter */
+.afsluiter { text-align: left; }
+.afsluiter p { font-size: 1.25rem; }
+
+/* Voet */
+.site-voet {
+  background: var(--inkt);
+  color: #b9c6c2;
+  font-family: var(--kop);
+  font-size: 0.92rem;
+  padding: 2.5rem 0;
+}
+.site-voet .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+.site-voet a { color: #e6eeeb; }
+.site-voet p { margin: 0; }
+
+/* Smalle schermen */
+@media (max-width: 52rem) {
+  .hero .wrap, .twee, .over-grid { grid-template-columns: 1fr; }
+  .drie { max-width: 22rem; }
+  .invalshoeken { grid-template-columns: 1fr; gap: 1.5rem; }
+  .diensten li { grid-template-columns: 1fr; }
+  .kort { columns: 1; }
+  .portret { max-width: 18rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .drie .cirkel { animation: in 900ms ease-out both; }
+  .drie .cirkel:nth-of-type(2) { animation-delay: 150ms; }
+  .drie .cirkel:nth-of-type(3) { animation-delay: 300ms; }
+  .drie .kern { animation: in 600ms 700ms ease-out both; }
+  @keyframes in { from { opacity: 0; } to { opacity: 1; } }
+}
+
+h2.h3 { font-size: 1.25rem; font-weight: 600; }
