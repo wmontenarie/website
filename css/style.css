@@ -594,3 +594,4 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .merk-beeld { width: 2.6rem; height: 2.6rem; flex: none; }
 .merk-tekst { display: flex; flex-direction: column; }
 .merk-tekst span { font-size: 0.85rem; color: var(--grijs); }
+.klein { font-size: 0.95rem; color: var(--grijs); }
