@@ -699,3 +699,47 @@ h2.h3 { font-size: 1.25rem; font-weight: 600; }
 .contactformulier .knop { justify-self: start; border: 0; cursor: pointer; }
 .verborgen { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 @media (max-width: 36rem) { .veld-rij { grid-template-columns: 1fr; } }
+
+/* Artikelenpagina */
+.artikelen-kop { background: var(--spar); color: #e7edf7; padding: clamp(2.5rem, 6vw, 4rem) 0; position: relative; overflow: hidden; }
+.artikelen-kop h1 { color: var(--wit); }
+.artikelen-kop .intro { color: #d3ddef; max-width: 40em; }
+.artikelen-kop::after { content: ""; position: absolute; right: -2rem; top: 50%; width: 16rem; height: 16rem; transform: translateY(-50%) rotate(12deg);
+  background: linear-gradient(90deg, var(--c4) 0 33%, var(--c2) 33% 66%, var(--c3) 66% 100%); opacity: 0.9; border-radius: 2rem; clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%); }
+.artikelen-kop .wrap { position: relative; z-index: 1; }
+@media (max-width: 46rem) { .artikelen-kop::after { width: 8rem; height: 8rem; right: -3rem; opacity: 0.5; } }
+
+.kaarten { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+.kaart a { display: flex; flex-direction: column; height: 100%; text-decoration: none; color: inherit; background: var(--wit); border-radius: 1.25rem; overflow: hidden; transition: transform 150ms ease; }
+.kaart a:hover { transform: translateY(-3px); }
+.kaart a:hover h2 { text-decoration: underline; text-underline-offset: 0.15em; }
+.kaart-beeld { display: grid; place-items: center; height: 7.5rem; background: var(--c1); color: #fff; }
+.kaart-beeld svg { width: 3rem; height: 3rem; }
+.kaart.c2 .kaart-beeld { background: var(--c2); color: var(--inkt); }
+.kaart.c3 .kaart-beeld { background: var(--c3); }
+.kaart.c4 .kaart-beeld { background: var(--c4); }
+.kaart-tekst { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.3rem 1.5rem 1.5rem; flex: 1; }
+.kaart-meta { font-family: var(--kop); font-size: 0.85rem; color: var(--grijs); }
+.kaart .label { display: inline-block; font-weight: 600; padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--c1-t); color: var(--c1); margin-right: 0.4rem; }
+.kaart.c2 .label { background: var(--c2-t); color: var(--c2-d); }
+.kaart.c3 .label { background: var(--c3-t); color: var(--c3-d); }
+.kaart.c4 .label { background: var(--c4-t); color: var(--c4-d); }
+.kaart h2 { font-size: 1.4rem; margin: 0; }
+.kaart p { margin: 0; font-size: 1.02rem; color: var(--inkt); }
+.kaart .lees { margin-top: auto; padding-top: 0.6rem; font-family: var(--kop); font-weight: 600; color: var(--spar); }
+.kaart.uitgelicht { grid-column: 1 / -1; }
+.kaart.uitgelicht a { flex-direction: row; }
+.kaart.uitgelicht .kaart-beeld { height: auto; width: 34%; flex: none; }
+.kaart.uitgelicht .kaart-beeld svg { width: 5rem; height: 5rem; }
+.kaart.uitgelicht h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.kaart.uitgelicht .kaart-tekst { padding: 2rem; }
+@media (max-width: 46rem) {
+  .kaarten { grid-template-columns: 1fr; }
+  .kaart.uitgelicht a { flex-direction: column; }
+  .kaart.uitgelicht .kaart-beeld { width: auto; height: 8rem; }
+}
+@media (prefers-reduced-motion: reduce) { .kaart a { transition: none; } .kaart a:hover { transform: none; } }
+
+.nieuwsbrief-band { margin-top: 2.5rem; background: var(--c4-t); border-radius: 1.25rem; padding: 1.6rem 1.8rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
+.nieuwsbrief-band h2 { margin: 0 0 0.3rem; font-size: 1.4rem; }
+.nieuwsbrief-band p { margin: 0; }
