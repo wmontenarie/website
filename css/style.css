@@ -931,3 +931,69 @@ a[href^="tel:"] { text-decoration: none; }
 .podcast .dienst-links { margin-top: 1rem !important; }
 .artikelen-lijst .podcast { margin-bottom: 2.5rem; max-width: none; }
 @media (max-width: 40rem) { .podcast { grid-template-columns: 1fr; padding: 1.3rem 1.2rem; } }
+
+/* Whitepaper: menuknop, downloadpagina, verwijzingen en venster */
+.menu a.menu-wp { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--oker); color: var(--inkt); font-weight: 700; font-size: 0.9rem; padding: 0.4rem 0.9rem; border-radius: 999px; box-shadow: none; }
+.menu a.menu-wp:hover { background: #f5bb4f; color: var(--inkt); }
+.menu a.menu-wp[aria-current="page"] { box-shadow: 0 0 0 2px var(--spar); }
+.menu a.menu-wp svg { width: 1rem; height: 1rem; }
+
+.kop-label { font-family: var(--kop); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--oker); margin: 0 0 0.6rem; }
+.wp-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.wp-beeld { position: relative; height: 19rem; margin: 0 0 2rem; max-width: 26rem; }
+.wp-beeld img { position: absolute; width: 12.5rem; height: auto; border-radius: 0.4rem; box-shadow: 0 0.8rem 2rem rgba(24, 33, 58, 0.22); }
+.wp-beeld .omslag { left: 0.5rem; top: 0.6rem; transform: rotate(-5deg); }
+.wp-beeld .binnen { left: 9.5rem; top: 1.4rem; transform: rotate(4deg); }
+.vink { list-style: none; padding: 0; margin: 0 0 1.2rem; }
+.vink li { position: relative; padding-left: 2rem; margin-bottom: 0.6rem; }
+.vink li::before { content: ""; position: absolute; left: 0; top: 0.3em; width: 1.25rem; height: 1.25rem; border-radius: 50%; background: var(--c4); }
+.vink li::after { content: ""; position: absolute; left: 0.42rem; top: calc(0.3em + 0.28rem); width: 0.3rem; height: 0.55rem; border-right: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(40deg); }
+.wp-form { background: var(--wit); border-radius: 1.25rem; padding: 1.8rem; border-top: 6px solid var(--oker); }
+.wp-form h2 { margin-top: 0; font-size: 1.5rem; }
+.wp-form .contactformulier { margin-top: 1rem; }
+.wp-form .contactformulier .knop { justify-self: stretch; text-align: center; }
+.contactformulier .vinkje { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.95rem; line-height: 1.4; cursor: pointer; }
+.contactformulier .vinkje input { width: 1.15rem; height: 1.15rem; padding: 0; margin: 0.15rem 0 0; flex: none; accent-color: var(--spar); }
+.wp-form .klein { margin: 0; }
+@media (max-width: 52rem) { .wp-grid { grid-template-columns: 1fr; } }
+@media (max-width: 26rem) { .wp-beeld { height: 15rem; } .wp-beeld img { width: 9.5rem; } .wp-beeld .binnen { left: 7rem; } }
+
+.wp-bedankt { display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.wp-bedankt img { width: 100%; height: auto; border-radius: 0.4rem; box-shadow: 0 0.8rem 2rem rgba(24, 33, 58, 0.22); transform: rotate(-3deg); }
+@media (max-width: 46rem) { .wp-bedankt { grid-template-columns: 1fr; } .wp-bedankt img { max-width: 11rem; } }
+
+.wp-tip { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1.6rem; align-items: center; margin: 2.5rem 0; padding: 1.6rem 1.8rem; background: var(--spar); color: #dbe5f5; border-radius: 1.25rem; max-width: 54rem; }
+.wp-tip img { width: 100%; height: auto; border-radius: 0.3rem; transform: rotate(-4deg); box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.3); }
+.wp-tip p { margin: 0 0 0.5rem; max-width: none; color: #dbe5f5; }
+.wp-tip .podcast-label { color: var(--oker); }
+.wp-tip .podcast-titel { color: var(--wit); font-size: 1.35rem; }
+.wp-tip .knop { background: var(--oker); color: var(--inkt); margin-top: 0.5rem; }
+.wp-tip .knop:hover { background: #f5bb4f; color: var(--inkt); }
+#artikelen-home .wp-tip { margin-top: 0; }
+@media (max-width: 36rem) { .wp-tip { grid-template-columns: 1fr; padding: 1.4rem 1.2rem; } .wp-tip img { max-width: 6rem; } }
+
+.wp-venster { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 60; width: 19rem; max-width: calc(100vw - 2.4rem); background: var(--wit); border-radius: 1rem; padding: 1.3rem 1.3rem 1.2rem; box-shadow: 0 1rem 3rem rgba(24, 33, 58, 0.28); border-top: 6px solid var(--oker); font-family: var(--kop); text-align: center; }
+.wp-venster[hidden] { display: none; }
+.wp-venster img { width: 7.5rem; height: auto; border-radius: 0.3rem; box-shadow: 0 0.5rem 1.2rem rgba(24, 33, 58, 0.25); transform: rotate(-4deg); margin: 0.3rem auto 0.9rem; display: block; }
+.wp-venster .titel { font-weight: 700; font-size: 1.15rem; line-height: 1.25; color: var(--spar); margin: 0 0 0.4rem; }
+.wp-venster .tekst { font-size: 0.95rem; line-height: 1.4; margin: 0 0 0.9rem; color: var(--inkt); }
+.wp-venster .knop { display: block; background: var(--oker); color: var(--inkt); text-align: center; }
+.wp-venster .knop:hover { background: #f5bb4f; color: var(--inkt); }
+.wp-venster .sluit { position: absolute; top: -0.8rem; right: -0.6rem; width: 2.2rem; height: 2.2rem; border-radius: 50%; border: 2px solid var(--lijn); background: var(--wit); color: var(--inkt); font-size: 1.2rem; line-height: 1; cursor: pointer; display: grid; place-items: center; }
+.wp-venster .sluit:hover { border-color: var(--spar); }
+@media (prefers-reduced-motion: no-preference) { .wp-venster { animation: wp-in 0.35s ease-out; } @keyframes wp-in { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: none; } } }
+@media (max-width: 36rem) {
+  .wp-venster { left: 0.8rem; right: 0.8rem; bottom: 0.8rem; width: auto; max-width: none; text-align: left; display: grid; grid-template-columns: 3.6rem 1fr; gap: 0.2rem 0.9rem; padding: 1rem; }
+  .wp-venster[hidden] { display: none; }
+  .wp-venster img { width: 3.6rem; margin: 0; grid-row: 1 / 3; align-self: center; }
+  .wp-venster .titel { font-size: 1rem; margin: 0; padding-right: 1rem; }
+  .wp-venster .tekst { display: none; }
+  .wp-venster .knop { padding: 0.5rem 0.9rem; font-size: 0.9rem; justify-self: start; }
+  .wp-venster .sluit { top: -0.7rem; right: -0.3rem; }
+}
+@media print { .wp-venster { display: none; } }
+.menu { gap: 0.25rem 1rem; font-size: 0.95rem; }
+.menu a.menu-wp { padding: 0.35rem 0.75rem; font-size: 0.88rem; gap: 0.3rem; }
+.menu a.menu-wp svg { width: 0.9rem; height: 0.9rem; }
+.menu a.taal { padding: 0.25rem 0.6rem; }
+.site-kop .wrap { column-gap: 1.25rem; }
