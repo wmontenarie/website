@@ -90,12 +90,9 @@
       <div class="wp-form" id="download">
         <h2>Download de whitepaper</h2>
         <p>Vul je gegevens in. Daarna kun je de whitepaper direct downloaden.</p>
-        <form class="contactformulier wp-formulier" action="https://formsubmit.co/16eb0b99ece245338a99f79b424b6348" method="POST" data-bedankt="bedankt-businesscase-vitaliteit.html">
-          <input type="hidden" name="_subject" value="Whitepaper gedownload: De businesscase voor vitaliteit">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" id="wp-next" value="https://waltermontenarie.com/bedankt-businesscase-vitaliteit">
-          <input type="hidden" name="whitepaper" value="De businesscase voor vitaliteit">
+        <form class="contactformulier wp-formulier" action="/verstuur" method="POST" data-bedankt="bedankt-businesscase-vitaliteit.html">
+          <input type="hidden" name="soort" value="whitepaper">
+          <input type="hidden" name="whitepaper" value="businesscase-vitaliteit">
           <input type="text" name="_honey" class="verborgen" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="veld">
             <label for="wp-naam">Naam</label>
@@ -142,30 +139,30 @@
   var form = document.querySelector('.wp-formulier');
   if (!form) return;
   var bedankt = new URL(form.getAttribute('data-bedankt'), location.href).href;
-  var next = document.getElementById('wp-next');
-  if (/^https?:/.test(location.protocol)) next.value = bedankt;
   var bezig = false;
   window.addEventListener('pageshow', function () {
     var k = form.querySelector('button[type="submit"]');
     bezig = false; k.disabled = false; k.textContent = 'Download de whitepaper';
   });
   form.addEventListener('submit', function (e) {
-    if (bezig || !window.fetch) return;
+    if (!window.fetch || !window.URLSearchParams || !window.FormData) return;
     e.preventDefault();
+    if (bezig) return;
     bezig = true;
     var knop = form.querySelector('button[type="submit"]');
     knop.disabled = true;
     knop.textContent = 'Een moment';
+    var verder = function () { location.href = bedankt; };
     var stop = window.AbortController ? new AbortController() : null;
-    var klok = setTimeout(function () { if (stop) stop.abort(); }, 7000);
-    fetch('https://formsubmit.co/', { method: 'HEAD', mode: 'no-cors', cache: 'no-store', signal: stop ? stop.signal : undefined })
-      .then(function () { clearTimeout(klok); form.submit(); })
-      .catch(function (fout) {
-        clearTimeout(klok);
-        if (fout && fout.name === 'AbortError') { form.submit(); return; }
-        // Verzenddienst niet bereikbaar: laat de bezoeker toch downloaden
-        location.href = bedankt;
-      });
+    var klok = setTimeout(function () { if (stop) stop.abort(); }, 10000);
+    // Verstuur de gegevens via de eigen site. De bezoeker kan daarna altijd downloaden
+    fetch(form.getAttribute('action'), {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new URLSearchParams(new FormData(form)),
+      signal: stop ? stop.signal : undefined
+    }).then(function () { clearTimeout(klok); verder(); })
+      .catch(function () { clearTimeout(klok); verder(); });
   });
 })();
 </script>

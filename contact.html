@@ -90,10 +90,8 @@
         <strong>Bedankt voor je bericht.</strong>
         <p>Ik neem binnen één werkdag contact met je op.</p>
       </div>
-      <form class="contactformulier" action="https://formsubmit.co/16eb0b99ece245338a99f79b424b6348" method="POST">
-        <input type="hidden" name="_next" id="cf-next" value="">
-        <input type="hidden" name="_subject" value="Nieuw bericht via de website">
-        <input type="hidden" name="_template" value="table">
+      <form class="contactformulier" action="/verstuur" method="POST">
+        <input type="hidden" name="soort" value="contact">
         <input type="text" name="_honey" class="verborgen" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="veld">
           <label for="cf-onderwerp">Waar gaat het over?</label>
@@ -132,7 +130,7 @@
         <p class="klein">Je gegevens gebruik ik alleen om op je bericht te reageren. Lees meer in de <a href="privacy.html">privacyverklaring</a>.</p>
         <button class="knop" type="submit">Verstuur bericht</button>
         <div class="formulier-melding mislukt" id="cf-mislukt" role="alert" hidden>
-          <strong>Het versturen lukt nu niet vanaf dit netwerk.</strong>
+          <strong>Het versturen lukt nu niet.</strong>
           <p>Je bericht is niet verloren. Stuur het via je eigen e-mail of bel me op <a href="tel:+31651686865">06 5168 6865</a>.</p>
           <a class="knop" id="cf-mail" href="mailto:walter.montenarie@gmail.com">Verstuur via je eigen e-mail</a>
         </div>
@@ -159,55 +157,63 @@
   var form = document.querySelector('.contactformulier');
   if (!form) return;
 
-  // Na het versturen komt de bezoeker terug op deze pagina met een bedankje
-  var next = document.getElementById('cf-next');
-  if (next && /^https?:/.test(location.protocol)) {
-    next.value = location.origin + location.pathname + '?verzonden=1#formulier';
-  } else if (next) {
-    next.disabled = true;
-  }
-  if (q.get('verzonden') === '1') {
-    document.getElementById('cf-gelukt').hidden = false;
+  var gelukt = document.getElementById('cf-gelukt');
+  var mislukt = document.getElementById('cf-mislukt');
+  var knop = form.querySelector('button[type="submit"]');
+  var tekst = knop.textContent;
+  var toonGelukt = function () {
+    gelukt.hidden = false;
     form.hidden = true;
-  }
+    if (gelukt.scrollIntoView) gelukt.scrollIntoView({ block: 'center' });
+  };
+  var toonMislukt = function () {
+    var v = function (n) { return (form.elements[n] && form.elements[n].value || '').trim(); };
+    var regels = [v('bericht'), '', v('naam')];
+    if (v('organisatie')) regels.push(v('organisatie'));
+    if (v('telefoon')) regels.push(v('telefoon'));
+    document.getElementById('cf-mail').href = 'mailto:walter.montenarie@gmail.com?subject=' +
+      encodeURIComponent(v('onderwerp') || 'Bericht via de website') + '&body=' + encodeURIComponent(regels.join('\n'));
+    mislukt.hidden = false;
+    knop.disabled = false;
+    knop.textContent = tekst;
+    bezig = false;
+  };
 
+  // Zonder JavaScript komt de bezoeker terug op deze pagina met ?verzonden=1 of ?mislukt=1
+  if (q.get('verzonden') === '1') toonGelukt();
   var bezig = false;
+  if (q.get('mislukt') === '1') toonMislukt();
+
   // Bij 'terug' in de browser: knop weer bruikbaar maken
   window.addEventListener('pageshow', function () {
-    var k = form.querySelector('button[type="submit"]');
-    bezig = false; k.disabled = false; k.textContent = 'Verstuur bericht';
+    bezig = false; knop.disabled = false; knop.textContent = tekst;
   });
 
-  // Controleer eerst of de verzenddienst bereikbaar is. Zo niet: nette melding met e-mail en telefoon
+  // Verstuur het bericht via de eigen site. Lukt dat niet: nette melding met e-mail en telefoon
   form.addEventListener('submit', function (e) {
-    if (bezig || !window.fetch) return;
+    if (!window.fetch || !window.URLSearchParams || !window.FormData) return;
     e.preventDefault();
+    if (bezig) return;
     bezig = true;
-    var knop = form.querySelector('button[type="submit"]');
-    var mislukt = document.getElementById('cf-mislukt');
-    var tekst = knop.textContent;
     knop.disabled = true;
     knop.textContent = 'Bezig met versturen';
     mislukt.hidden = true;
 
     var stop = window.AbortController ? new AbortController() : null;
-    var klok = setTimeout(function () { if (stop) stop.abort(); }, 7000);
-    fetch('https://formsubmit.co/', { method: 'HEAD', mode: 'no-cors', cache: 'no-store', signal: stop ? stop.signal : undefined })
-      .then(function () { clearTimeout(klok); form.submit(); })
-      .catch(function (fout) {
+    var klok = setTimeout(function () { if (stop) stop.abort(); }, 15000);
+    fetch(form.getAttribute('action'), {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new URLSearchParams(new FormData(form)),
+      signal: stop ? stop.signal : undefined
+    }).then(function (r) { return r.json(); })
+      .then(function (d) {
         clearTimeout(klok);
-        if (fout && fout.name === 'AbortError') { form.submit(); return; }
-        var v = function (n) { return (form.elements[n] && form.elements[n].value || '').trim(); };
-        var regels = [v('bericht'), '', v('naam')];
-        if (v('organisatie')) regels.push(v('organisatie'));
-        if (v('telefoon')) regels.push(v('telefoon'));
-        document.getElementById('cf-mail').href = 'mailto:walter.montenarie@gmail.com?subject=' +
-          encodeURIComponent(v('onderwerp') || 'Bericht via de website') + '&body=' + encodeURIComponent(regels.join('\n'));
-        mislukt.hidden = false;
-        knop.disabled = false;
-        knop.textContent = tekst;
-        bezig = false;
-      });
+        if (d && d.ok) { toonGelukt(); return; }
+        if (window.console && d) console.log('Formulier: ' + (d.fout || 'onbekend'));
+        toonMislukt();
+      })
+      .catch(function () { clearTimeout(klok); toonMislukt(); });
   });
 })();
 </script>

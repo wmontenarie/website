@@ -4,7 +4,11 @@
   "compatibility_date": "2026-10-01",
   "workers_dev": true,
   // worker.js stuurt het oude adres en www door naar waltermontenarie.com
+  // en verstuurt de formulieren als e-mail (via Email Routing van Cloudflare)
   "main": "worker.js",
+  "send_email": [
+    { "name": "MAIL", "destination_address": "walter.montenarie@gmail.com" }
+  ],
   "assets": {
     "directory": "./",
     "binding": "ASSETS",
