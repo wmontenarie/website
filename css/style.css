@@ -892,3 +892,14 @@ a[href^="tel:"] { text-decoration: none; }
 
 /* Kerncijfers: gewone cijferbreedte, zodat komma-getallen niet uit elkaar staan */
 .kerncijfers .getal, .rekensom .getal { font-variant-numeric: normal; letter-spacing: -0.01em; }
+
+/* Meldingen bij het contactformulier */
+.formulier-melding { border-radius: 0.6rem; padding: 1.1rem 1.3rem; font-family: var(--kop); max-width: 46rem; }
+.formulier-melding[hidden] { display: none; }
+.formulier-melding strong { display: block; font-size: 1.1rem; color: var(--inkt); }
+.formulier-melding p { margin: 0.35rem 0 0; }
+.formulier-melding.gelukt { background: var(--c4-t); border-left: 5px solid var(--c4); margin-top: 1.5rem; }
+.formulier-melding.mislukt { background: var(--c3-t); border-left: 5px solid var(--c3); }
+.formulier-melding.mislukt .knop { margin-top: 0.9rem; display: inline-block; }
+.contactformulier .knop[disabled] { opacity: 0.6; cursor: default; }
+.contactformulier[hidden] { display: none; }
