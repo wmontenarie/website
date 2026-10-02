@@ -889,3 +889,6 @@ a[href^="tel:"] { text-decoration: none; }
   .batterij-fase > span:last-child { align-self: start; }
   .oorzaken.driekolom { grid-template-columns: 1fr; }
 }
+
+/* Kerncijfers: gewone cijferbreedte, zodat komma-getallen niet uit elkaar staan */
+.kerncijfers .getal, .rekensom .getal { font-variant-numeric: normal; letter-spacing: -0.01em; }
