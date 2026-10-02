@@ -838,3 +838,5 @@ a[href^="tel:"] { text-decoration: none; }
 .en-lijst li { margin-bottom: 0.4rem; }
 #services, #approach, #about, #contact { scroll-margin-top: 1rem; }
 .sectie.wit .dienst { background: var(--mineraal); }
+
+.na-aanpak { margin-top: 2rem; }
