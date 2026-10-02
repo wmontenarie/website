@@ -822,3 +822,8 @@ a[href^="tel:"] { text-decoration: none; }
 .door-kaarten .lees { font-family: var(--kop); font-weight: 600; color: var(--spar); margin-top: 0.3rem; }
 .door-kaarten a:hover .lees { text-decoration: underline; }
 @media (max-width: 46rem) { .door-kaarten { grid-template-columns: 1fr; } }
+
+/* Submenu Tools: rechts uitgelijnd, labels op één regel */
+@media (min-width: 46.01rem) {
+  #submenu-tools { left: auto; right: -0.8rem; min-width: 0; white-space: nowrap; }
+}
