@@ -75,10 +75,11 @@
           <label for="rt-verzuim">Verzuimpercentage
             <span class="invoer"><input id="rt-verzuim" type="number" inputmode="decimal" min="0" max="50" step="0.1" value="5.4"><span>%</span></span>
           </label>
-          <label for="rt-medewerkers">Aantal medewerkers
-            <span class="invoer"><input id="rt-medewerkers" type="number" inputmode="numeric" min="1" step="1" value="250"></span>
+          <label for="rt-fte">Aantal FTE
+            <small>het aantal voltijdbanen in je organisatie</small>
+            <span class="invoer"><input id="rt-fte" type="number" inputmode="decimal" min="0.1" step="0.1" value="250"></span>
           </label>
-          <label for="rt-salaris">Gemiddeld bruto jaarsalaris
+          <label for="rt-salaris">Gemiddeld bruto jaarsalaris per FTE
             <small>inclusief vakantiegeld en eventuele 13e of 14e maand</small>
             <span class="invoer"><span>€</span><input id="rt-salaris" type="number" inputmode="numeric" min="0" step="500" value="50000"></span>
           </label>
@@ -102,14 +103,14 @@
         <p class="rekentool-winst" id="rt-winst"></p>
         <details class="rekentool-uitleg">
           <summary>Zo is dit berekend</summary>
-          <p>De loonkosten per dag zijn het jaarsalaris plus 30 procent werkgeverslasten (sociale premies en pensioen), gedeeld door 220 werkdagen. Bij ziekte loopt het loon door. Daar komen per verzuimdag gemiddeld deze kosten bij:</p>
+          <p>De loonkosten per dag zijn het jaarsalaris per FTE plus 30 procent werkgeverslasten (sociale premies en pensioen), gedeeld door 220 werkdagen. Bij ziekte loopt het loon door. Daar komen per verzuimdag gemiddeld deze kosten bij:</p>
           <ul>
             <li>verzuimbegeleiding en arbodienst: € 25</li>
             <li>tijd van leidinggevende en HR: € 20</li>
             <li>vervanging door inhuur of overwerk: € 60</li>
             <li>werving en selectie bij langdurige uitval of vertrek: € 15</li>
           </ul>
-          <p>Totale kosten = verzuimpercentage × aantal medewerkers × 220 werkdagen × kosten per verzuimdag. Het is een schatting. Productiviteitsverlies door medewerkers die ziek doorwerken is niet meegerekend.</p>
+          <p>Totale kosten = verzuimpercentage × aantal FTE × 220 werkdagen × kosten per verzuimdag. Het is een schatting. Productiviteitsverlies door medewerkers die ziek doorwerken is niet meegerekend.</p>
         </details>
         <a class="knop" href="https://calendly.com/walter-montenarie/30min" target="_blank" rel="noopener">Bespreek de uitkomst in een gratis gesprek</a>
       </section>
@@ -282,7 +283,7 @@
   var num = new Intl.NumberFormat('nl-NL', { maximumFractionDigits: 0 });
   function waarde(id) { var v = parseFloat(String(document.getElementById(id).value).replace(',', '.')); return isFinite(v) && v > 0 ? v : 0; }
   function reken() {
-    var pct = waarde('rt-verzuim') / 100, mw = waarde('rt-medewerkers'), sal = waarde('rt-salaris');
+    var pct = waarde('rt-verzuim') / 100, mw = waarde('rt-fte'), sal = waarde('rt-salaris');
     var perDag = sal > 0 ? sal * (1 + OPSLAG) / WERKDAGEN + EXTRA : 0;
     var dagen = pct * mw * WERKDAGEN;
     var totaal = dagen * perDag;
