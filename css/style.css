@@ -903,3 +903,19 @@ a[href^="tel:"] { text-decoration: none; }
 .formulier-melding.mislukt .knop { margin-top: 0.9rem; display: inline-block; }
 .contactformulier .knop[disabled] { opacity: 0.6; cursor: default; }
 .contactformulier[hidden] { display: none; }
+
+/* Aanbevelingen */
+.aanbeveling { position: relative; margin: 1.5rem 0 0; padding: 2rem 2rem 1.6rem 2.2rem; background: var(--mineraal); border-radius: 1.25rem; border-left: 6px solid var(--c2); max-width: 54rem; }
+.sectie:not(.wit) .aanbeveling { background: var(--wit); }
+.aanbeveling.ruim { margin-top: 3rem; }
+.aanbeveling .aanhaling { width: 2.4rem; height: 1.8rem; color: var(--c2); display: block; margin-bottom: 0.9rem; }
+.aanbeveling blockquote { margin: 0; }
+.aanbeveling blockquote p { margin: 0 0 0.9rem; color: var(--grijs); }
+.aanbeveling blockquote p.kern { font-size: clamp(1.2rem, 1rem + 0.9vw, 1.5rem); line-height: 1.45; color: var(--inkt); }
+.aanbeveling figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 0.9rem; margin-top: 1.3rem; padding-top: 1.1rem; border-top: 1px solid var(--lijn); font-family: var(--kop); font-size: 0.95rem; }
+.aanbeveling .initialen { display: inline-grid; place-items: center; width: 2.8rem; height: 2.8rem; border-radius: 50%; background: var(--c4); color: #fff; font-weight: 700; flex: none; }
+.aanbeveling .wie { display: grid; line-height: 1.35; margin-right: auto; }
+.aanbeveling .wie strong { color: var(--inkt); }
+.aanbeveling .wie span { color: var(--grijs); }
+@media (max-width: 40rem) { .aanbeveling { padding: 1.5rem 1.2rem 1.3rem 1.3rem; } }
+.aanbeveling blockquote p { max-width: none; }
