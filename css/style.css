@@ -868,3 +868,24 @@ a[href^="tel:"] { text-decoration: none; }
   .flow { grid-template-columns: 1fr; gap: 0.3rem; }
   .flow-pijl { transform: rotate(90deg); margin: 0.1rem 0; }
 }
+
+/* Nieuwe artikelen: batterijen, signalen, stappen met dagnamen */
+.batterijen { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.6rem; }
+.batterij-fase { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.35rem; font-size: 0.82rem; line-height: 1.3; color: var(--grijs); }
+.batterij-fase strong { color: var(--inkt); font-size: 0.95rem; }
+.bat { position: relative; width: 2.6rem; height: 4.6rem; border: 3px solid var(--inkt); border-radius: 0.5rem; padding: 3px; display: flex; align-items: flex-end; margin: 0.6rem 0 0.3rem; flex: none; }
+.bat::before { content: ""; position: absolute; top: -0.55rem; left: 50%; transform: translateX(-50%); width: 1.1rem; height: 0.4rem; background: var(--inkt); border-radius: 0.2rem 0.2rem 0 0; }
+.bat span { display: block; width: 100%; height: var(--vol); background: var(--kleur); border-radius: 0.2rem; }
+.oorzaken.driekolom { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.oorzaken .lijf { background: var(--c2-t); }
+.oorzaken .lijf strong { color: var(--c2-d); }
+.stappen li > strong { display: block; font-family: var(--kop); font-size: 1.1rem; color: var(--spar); margin: 0 0 0.2rem; }
+.infographic .stappen { margin-top: 0.4rem; }
+@media (max-width: 40rem) {
+  .batterijen { grid-template-columns: 1fr; gap: 0.2rem; }
+  .batterij-fase { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); column-gap: 0.9rem; text-align: left; align-items: center; justify-items: start; }
+  .batterij-fase .bat { grid-row: span 2; width: 2.2rem; height: 3.6rem; }
+  .batterij-fase strong { align-self: end; }
+  .batterij-fase > span:last-child { align-self: start; }
+  .oorzaken.driekolom { grid-template-columns: 1fr; }
+}
