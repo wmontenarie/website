@@ -841,3 +841,30 @@ a[href^="tel:"] { text-decoration: none; }
 
 .na-aanpak { margin-top: 2rem; }
 .kotter-fase .fase-naam { margin: 0 0 0.7rem; color: var(--spar); font-family: var(--kop); font-size: 1rem; font-weight: 700; max-width: none; }
+
+/* Werkdruk-artikel: oorzaken en flow */
+.kerncijfers > div strong, .kenmerken > div strong { color: var(--spar); font-size: 1.05rem; }
+.oorzaken { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+.oorzaken > div { border-radius: 0.9rem; padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.95rem; color: var(--inkt); }
+.oorzaken strong { font-size: 1.15rem; }
+.oorzaken .sub, .flow .sub { font-size: 0.85rem; font-weight: 600; }
+.oorzaken ul { margin: 0.6rem 0 0; padding-left: 1.1em; }
+.oorzaken li { margin-bottom: 0.35rem; }
+.oorzaken .org { background: var(--c1-t); }
+.oorzaken .org strong, .oorzaken .org .sub { color: var(--c1); }
+.oorzaken .zelf { background: var(--c4-t); }
+.oorzaken .zelf strong, .oorzaken .zelf .sub { color: var(--c4-d); }
+.flow { display: grid; grid-template-columns: minmax(0, 1fr) 1.6rem minmax(0, 1fr) 1.6rem minmax(0, 1fr); align-items: stretch; }
+.flow > div { border-radius: 0.9rem; padding: 1rem; display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.9rem; line-height: 1.4; color: var(--inkt); background: var(--c1-t); }
+.flow > div:nth-of-type(2) { background: var(--c2-t); }
+.flow > div:nth-of-type(3) { background: var(--c4-t); }
+.flow strong { font-size: 1.1rem; color: var(--c1); }
+.flow > div:nth-of-type(2) strong, .flow > div:nth-of-type(2) .sub { color: var(--c2-d); }
+.flow > div:nth-of-type(3) strong, .flow > div:nth-of-type(3) .sub { color: var(--c4-d); }
+.flow .sub { color: var(--c1); margin-bottom: 0.3rem; }
+.flow-pijl { align-self: center; justify-self: center; width: 0; height: 0; border-top: 0.45rem solid transparent; border-bottom: 0.45rem solid transparent; border-left: 0.6rem solid var(--grijs); }
+@media (max-width: 40rem) {
+  .oorzaken { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: 1fr; gap: 0.3rem; }
+  .flow-pijl { transform: rotate(90deg); margin: 0.1rem 0; }
+}
