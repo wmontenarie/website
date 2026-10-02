@@ -840,3 +840,4 @@ a[href^="tel:"] { text-decoration: none; }
 .sectie.wit .dienst { background: var(--mineraal); }
 
 .na-aanpak { margin-top: 2rem; }
+.kotter-fase .fase-naam { margin: 0 0 0.7rem; color: var(--spar); font-family: var(--kop); font-size: 1rem; font-weight: 700; max-width: none; }
