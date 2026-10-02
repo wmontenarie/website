@@ -33,16 +33,25 @@
   });
 })();
 
-/* Venster rechtsonder dat de whitepaper onder de aandacht brengt */
+/* Venster rechtsonder dat een passende whitepaper onder de aandacht brengt */
 (function () {
   var script = document.currentScript;
   if (!script || document.documentElement.lang !== 'nl') return;
-  if (/whitepaper|privacy/.test(location.pathname)) return;
-  var SLEUTEL = 'wp-businesscase';
+  var pad = location.pathname;
+  if (/whitepaper|bedankt|privacy/.test(pad)) return;
+  var SLEUTEL = 'wp-venster';
   var geheugen = null;
-  function lees() { try { return localStorage.getItem(SLEUTEL); } catch (e) { return geheugen; } }
+  function lees() { try { return localStorage.getItem(SLEUTEL) || localStorage.getItem('wp-businesscase'); } catch (e) { return geheugen; } }
   function schrijf(w) { geheugen = w; try { localStorage.setItem(SLEUTEL, w); } catch (e) {} }
   if (lees()) return;
+
+  var keuzes = [
+    { als: /werkdruk|werkstress/, img: 'werkdruk', pagina: 'whitepaper-werkdruk-verlagen.html', titel: 'Werkdruk verlagen', tekst: 'Hoe verlaag je de werkdruk in je team? Download de gratis handleiding.' },
+    { als: /burn-out|bevlogenheid/, img: 'burn-out', pagina: 'whitepaper-burn-out-signaleren.html', titel: 'Burn-out signaleren', tekst: 'Hoe herken je de signalen en voer je het gesprek? Download de gratis gespreksgids.' },
+    { als: /vitaliteitsbeleid|bouwblokken|duurzame-inzetbaarheid|kotter/, img: 'vitaliteitsbeleid', pagina: 'whitepaper-vitaliteitsbeleid-opzetten.html', titel: 'Vitaliteitsbeleid opzetten', tekst: 'Van losse activiteiten naar beleid dat werkt. Download het gratis stappenplan.' }
+  ];
+  var keuze = { img: 'businesscase', pagina: 'whitepaper-businesscase-vitaliteit.html', titel: 'De businesscase voor vitaliteit', tekst: 'Wat kost verzuim en wanneer verdient investeren zich terug? Download de gratis whitepaper.' };
+  for (var i = 0; i < keuzes.length; i++) { if (keuzes[i].als.test(pad)) { keuze = keuzes[i]; break; } }
 
   var basis = new URL('..', script.src).href;
   var getoond = false;
@@ -53,11 +62,11 @@
     v.className = 'wp-venster';
     v.setAttribute('aria-label', 'Gratis whitepaper');
     v.innerHTML =
-      '<button class="sluit" type="button" aria-label="Sluiten">×</button>' +
-      '<img src="' + basis + 'img/whitepaper-businesscase-omslag.webp" width="560" height="793" alt="">' +
-      '<p class="titel">De businesscase voor vitaliteit</p>' +
-      '<p class="tekst">Wat kost verzuim en wanneer verdient investeren zich terug? Download de gratis whitepaper.</p>' +
-      '<a class="knop" href="' + basis + 'whitepapers.html">Gratis download</a>';
+      '<button class="sluit" type="button" aria-label="Sluiten">\u00d7</button>' +
+      '<img src="' + basis + 'img/whitepaper-' + keuze.img + '-omslag.webp" width="560" height="793" alt="">' +
+      '<p class="titel">' + keuze.titel + '</p>' +
+      '<p class="tekst">' + keuze.tekst + '</p>' +
+      '<a class="knop" href="' + basis + keuze.pagina + '">Gratis download</a>';
     v.querySelector('.sluit').addEventListener('click', function () { schrijf('gesloten'); v.hidden = true; });
     v.querySelector('.knop').addEventListener('click', function () { schrijf('geklikt'); });
     document.body.appendChild(v);
