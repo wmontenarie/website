@@ -20,9 +20,15 @@
       <a href="index.html">Home</a>
       <div class="menu-groep">
         <a href="diensten.html" aria-current="page">Diensten</a>
-        <div class="submenu">
+        <button class="menu-knop" type="button" aria-expanded="false" aria-controls="submenu-diensten" aria-label="Toon alle diensten"></button>
+        <div class="submenu" id="submenu-diensten">
+          <a href="diensten.html#strategisch-advies">Strategisch advies</a>
+          <a href="diensten.html#coaching">Coaching</a>
           <a href="trainingen.html">Trainingen</a>
+          <a href="diensten.html#workshops">Workshops</a>
           <a href="spreker.html">Spreker</a>
+          <a href="diensten.html#business-development">Business development</a>
+          <a href="diensten.html#interim-management">Interim-management</a>
         </div>
       </div>
       <a href="over-mij.html">Over mij</a>
@@ -119,5 +125,6 @@
   </div>
 </footer>
 
+<script src="js/menu.js" defer></script>
 </body>
 </html>
