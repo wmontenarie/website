@@ -770,3 +770,21 @@ a[href^="tel:"] { text-decoration: none; }
 .dienst-links a { text-decoration: none; font-weight: 600; padding: 0.35rem 0.8rem; border-radius: 999px; box-shadow: inset 0 0 0 2px var(--lijn); }
 .dienst-links a:hover { box-shadow: inset 0 0 0 2px var(--spar); }
 @media (max-width: 46rem) { .diensten-kaarten { grid-template-columns: 1fr; } }
+
+/* Opdrachtgevers als tegels */
+.klanten-sectie { position: relative; overflow: hidden; }
+.klanten-sectie::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, var(--c4) 0 33%, var(--c2) 33% 66%, var(--c3) 66% 100%); }
+.klanten-intro { color: #d3ddef; margin: -0.4rem 0 0; }
+.klanten-tegels { list-style: none; margin: 1.8rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.klanten-tegels li { background: var(--wit); border-radius: 1rem; padding: 1.2rem 1rem 1.1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.45rem; min-height: 9.5rem; font-family: var(--kop); }
+.klanten-tegels strong { color: var(--spar); font-size: 1.08rem; line-height: 1.25; text-wrap: balance; }
+.klant-sector { font-size: 0.8rem; color: var(--grijs); }
+.klant-ico { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--c1-t); color: var(--c1); }
+.klant-ico svg { width: 1.4rem; height: 1.4rem; }
+.klanten-tegels li:nth-child(4n+2) .klant-ico { background: var(--c4-t); color: var(--c4-d); }
+.klanten-tegels li:nth-child(4n+3) .klant-ico { background: var(--c2-t); color: var(--c2-d); }
+.klanten-tegels li:nth-child(4n+4) .klant-ico { background: var(--c3-t); color: var(--c3-d); }
+.klanten-tegels img { max-height: 3rem; max-width: 80%; width: auto; }
+@media (max-width: 56rem) { .klanten-tegels { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 24rem) { .klanten-tegels { grid-template-columns: 1fr; } }
