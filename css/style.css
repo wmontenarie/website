@@ -1019,3 +1019,4 @@ a[href^="tel:"] { text-decoration: none; }
 @media (max-width: 52rem) { .wp-meer { grid-template-columns: 1fr; } }
 .wp-regel a { font-weight: 600; }
 .menu { column-gap: 0.9rem; }
+.wp-bedankt h2 { margin-top: 2.2rem; }
