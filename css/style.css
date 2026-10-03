@@ -1058,3 +1058,7 @@ a[href^="tel:"] { text-decoration: none; }
 .drie-stappen { max-width: 40rem; margin: 1.5rem 0 2rem; }
 @media (max-width: 46rem) { .herken, .oplevert { grid-template-columns: 1fr; } }
 .aanpak-knop { margin-top: 2rem; }
+.hero-nieuwsbrief { margin: 1.1rem 0 0; }
+.hero .hero-nieuwsbrief .knop { margin-top: 0; }
+html { scroll-behavior: smooth; }
+#nieuwsbrief { scroll-margin-top: 1.5rem; }
