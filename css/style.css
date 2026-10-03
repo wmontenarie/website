@@ -1057,3 +1057,4 @@ a[href^="tel:"] { text-decoration: none; }
 .waarom { font-size: 1.3rem; line-height: 1.5; max-width: 44rem; }
 .drie-stappen { max-width: 40rem; margin: 1.5rem 0 2rem; }
 @media (max-width: 46rem) { .herken, .oplevert { grid-template-columns: 1fr; } }
+.aanpak-knop { margin-top: 2rem; }
