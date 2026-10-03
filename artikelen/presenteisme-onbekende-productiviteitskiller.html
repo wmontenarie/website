@@ -144,6 +144,24 @@
           <a class="knop omlijnd" href="../diensten.html#strategisch-advies">Bekijk strategisch advies</a>
         </div>
       </div>
+      <aside class="nb-blok" id="nieuwsbrief" aria-labelledby="nb-kop">
+        <div class="nb-tekst">
+          <h2 id="nb-kop">Nieuwe artikelen in je inbox?</h2>
+          <p>Elke week een artikel over duurzame inzetbaarheid, vitaliteit en leiderschap.</p>
+        </div>
+        <form class="nb-formulier" action="/verstuur" method="POST">
+          <input type="hidden" name="soort" value="nieuwsbrief">
+          <input type="text" name="_honey" class="verborgen" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="nb-velden">
+            <label for="nb-naam">Voornaam<input id="nb-naam" type="text" name="naam" autocomplete="given-name" required></label>
+            <label for="nb-email">E-mailadres<input id="nb-email" type="email" name="email" autocomplete="email" required></label>
+            <button class="knop" type="submit">Schrijf je in</button>
+          </div>
+          <p class="nb-klein">Afmelden kan altijd via de link in elke nieuwsbrief. Lees meer in de <a href="../privacy.html">privacyverklaring</a>.</p>
+          <p class="nb-melding" role="status" hidden></p>
+        </form>
+      </aside>
+
       <section class="bronnen" aria-labelledby="bronnen-kop">
         <h2 id="bronnen-kop">Bronnen</h2>
         <ul>

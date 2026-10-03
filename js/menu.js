@@ -77,3 +77,41 @@
     if (hoogte > 0 && window.scrollY / hoogte > 0.3) { clearTimeout(klok); window.removeEventListener('scroll', opScroll); toon(); }
   }, { passive: true });
 })();
+
+// Inschrijven voor de nieuwsbrief zonder de pagina te verlaten
+(function () {
+  var form = document.querySelector('.nb-formulier');
+  if (!form || !window.fetch || !window.URLSearchParams || !window.FormData) return;
+  var blok = form.closest ? form.closest('.nb-blok') : null;
+  var melding = form.querySelector('.nb-melding');
+  var knop = form.querySelector('button[type="submit"]');
+  var tekst = knop.textContent;
+  var bezig = false;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (bezig) return;
+    bezig = true;
+    knop.disabled = true;
+    knop.textContent = 'Een moment';
+    melding.hidden = true;
+    var mislukt = function () {
+      melding.textContent = 'Het inschrijven lukt nu niet. Probeer het later opnieuw of stuur een mail naar walter@waltermontenarie.com.';
+      melding.hidden = false;
+      knop.disabled = false;
+      knop.textContent = tekst;
+      bezig = false;
+    };
+    fetch(form.getAttribute('action'), {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new URLSearchParams(new FormData(form))
+    }).then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d || !d.ok) { mislukt(); return; }
+        melding.textContent = 'Bedankt voor je inschrijving. Je ontvangt het volgende artikel in je mailbox.';
+        melding.hidden = false;
+        if (blok) blok.classList.add('klaar');
+      })
+      .catch(mislukt);
+  });
+})();

@@ -1020,3 +1020,21 @@ a[href^="tel:"] { text-decoration: none; }
 .wp-regel a { font-weight: 600; }
 .menu { column-gap: 0.9rem; }
 .wp-bedankt h2 { margin-top: 2.2rem; }
+
+/* Inschrijven voor de nieuwsbrief */
+.nb-blok { margin: 2.5rem 0; background: var(--c4-t); border-radius: 1.25rem; padding: 1.6rem 1.8rem; max-width: 54rem; font-family: var(--kop); }
+.nb-blok h2 { margin: 0 0 0.3rem; font-size: 1.4rem; }
+.nb-tekst p { margin: 0; font-family: var(--tekst); }
+.nb-formulier { margin-top: 1rem; }
+.nb-velden { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.8rem; align-items: end; }
+.nb-velden label { display: flex; flex-direction: column; gap: 0.3rem; font-weight: 600; font-size: 0.95rem; color: var(--inkt); }
+.nb-velden input { font: inherit; font-weight: 400; padding: 0.7rem 0.85rem; border: 1.5px solid var(--lijn); border-radius: 0.6rem; background: var(--wit); color: var(--inkt); width: 100%; }
+.nb-velden input:focus { outline: none; border-color: var(--spar); }
+.nb-velden .knop { border: 0; cursor: pointer; text-align: center; }
+.nb-velden .knop[disabled] { opacity: 0.6; cursor: default; }
+.nb-klein { margin: 0.8rem 0 0; font-size: 0.85rem; color: var(--grijs); max-width: none; }
+.nb-melding { margin: 0.9rem 0 0; font-weight: 600; color: var(--inkt); max-width: none; }
+.nb-melding[hidden] { display: none; }
+.nb-blok.klaar .nb-velden, .nb-blok.klaar .nb-klein { display: none; }
+.twee .nb-blok { margin-top: 0; align-self: start; }
+@media (max-width: 36rem) { .nb-blok { padding: 1.4rem 1.2rem; } }
