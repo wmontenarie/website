@@ -1065,3 +1065,14 @@ html { scroll-behavior: smooth; }
 .herken li strong { display: block; color: var(--spar); margin-bottom: 0.2rem; }
 .vink.groot { font-family: var(--kop); font-size: 1.15rem; line-height: 1.45; margin-top: 1.2rem; }
 .vink.groot li { margin-bottom: 1rem; padding-left: 2.2rem; }
+
+/* Deel dit artikel */
+.deel { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem 1.5rem; margin: 2.5rem 0; padding: 0.8rem 1.1rem 0.8rem 1.5rem; background: var(--c1-t); border-radius: 1.25rem; }
+.deel-titel { margin: 0; font-family: var(--kop); font-weight: 700; font-size: 1.15rem; color: var(--spar); }
+.deel-knoppen { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.deel-knoppen a, .deel-knoppen button { display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; color: var(--spar); background: transparent; border: 0; padding: 0; cursor: pointer; }
+.deel-knoppen a:hover, .deel-knoppen button:hover, .deel-knoppen a:focus-visible, .deel-knoppen button:focus-visible { background: var(--spar); color: var(--wit); }
+.deel-knoppen svg { width: 1.35rem; height: 1.35rem; }
+.deel-melding { flex-basis: 100%; font-family: var(--kop); font-size: 0.9rem; color: var(--grijs); }
+.deel-melding:empty { display: none; }
+@media (max-width: 36rem) { .deel { padding: 1rem 1.1rem; } }

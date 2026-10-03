@@ -115,3 +115,20 @@
       .catch(mislukt);
   });
 })();
+
+// Link van het artikel kopiëren
+(function () {
+  var knop = document.querySelector('.deel-kopieer');
+  if (!knop) return;
+  var melding = knop.closest('.deel').querySelector('.deel-melding');
+  knop.addEventListener('click', function () {
+    var url = knop.getAttribute('data-url') || location.href;
+    var klaar = function (gelukt) {
+      melding.textContent = gelukt ? 'De link is gekopieerd.' : 'Kopiëren lukt niet. De link is: ' + url;
+      setTimeout(function () { melding.textContent = ''; }, gelukt ? 4000 : 12000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () { klaar(true); }, function () { klaar(false); });
+    } else { klaar(false); }
+  });
+})();
