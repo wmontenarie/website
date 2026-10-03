@@ -1062,3 +1062,6 @@ a[href^="tel:"] { text-decoration: none; }
 .hero .hero-nieuwsbrief .knop { margin-top: 0; }
 html { scroll-behavior: smooth; }
 #nieuwsbrief { scroll-margin-top: 1.5rem; }
+.herken li strong { display: block; color: var(--spar); margin-bottom: 0.2rem; }
+.vink.groot { font-family: var(--kop); font-size: 1.15rem; line-height: 1.45; margin-top: 1.2rem; }
+.vink.groot li { margin-bottom: 1rem; padding-left: 2.2rem; }
