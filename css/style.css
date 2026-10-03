@@ -1076,3 +1076,5 @@ html { scroll-behavior: smooth; }
 .deel-melding { flex-basis: 100%; font-family: var(--kop); font-size: 0.9rem; color: var(--grijs); }
 .deel-melding:empty { display: none; }
 @media (max-width: 36rem) { .deel { padding: 1rem 1.1rem; } }
+.bouwblokken.vier { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 36rem) { .bouwblokken.vier { grid-template-columns: 1fr; } }
