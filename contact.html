@@ -69,7 +69,7 @@
         <p><a class="knop" href="https://calendly.com/walter-montenarie/30min" target="_blank" rel="noopener">Plan direct een gratis gesprek</a></p>
         <p class="klein">Kies zelf een moment dat jou uitkomt. Liever eerst mailen of bellen? Dat kan ook.</p>
         <ul class="contactlijst">
-          <li><b>E-mail</b> <a href="mailto:walter.montenarie@gmail.com">walter.montenarie@gmail.com</a></li>
+          <li><b>E-mail</b> <a href="mailto:walter@waltermontenarie.com">walter@waltermontenarie.com</a></li>
           <li><b>Telefoon</b> <a href="tel:+31651686865">06 5168 6865</a></li>
           <li><b>LinkedIn</b> <a href="https://www.linkedin.com/in/montenarie/">linkedin.com/in/montenarie</a></li>
           <li><b>Plaats</b> Den Haag</li>
@@ -132,7 +132,7 @@
         <div class="formulier-melding mislukt" id="cf-mislukt" role="alert" hidden>
           <strong>Het versturen lukt nu niet.</strong>
           <p>Je bericht is niet verloren. Stuur het via je eigen e-mail of bel me op <a href="tel:+31651686865">06 5168 6865</a>.</p>
-          <a class="knop" id="cf-mail" href="mailto:walter.montenarie@gmail.com">Verstuur via je eigen e-mail</a>
+          <a class="knop" id="cf-mail" href="mailto:walter@waltermontenarie.com">Verstuur via je eigen e-mail</a>
         </div>
       </form>
     </div>
@@ -142,7 +142,7 @@
 <footer class="site-voet">
   <div class="wrap">
     <p>Walter Montenarie | Strategisch advies en duurzame inzetbaarheid | Den Haag</p>
-    <p><a href="tel:+31651686865">06 5168 6865</a> | <a href="mailto:walter.montenarie@gmail.com">walter.montenarie@gmail.com</a> | <a href="privacy.html">Privacyverklaring</a></p>
+    <p><a href="tel:+31651686865">06 5168 6865</a> | <a href="mailto:walter@waltermontenarie.com">walter@waltermontenarie.com</a> | <a href="privacy.html">Privacyverklaring</a></p>
   </div>
 </footer>
 
@@ -171,7 +171,7 @@
     var regels = [v('bericht'), '', v('naam')];
     if (v('organisatie')) regels.push(v('organisatie'));
     if (v('telefoon')) regels.push(v('telefoon'));
-    document.getElementById('cf-mail').href = 'mailto:walter.montenarie@gmail.com?subject=' +
+    document.getElementById('cf-mail').href = 'mailto:walter@waltermontenarie.com?subject=' +
       encodeURIComponent(v('onderwerp') || 'Bericht via de website') + '&body=' + encodeURIComponent(regels.join('\n'));
     mislukt.hidden = false;
     knop.disabled = false;
