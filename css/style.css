@@ -1081,3 +1081,16 @@ html { scroll-behavior: smooth; }
 .herken-regel { font-family: var(--kop); font-size: 1rem; color: var(--c3-d); margin: 0 0 0.5rem; }
 .herken-regel strong { font-weight: 700; }
 .twee .drie-stappen, .wrap > .drie-stappen { margin-bottom: 1.5rem; }
+
+/* ---- veelgestelde vragen en uitgebreide trainingsbeschrijving ---- */
+.vragen { border-top: 1px solid var(--lijn); margin-top: 2.5rem; padding-top: 0.5rem; }
+.artikel .vragen h3 { display: block; font-size: 1.12rem; margin: 1.4rem 0 0.3rem; color: var(--spar); }
+.vragen p { margin: 0; }
+.aanbod-meer { border-top: 1px solid var(--lijn); margin: 1.4rem 0; padding-top: 0.4rem; }
+.aanbod-meer h3 { font-size: 1.15rem; margin: 1.4rem 0 0.6rem; color: var(--spar); }
+.aanbod-meer ul { padding-left: 1.2em; margin: 0 0 1rem; }
+.aanbod-meer li { margin-bottom: 0.4rem; }
+.vragen-kort { margin: 0; }
+.vragen-kort dt { font-family: var(--kop); font-size: 1rem; font-weight: 600; color: var(--spar); margin-top: 0.9rem; }
+.aanbod-meer .flow { font-family: var(--kop); margin-bottom: 0.4rem; }
+.vragen-kort dd { margin: 0.15rem 0 0; }
