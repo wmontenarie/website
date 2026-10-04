@@ -1078,3 +1078,6 @@ html { scroll-behavior: smooth; }
 @media (max-width: 36rem) { .deel { padding: 1rem 1.1rem; } }
 .bouwblokken.vier { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 36rem) { .bouwblokken.vier { grid-template-columns: 1fr; } }
+.herken-regel { font-family: var(--kop); font-size: 1rem; color: var(--c3-d); margin: 0 0 0.5rem; }
+.herken-regel strong { font-weight: 700; }
+.twee .drie-stappen, .wrap > .drie-stappen { margin-bottom: 1.5rem; }
