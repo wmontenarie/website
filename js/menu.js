@@ -46,11 +46,11 @@
   if (lees()) return;
 
   var keuzes = [
-    { als: /werkdruk|werkstress/, img: 'werkdruk', pagina: 'whitepaper-werkdruk-verlagen.html', titel: 'Werkdruk verlagen', tekst: 'Hoe verlaag je de werkdruk in je team? Download de gratis handleiding.' },
-    { als: /burn-out|bevlogenheid/, img: 'burn-out', pagina: 'whitepaper-burn-out-signaleren.html', titel: 'Burn-out signaleren', tekst: 'Hoe herken je de signalen en voer je het gesprek? Download de gratis gespreksgids.' },
-    { als: /vitaliteitsbeleid|bouwblokken|duurzame-inzetbaarheid|kotter/, img: 'vitaliteitsbeleid', pagina: 'whitepaper-vitaliteitsbeleid-opzetten.html', titel: 'Vitaliteitsbeleid opzetten', tekst: 'Van losse activiteiten naar beleid dat werkt. Download het gratis stappenplan.' }
+    { als: /werkdruk|werkstress/, img: 'werkdruk', pagina: 'whitepaper-werkdruk-verlagen', titel: 'Werkdruk verlagen', tekst: 'Hoe verlaag je de werkdruk in je team? Download de gratis handleiding.' },
+    { als: /burn-out|bevlogenheid/, img: 'burn-out', pagina: 'whitepaper-burn-out-signaleren', titel: 'Burn-out signaleren', tekst: 'Hoe herken je de signalen en voer je het gesprek? Download de gratis gespreksgids.' },
+    { als: /vitaliteitsbeleid|bouwblokken|duurzame-inzetbaarheid|kotter/, img: 'vitaliteitsbeleid', pagina: 'whitepaper-vitaliteitsbeleid-opzetten', titel: 'Vitaliteitsbeleid opzetten', tekst: 'Van losse activiteiten naar beleid dat werkt. Download het gratis stappenplan.' }
   ];
-  var keuze = { img: 'businesscase', pagina: 'whitepaper-businesscase-vitaliteit.html', titel: 'De businesscase voor vitaliteit', tekst: 'Wat kost verzuim en wanneer verdient investeren zich terug? Download de gratis whitepaper.' };
+  var keuze = { img: 'businesscase', pagina: 'whitepaper-businesscase-vitaliteit', titel: 'De businesscase voor vitaliteit', tekst: 'Wat kost verzuim en wanneer verdient investeren zich terug? Download de gratis whitepaper.' };
   for (var i = 0; i < keuzes.length; i++) { if (keuzes[i].als.test(pad)) { keuze = keuzes[i]; break; } }
 
   var basis = new URL('..', script.src).href;
