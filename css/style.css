@@ -1117,3 +1117,4 @@ html { scroll-behavior: smooth; }
 .klanten-tegels .klant-ico { grid-row: 2; grid-column: 1; width: 1.5rem; height: 1.5rem; border-radius: 0.4rem; justify-self: end; }
 .klanten-tegels .klant-ico svg { width: 0.95rem; height: 0.95rem; }
 .klanten-tegels .klant-sector { grid-row: 2; grid-column: 2; justify-self: start; text-align: left; font-size: 0.82rem; }
+.dienst#interim-management { grid-column: 1 / -1; }
