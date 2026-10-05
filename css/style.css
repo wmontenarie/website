@@ -1094,3 +1094,7 @@ html { scroll-behavior: smooth; }
 .vragen-kort dt { font-family: var(--kop); font-size: 1rem; font-weight: 600; color: var(--spar); margin-top: 0.9rem; }
 .aanbod-meer .flow { font-family: var(--kop); margin-bottom: 0.4rem; }
 .vragen-kort dd { margin: 0.15rem 0 0; }
+
+/* ---- kleinere knoppen bovenaan de homepage ---- */
+.hero-twee .knop { font-size: 0.9rem; padding: 0.6rem 1.1rem; }
+.hero-twee .hero-nieuwsbrief { margin-top: 0.7rem; }
