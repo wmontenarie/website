@@ -1109,3 +1109,11 @@ html { scroll-behavior: smooth; }
 .herken-lijst li:last-child { margin-bottom: 0; }
 .herken-lijst li::marker { color: var(--c3); }
 .herken-na { font-size: 1.25rem; line-height: 1.5; margin: 0.6rem 0 0; max-width: none; }
+
+/* ---- compacte tegels met bedrijfsnamen: naam boven, icoon naast de sector ---- */
+.klanten-tegels { gap: 0.7rem; margin-top: 1.4rem; }
+.klanten-tegels li { display: grid; grid-template-columns: auto auto; justify-content: center; align-content: center; align-items: center; column-gap: 0.45rem; row-gap: 0.35rem; min-height: 0; padding: 0.85rem 0.8rem 0.8rem; border-radius: 0.8rem; }
+.klanten-tegels strong { grid-column: 1 / -1; grid-row: 1; font-size: 1rem; }
+.klanten-tegels .klant-ico { grid-row: 2; grid-column: 1; width: 1.5rem; height: 1.5rem; border-radius: 0.4rem; justify-self: end; }
+.klanten-tegels .klant-ico svg { width: 0.95rem; height: 0.95rem; }
+.klanten-tegels .klant-sector { grid-row: 2; grid-column: 2; justify-self: start; text-align: left; font-size: 0.82rem; }
