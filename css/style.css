@@ -1096,5 +1096,7 @@ html { scroll-behavior: smooth; }
 .vragen-kort dd { margin: 0.15rem 0 0; }
 
 /* ---- kleinere knoppen bovenaan de homepage ---- */
-.hero-twee .knop { font-size: 0.9rem; padding: 0.6rem 1.1rem; }
-.hero-twee .hero-nieuwsbrief { margin-top: 0.7rem; }
+.hero-twee .knop { font-size: 0.82rem; padding: 0.56rem 0.8rem; white-space: nowrap; }
+.hero-twee .hero-knoppen { gap: 0.45rem; }
+@media (min-width: 52.01rem) { .hero-twee .wrap { grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.6fr); } }
+.hero-twee h1 { max-width: 13.5em; text-wrap: balance; }
