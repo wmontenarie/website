@@ -1122,3 +1122,14 @@ html { scroll-behavior: smooth; }
 /* ---- minder ruimte tussen de blokken (gehalveerd) ---- */
 .sectie { padding: clamp(1.5rem, 3.5vw, 2.5rem) 0; }
 .hero { padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(1.5rem, 3.5vw, 2.5rem); }
+
+/* ---- artikelkaarten op de homepage: duidelijk klikbaar ---- */
+.kort-lijst a { display: flex; flex-direction: column; height: 100%; border: 2px solid transparent; transition: border-color 150ms, box-shadow 150ms, transform 150ms; }
+.kort-lijst li { display: flex; }
+.kort-lijst li > a { flex: 1; }
+.kort-lijst .lees-meer { margin-top: auto; padding-top: 0.9rem; font-family: var(--kop); font-weight: 700; font-size: 0.95rem; color: var(--spar); text-decoration: underline; text-decoration-color: var(--oker); text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
+.kort-lijst .lees-meer span { display: inline-block; text-decoration: none; transition: transform 150ms; }
+.kort-lijst a:hover, .kort-lijst a:focus-visible { border-color: var(--spar); box-shadow: 0 6px 18px rgba(35, 64, 110, 0.14); transform: translateY(-2px); }
+.kort-lijst a:hover h3 { text-decoration: underline; }
+.kort-lijst a:hover .lees-meer span { transform: translateX(4px); }
+@media (prefers-reduced-motion: reduce) { .kort-lijst a, .kort-lijst .lees-meer span { transition: none; } .kort-lijst a:hover { transform: none; } }
