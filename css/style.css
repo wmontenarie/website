@@ -1108,3 +1108,4 @@ html { scroll-behavior: smooth; }
 .herken-lijst li { margin: 0 0 0.5rem; padding: 0; background: none; border: 0; border-radius: 0; font-size: 1rem; line-height: 1.4; }
 .herken-lijst li:last-child { margin-bottom: 0; }
 .herken-lijst li::marker { color: var(--c3); }
+.herken-na { font-size: 1.25rem; line-height: 1.5; margin: 0.6rem 0 0; max-width: none; }
