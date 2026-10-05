@@ -1133,3 +1133,13 @@ html { scroll-behavior: smooth; }
 .kort-lijst a:hover h3 { text-decoration: underline; }
 .kort-lijst a:hover .lees-meer span { transform: translateX(4px); }
 @media (prefers-reduced-motion: reduce) { .kort-lijst a, .kort-lijst .lees-meer span { transition: none; } .kort-lijst a:hover { transform: none; } }
+
+/* ---- links onder de diensten: naast elkaar en in een zachte kleur ---- */
+.dienst-links { max-width: none; }
+.dienst-links a { background: var(--c1-t); box-shadow: none; color: var(--spar); transition: background 150ms; }
+.dienst.c2 .dienst-links a { background: var(--c2-t); }
+.dienst.c3 .dienst-links a { background: var(--c3-t); }
+.dienst.c4 .dienst-links a { background: var(--c4-t); }
+.dienst-links a:hover { box-shadow: inset 0 0 0 2px var(--spar); }
+.dienst-links { font-size: 0.84rem; gap: 0.4rem; }
+.dienst-links a { padding: 0.35rem 0.7rem; }
