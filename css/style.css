@@ -1190,3 +1190,4 @@ html { scroll-behavior: smooth; }
 .kal-datum.lang span:first-child { font-size: 0.88rem; }
 .kal-datum.lang span:last-child { font-size: 0.74rem; }
 .kal-item.klein .kal-datum { padding: 0.45rem 0.25rem; }
+.anker { display: block; height: 0; scroll-margin-top: 1rem; }

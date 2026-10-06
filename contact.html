@@ -101,6 +101,7 @@
       </aside>
     </div>
   </section>
+  <span class="anker" id="offerte"></span><span class="anker" id="spreker"></span><span class="anker" id="advies"></span>
   <section class="sectie wit" id="formulier">
     <div class="wrap">
       <h2>Stuur een bericht</h2>
@@ -167,11 +168,17 @@
 
 <script>
 (function () {
+  // Het onderwerp staat achter het hekje (contact#offerte). Oude links met ?onderwerp= blijven werken.
   var q = new URLSearchParams(location.search);
-  var p = q.get('onderwerp');
   var map = { offerte: 'Offerte training', spreker: 'Spreker boeken', advies: 'Advies of interim' };
   var sel = document.getElementById('cf-onderwerp');
-  if (sel && p && map[p]) sel.value = map[p];
+  function kiesOnderwerp() {
+    var p = location.hash.replace('#', '');
+    if (!map[p]) p = q.get('onderwerp');
+    if (sel && p && map[p]) sel.value = map[p];
+  }
+  kiesOnderwerp();
+  window.addEventListener('hashchange', kiesOnderwerp);
 
   var form = document.querySelector('.contactformulier');
   if (!form) return;

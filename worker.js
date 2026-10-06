@@ -12,6 +12,16 @@ const NAAR = 'walter.montenarie@gmail.com';
 // Lijst 'Nieuwsbrief' in Laposta. De geheime sleutel staat in Cloudflare (LAPOSTA_KEY), niet in dit bestand
 const LAPOSTA_LIJST = 'zr1tjwsbvc';
 
+// Beveiligingskoppen die bij elke pagina worden meegestuurd
+const BEVEILIGING = {
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'SAMEORIGIN',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Strict-Transport-Security': 'max-age=31536000',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+};
+
 const WHITEPAPERS = {
   'businesscase-vitaliteit': 'De businesscase voor vitaliteit',
   'werkdruk-verlagen': 'Werkdruk verlagen',
@@ -36,13 +46,16 @@ export default {
     if (url.pathname === '/verstuur') return verstuur(request, env, url);
 
     const antwoord = await env.ASSETS.fetch(request);
-    // De whitepapers zelf hoeven niet in Google te komen, de downloadpagina's wel
-    if (url.pathname.startsWith('/downloads/')) {
-      const kopie = new Response(antwoord.body, antwoord);
-      kopie.headers.set('X-Robots-Tag', 'noindex');
-      return kopie;
+    const kopie = new Response(antwoord.body, antwoord);
+    const isPagina = (kopie.headers.get('content-type') || '').includes('text/html');
+    for (const naam in BEVEILIGING) {
+      // De inhoudsregels gelden alleen voor pagina's, niet voor pdf's en afbeeldingen
+      if (naam === 'Content-Security-Policy' && !isPagina) continue;
+      kopie.headers.set(naam, BEVEILIGING[naam]);
     }
-    return antwoord;
+    // De whitepapers zelf hoeven niet in Google te komen, de downloadpagina's wel
+    if (url.pathname.startsWith('/downloads/')) kopie.headers.set('X-Robots-Tag', 'noindex');
+    return kopie;
   }
 };
 

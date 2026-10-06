@@ -63,7 +63,7 @@
     v.setAttribute('aria-label', 'Gratis whitepaper');
     v.innerHTML =
       '<button class="sluit" type="button" aria-label="Sluiten">\u00d7</button>' +
-      '<img src="' + basis + 'img/whitepaper-' + keuze.img + '-omslag.webp" width="560" height="793" alt="">' +
+      '<img src="' + basis + 'img/whitepaper-' + keuze.img + '-omslag.webp" width="560" height="793" alt="Omslag van de whitepaper ' + keuze.titel + '">' +
       '<p class="titel">' + keuze.titel + '</p>' +
       '<p class="tekst">' + keuze.tekst + '</p>' +
       '<a class="knop" href="' + basis + keuze.pagina + '">Gratis download</a>';
