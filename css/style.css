@@ -1150,46 +1150,106 @@ html { scroll-behavior: smooth; }
 .bouwblokken.onderwerpen > div:first-child span + span { margin-top: 0.3rem; }
 
 /* ---- kalender ---- */
-.kal h2 { margin-bottom: 0.4rem; }
-.kal-filter { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 1.2rem 0 0.4rem; font-family: var(--kop); }
-.kal-filter button { font: inherit; font-size: 0.9rem; font-weight: 600; color: var(--spar); background: transparent; border: 0; box-shadow: inset 0 0 0 2px var(--lijn); border-radius: 999px; padding: 0.4rem 0.9rem; cursor: pointer; }
-.kal-filter button:hover { box-shadow: inset 0 0 0 2px var(--spar); }
-.kal-filter button.actief { background: var(--spar); color: var(--wit); box-shadow: none; }
-.kal-maand { margin-top: 1.8rem; }
-.kal-maand h3 { font-size: 1.15rem; margin: 0 0 0.7rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--oker); display: inline-block; }
-.kal-lijst { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
-.kal-item { display: grid; grid-template-columns: 5.6rem minmax(0, 1fr); gap: 1rem; background: var(--mineraal); border-radius: 1rem; padding: 1rem 1.1rem; font-family: var(--kop); align-items: start; }
-.sectie:not(.wit) .kal-item { background: var(--wit); }
+.kal-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.kal-ic { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+/* Kleur per groep of thema: --k kleur, --k-t lichte tint, --k-d donkere tekstkleur */
+.kal, .kal-kop { --k: var(--spar); --k-t: var(--c1-t); --k-d: var(--spar); }
+[data-groep="werk"], [data-filter="werk"], .k-werk, .t-werk { --k: #3d6fb5; --k-t: #e3ebf8; --k-d: #23406e; }
+[data-groep="leefstijl"], [data-filter="leefstijl"], .k-leefstijl, .t-leefstijl, .t-dag { --k: #3aa5b2; --k-t: #dcf1f3; --k-d: #1b6a74; }
+[data-groep="zorg"], [data-filter="zorg"], .k-zorg, .t-zorg, .t-ev { --k: #f0a830; --k-t: #fdf1d8; --k-d: #8a5600; }
+[data-groep="mentaal"], [data-filter="mentaal"], .t-mentaal { --k: #7a6bb8; --k-t: #ebe7f7; --k-d: #4a3d8a; }
+[data-groep="bewegen"], [data-filter="bewegen"], .t-bewegen { --k: #e8742c; --k-t: #fce4d4; --k-d: #a3460f; }
+[data-groep="voeding"], [data-filter="voeding"], .t-voeding { --k: #4f9d69; --k-t: #e0f1e5; --k-d: #2c6b41; }
+[data-groep="slaap"], [data-filter="slaap"], .t-slaap { --k: #5b68c9; --k-t: #e2e5f8; --k-d: #303c85; }
+[data-groep="ziekte"], [data-filter="ziekte"], .t-ziekte { --k: #d2567a; --k-t: #fbe3ea; --k-d: #99304f; }
+
+/* Kop met tekening en twee tegels */
+.kal-kop { position: relative; overflow: hidden; background: linear-gradient(135deg, #e3ebf8 0%, var(--mineraal) 45%, #fdf1d8 100%); }
+.kal-kop .wrap { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.7fr); gap: 1.5rem 3rem; align-items: center; }
+.kal-kop h1 { margin-bottom: 0.6rem; }
+.kal-kop .intro { margin-bottom: 0; }
+.kal-tekening { width: 100%; max-width: 17rem; height: auto; justify-self: end; filter: drop-shadow(0 12px 22px rgba(24, 33, 58, 0.14)); }
+.kal-sprong { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.kal-tegel { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; background: var(--wit); border-radius: 1.1rem; padding: 1rem 1.2rem; font-family: var(--kop); color: var(--inkt); box-shadow: inset 0 -5px 0 var(--k), 0 2px 10px rgba(24, 33, 58, 0.07); transition: transform 150ms ease, box-shadow 150ms ease; }
+.kal-tegel:hover { transform: translateY(-2px); box-shadow: inset 0 -5px 0 var(--k), 0 10px 24px rgba(24, 33, 58, 0.14); }
+.kal-tegel-tekst { display: flex; flex-direction: column; flex: 1; line-height: 1.35; }
+.kal-tegel-tekst strong { font-size: 1.2rem; color: var(--spar); }
+.kal-tegel-tekst > span { font-size: 0.93rem; color: var(--grijs); }
+.kal-pijl { font-size: 1.3rem; font-weight: 700; color: var(--k-d); }
+.kal-rond { display: grid; place-items: center; flex: none; width: 2.9rem; height: 2.9rem; border-radius: 50%; background: var(--k-t); color: var(--k-d); font-size: 1.45rem; }
+
+/* Kop per onderdeel */
+.kal-titel { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.5rem; }
+.kal-titel h2 { margin: 0; }
+.kal-titel .kal-rond { background: var(--k); color: var(--wit); }
+.kal-titel.t-ev .kal-rond { color: var(--inkt); }
+.kal > .wrap > p { max-width: 46rem; }
+
+/* Filter */
+.kal-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.2rem 0 0.4rem; font-family: var(--kop); }
+.kal-filter button { display: inline-flex; align-items: center; gap: 0.4rem; font: inherit; font-size: 0.9rem; font-weight: 600; color: var(--k-d); background: var(--k-t); border: 0; box-shadow: inset 0 0 0 2px transparent; border-radius: 999px; padding: 0.45rem 0.95rem; cursor: pointer; }
+.kal-filter button .kal-ic { font-size: 1.05rem; }
+.kal-filter button:hover { box-shadow: inset 0 0 0 2px var(--k-d); }
+.kal-filter button.actief { background: var(--k-d); color: var(--wit); box-shadow: none; }
+
+/* Maand met lijn */
+.kal-maand { margin-top: 2rem; }
+.kal-maand h3 { display: flex; align-items: center; gap: 0.6rem; font-size: 1.3rem; font-weight: 700; margin: 0 0 0.9rem; }
+.kal-maand h3::after { content: ""; flex: 1; height: 3px; border-radius: 3px; background: linear-gradient(90deg, var(--oker), rgba(240, 168, 48, 0)); margin-left: 0.4rem; }
+.kal-maand h3 .kal-rond { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; background: var(--spar); color: var(--wit); }
+.kal-jaar { font-weight: 500; color: var(--grijs); }
+
+/* Kaarten */
+.kal-lijst { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+.kal-item { display: grid; grid-template-columns: 4.9rem minmax(0, 1fr); gap: 1rem; align-items: start; background: var(--wit); border-radius: 1rem; padding: 1.1rem 1.1rem 1.1rem 1.35rem; font-family: var(--kop); box-shadow: inset 6px 0 0 var(--k), inset 0 0 0 1px var(--lijn); transition: transform 150ms ease, box-shadow 150ms ease; }
+.kal-item:hover { transform: translateY(-2px); box-shadow: inset 6px 0 0 var(--k), inset 0 0 0 1px var(--lijn), 0 10px 24px rgba(24, 33, 58, 0.12); }
 .kal-item[hidden], .kal-maand[hidden] { display: none; }
-.kal-datum { margin: 0; background: var(--spar); color: var(--wit); border-radius: 0.7rem; padding: 0.55rem 0.3rem; text-align: center; display: flex; flex-direction: column; line-height: 1.15; }
-.kal-datum span:first-child { font-size: 1.05rem; font-weight: 700; }
-.kal-datum span:last-child { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
-.kal-tekst h4 { margin: 0 0 0.2rem; font-size: 1.05rem; line-height: 1.3; }
+.kal-datum { margin: 0; background: var(--k-t); color: var(--k-d); border-top: 6px solid var(--k); border-radius: 0.6rem; padding: 0.45rem 0.25rem 0.5rem; text-align: center; display: flex; flex-direction: column; line-height: 1.15; }
+.kal-datum span:first-child { font-size: 1.5rem; font-weight: 700; }
+.kal-datum span:last-child { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.kal-datum.lang span:first-child { font-size: 0.92rem; }
+.kal-datum.lang span:last-child { font-size: 0.76rem; }
+.kal-tekst h4 { margin: 0 0 0.3rem; font-size: 1.08rem; line-height: 1.3; }
 .kal-tekst h4 a { text-decoration: none; }
-.kal-tekst h4 a:hover { text-decoration: underline; }
-.kal-tekst p { margin: 0 0 0.35rem; font-size: 0.93rem; line-height: 1.45; max-width: none; color: var(--inkt); }
-.kal-plaats { color: var(--grijs) !important; font-weight: 600; }
-.kal-voor { color: var(--grijs) !important; }
-.kal-link { margin-top: 0.5rem !important; margin-bottom: 0 !important; }
-.kal-link a { font-weight: 700; text-decoration: underline; text-decoration-color: var(--oker); text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
-.kal-label { display: inline-block; font-size: 0.72rem !important; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 999px; padding: 0.15rem 0.6rem; margin-bottom: 0.4rem !important; background: var(--c1-t); color: var(--c1) !important; }
-.kal-label.k-leefstijl, .kal-label.t-leefstijl, .kal-label.t-bewegen, .kal-label.t-voeding, .kal-label.t-slaap { background: var(--c4-t); color: var(--c4-d) !important; }
-.kal-label.k-zorg, .kal-label.t-zorg { background: var(--c2-t); color: var(--c2-d) !important; }
-.kal-label.t-mentaal, .kal-label.t-ziekte { background: var(--c3-t); color: var(--c3-d) !important; }
-.kal-item.klein { grid-template-columns: 5.2rem minmax(0, 1fr); padding: 0.8rem 0.9rem; gap: 0.8rem; }
+.kal-tekst h4 a:hover { text-decoration: underline; text-decoration-color: var(--k); text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+.kal-tekst p { margin: 0 0 0.4rem; font-size: 0.93rem; line-height: 1.45; max-width: none; color: var(--inkt); }
+.kal-plaats, .kal-voor { display: flex; gap: 0.4rem; align-items: flex-start; color: var(--grijs) !important; }
+.kal-plaats { font-weight: 600; }
+.kal-plaats .kal-ic, .kal-voor .kal-ic { margin-top: 0.2em; color: var(--k-d); }
+.kal-link { margin-top: 0.7rem !important; margin-bottom: 0 !important; }
+.kal-link a { display: inline-block; font-weight: 700; text-decoration: none; background: var(--k-t); color: var(--k-d); border-radius: 999px; padding: 0.35rem 0.9rem; }
+.kal-link a:hover { background: var(--k-d); color: var(--wit); }
+.kal-label { display: inline-flex !important; align-items: center; gap: 0.35rem; font-size: 0.72rem !important; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 999px; padding: 0.2rem 0.65rem; margin-bottom: 0.45rem !important; background: var(--k-t); color: var(--k-d) !important; }
+.kal-label .kal-ic { font-size: 0.9rem; }
+.kal-item.klein { grid-template-columns: 4.4rem minmax(0, 1fr); padding: 0.85rem 0.95rem 0.85rem 1.2rem; gap: 0.85rem; box-shadow: inset 6px 0 0 var(--k); }
+.kal-item.klein:hover { box-shadow: inset 6px 0 0 var(--k), 0 10px 24px rgba(24, 33, 58, 0.12); }
+.kal-item.klein .kal-datum { padding: 0.35rem 0.2rem 0.4rem; }
+.kal-item.klein .kal-datum span:first-child { font-size: 1.3rem; }
+.kal-item.klein .kal-datum.lang span:first-child { font-size: 0.88rem; }
 .kal-item.klein .kal-label { margin: 0.15rem 0 0 !important; }
-.kal-vorm { font-size: 0.72rem; font-weight: 600; color: var(--grijs); text-transform: uppercase; letter-spacing: 0.05em; margin-left: 0.3rem; white-space: nowrap; }
+.kal-vorm { display: inline-block; font-size: 0.68rem; font-weight: 700; color: var(--grijs); text-transform: uppercase; letter-spacing: 0.05em; margin-left: 0.25rem; padding: 0.05rem 0.45rem; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--lijn); white-space: nowrap; vertical-align: 0.1em; }
 .kal-intern { font-weight: 700; }
-.kal-volgt-kop { margin-top: 2.2rem; font-size: 1.15rem; }
-.kal-volgt { list-style: none; margin: 0.8rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.4rem 1.5rem; font-family: var(--kop); font-size: 0.93rem; }
-.kal-volgt li { padding: 0.5rem 0; border-top: 1px solid var(--lijn); display: flex; flex-direction: column; }
+
+/* Datum volgt */
+.kal-volgt-kop { display: flex; align-items: center; gap: 0.6rem; margin-top: 2.6rem; font-size: 1.2rem; }
+.kal-volgt-kop::after { content: ""; flex: 1; height: 0; border-top: 2px dashed var(--lijn); margin-left: 0.4rem; }
+.kal-volgt { list-style: none; margin: 0.9rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem 0.9rem; font-family: var(--kop); font-size: 0.93rem; }
+.kal-volgt li { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.7rem 0.9rem; border: 2px dashed var(--lijn); border-radius: 0.9rem; }
+.kal-volgt li > .kal-ic { font-size: 1.2rem; margin-top: 0.1rem; color: var(--oker); }
+.kal-volgt-tekst { display: flex; flex-direction: column; }
 .kal-volgt a { font-weight: 600; }
-.kal-volgt span { color: var(--grijs); }
+.kal-volgt-tekst > span { color: var(--grijs); }
 .kal-leeg { font-family: var(--kop); color: var(--grijs); margin-top: 1.5rem; }
-@media (max-width: 52rem) { .kal-lijst, .kal-volgt { grid-template-columns: 1fr; } }
-.kal-datum.lang span:first-child { font-size: 0.88rem; }
-.kal-datum.lang span:last-child { font-size: 0.74rem; }
-.kal-item.klein .kal-datum { padding: 0.45rem 0.25rem; }
+@media (max-width: 52rem) {
+  .kal-lijst, .kal-volgt, .kal-sprong { grid-template-columns: 1fr; }
+  .kal-kop .wrap { grid-template-columns: 1fr; }
+  .kal-tekening { display: none; }
+}
+@media (max-width: 26rem) {
+  .kal-item { grid-template-columns: 4.2rem minmax(0, 1fr); gap: 0.8rem; padding-right: 0.9rem; }
+  .kal-titel .kal-rond { width: 2.4rem; height: 2.4rem; font-size: 1.2rem; }
+}
+@media (prefers-reduced-motion: reduce) { .kal-item, .kal-tegel { transition: none; } .kal-item:hover, .kal-tegel:hover { transform: none; } }
 .anker { display: block; height: 0; scroll-margin-top: 1rem; }
 
 /* Kalender in het menu en vlag als taalkeuze */
