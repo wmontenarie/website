@@ -1210,3 +1210,14 @@ html { scroll-behavior: smooth; }
   .menu a.menu-wp, .menu a.menu-kal { padding: 0.35rem 0.65rem; font-size: 0.86rem; }
   .menu a.taal { padding: 0.2rem 0.1rem; }
 }
+/* Kalender met uitklapmenu: de link en het pijltje vormen samen één knop */
+.menu-kal-groep { gap: 0; align-items: stretch; }
+.menu-kal-groep > a.menu-kal { border-radius: 999px 0 0 999px; padding-right: 0.15rem; }
+.menu-kal-groep > .menu-knop { height: auto; width: 1.7rem; border-radius: 0 999px 999px 0; background: var(--c1-t); color: var(--spar); }
+.menu-kal-groep:hover > a.menu-kal, .menu-kal-groep:hover > .menu-knop, .menu-kal-groep > .menu-knop:hover { background: #d3e0f4; }
+.menu-kal-groep > a.menu-kal[aria-current="page"] { box-shadow: none; }
+.menu-kal-groep:has(> a[aria-current="page"]) > a.menu-kal, .menu-kal-groep:has(> a[aria-current="page"]) > .menu-knop { background: var(--spar); color: var(--wit); }
+@media (min-width: 46.01rem) {
+  .menu .menu-kal-groep > .menu-knop { width: 1.6rem; }
+  #submenu-kalender { left: auto; right: 0; min-width: 0; white-space: nowrap; }
+}
