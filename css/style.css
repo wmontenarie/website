@@ -1148,3 +1148,45 @@ html { scroll-behavior: smooth; }
 .bouwblokken.onderwerpen > div:first-child { grid-column: 1 / -1; }
 .bouwblokken.onderwerpen > div:last-child { grid-column: auto; }
 .bouwblokken.onderwerpen > div:first-child span + span { margin-top: 0.3rem; }
+
+/* ---- kalender ---- */
+.kal h2 { margin-bottom: 0.4rem; }
+.kal-filter { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 1.2rem 0 0.4rem; font-family: var(--kop); }
+.kal-filter button { font: inherit; font-size: 0.9rem; font-weight: 600; color: var(--spar); background: transparent; border: 0; box-shadow: inset 0 0 0 2px var(--lijn); border-radius: 999px; padding: 0.4rem 0.9rem; cursor: pointer; }
+.kal-filter button:hover { box-shadow: inset 0 0 0 2px var(--spar); }
+.kal-filter button.actief { background: var(--spar); color: var(--wit); box-shadow: none; }
+.kal-maand { margin-top: 1.8rem; }
+.kal-maand h3 { font-size: 1.15rem; margin: 0 0 0.7rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--oker); display: inline-block; }
+.kal-lijst { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+.kal-item { display: grid; grid-template-columns: 5.6rem minmax(0, 1fr); gap: 1rem; background: var(--mineraal); border-radius: 1rem; padding: 1rem 1.1rem; font-family: var(--kop); align-items: start; }
+.sectie:not(.wit) .kal-item { background: var(--wit); }
+.kal-item[hidden], .kal-maand[hidden] { display: none; }
+.kal-datum { margin: 0; background: var(--spar); color: var(--wit); border-radius: 0.7rem; padding: 0.55rem 0.3rem; text-align: center; display: flex; flex-direction: column; line-height: 1.15; }
+.kal-datum span:first-child { font-size: 1.05rem; font-weight: 700; }
+.kal-datum span:last-child { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.kal-tekst h4 { margin: 0 0 0.2rem; font-size: 1.05rem; line-height: 1.3; }
+.kal-tekst h4 a { text-decoration: none; }
+.kal-tekst h4 a:hover { text-decoration: underline; }
+.kal-tekst p { margin: 0 0 0.35rem; font-size: 0.93rem; line-height: 1.45; max-width: none; color: var(--inkt); }
+.kal-plaats { color: var(--grijs) !important; font-weight: 600; }
+.kal-voor { color: var(--grijs) !important; }
+.kal-link { margin-top: 0.5rem !important; margin-bottom: 0 !important; }
+.kal-link a { font-weight: 700; text-decoration: underline; text-decoration-color: var(--oker); text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
+.kal-label { display: inline-block; font-size: 0.72rem !important; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 999px; padding: 0.15rem 0.6rem; margin-bottom: 0.4rem !important; background: var(--c1-t); color: var(--c1) !important; }
+.kal-label.k-leefstijl, .kal-label.t-leefstijl, .kal-label.t-bewegen, .kal-label.t-voeding, .kal-label.t-slaap { background: var(--c4-t); color: var(--c4-d) !important; }
+.kal-label.k-zorg, .kal-label.t-zorg { background: var(--c2-t); color: var(--c2-d) !important; }
+.kal-label.t-mentaal, .kal-label.t-ziekte { background: var(--c3-t); color: var(--c3-d) !important; }
+.kal-item.klein { grid-template-columns: 5.2rem minmax(0, 1fr); padding: 0.8rem 0.9rem; gap: 0.8rem; }
+.kal-item.klein .kal-label { margin: 0.15rem 0 0 !important; }
+.kal-vorm { font-size: 0.72rem; font-weight: 600; color: var(--grijs); text-transform: uppercase; letter-spacing: 0.05em; margin-left: 0.3rem; white-space: nowrap; }
+.kal-intern { font-weight: 700; }
+.kal-volgt-kop { margin-top: 2.2rem; font-size: 1.15rem; }
+.kal-volgt { list-style: none; margin: 0.8rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.4rem 1.5rem; font-family: var(--kop); font-size: 0.93rem; }
+.kal-volgt li { padding: 0.5rem 0; border-top: 1px solid var(--lijn); display: flex; flex-direction: column; }
+.kal-volgt a { font-weight: 600; }
+.kal-volgt span { color: var(--grijs); }
+.kal-leeg { font-family: var(--kop); color: var(--grijs); margin-top: 1.5rem; }
+@media (max-width: 52rem) { .kal-lijst, .kal-volgt { grid-template-columns: 1fr; } }
+.kal-datum.lang span:first-child { font-size: 0.88rem; }
+.kal-datum.lang span:last-child { font-size: 0.74rem; }
+.kal-item.klein .kal-datum { padding: 0.45rem 0.25rem; }
