@@ -22,12 +22,17 @@ const WHITEPAPERS = {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    const lezen = request.method === 'GET' || request.method === 'HEAD';
+    const metHtml = lezen && /\.html$/i.test(url.pathname);
+    // Oude adressen met .html horen bij het adres zonder .html
+    if (metHtml) url.pathname = url.pathname.replace(/(^|\/)index\.html$/i, '$1').replace(/\.html$/i, '') || '/';
     if (DOORSTUREN.includes(url.hostname)) {
       url.hostname = HOOFD;
       url.protocol = 'https:';
       url.port = '';
       return Response.redirect(url.toString(), 301);
     }
+    if (metHtml) return Response.redirect(url.toString(), 301);
     if (url.pathname === '/verstuur') return verstuur(request, env, url);
 
     const antwoord = await env.ASSETS.fetch(request);
