@@ -1143,3 +1143,8 @@ html { scroll-behavior: smooth; }
 .dienst-links a:hover { box-shadow: inset 0 0 0 2px var(--spar); }
 .dienst-links { font-size: 0.84rem; gap: 0.4rem; }
 .dienst-links a { padding: 0.35rem 0.7rem; }
+
+/* ---- onderwerpen op de pagina Spreker: eerste onderwerp over de volle breedte ---- */
+.bouwblokken.onderwerpen > div:first-child { grid-column: 1 / -1; }
+.bouwblokken.onderwerpen > div:last-child { grid-column: auto; }
+.bouwblokken.onderwerpen > div:first-child span + span { margin-top: 0.3rem; }
