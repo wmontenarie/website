@@ -36,7 +36,9 @@ export default {
     const metHtml = lezen && /\.html$/i.test(url.pathname);
     // Oude adressen met .html horen bij het adres zonder .html
     if (metHtml) url.pathname = url.pathname.replace(/(^|\/)index\.html$/i, '$1').replace(/\.html$/i, '') || '/';
-    if (DOORSTUREN.includes(url.hostname)) {
+    // Het adres zonder slotje (http) hoort bij het adres met slotje (https)
+    const zonderSlot = url.protocol === 'http:' && url.hostname === HOOFD;
+    if (DOORSTUREN.includes(url.hostname) || zonderSlot) {
       url.hostname = HOOFD;
       url.protocol = 'https:';
       url.port = '';
