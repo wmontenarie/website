@@ -1405,3 +1405,15 @@ html { scroll-behavior: smooth; }
   .vm-balk-kop .vm-score { order: 2; }
   .vm-balk-kop .vm-niveau { order: 3; }
 }
+
+/* Oproep op de homepage om de vitaliteitsmeter in te vullen */
+.vm-cta { display: grid; grid-template-columns: 13rem minmax(0, 1fr); gap: 1.5rem 2.2rem; align-items: center; margin-top: 2.2rem; padding: 1.8rem 2rem; background: var(--spar); color: #dbe5f5; border-radius: 1.25rem; }
+.vm-cta .vm-meter { max-width: 13rem; justify-self: center; }
+.vm-cta .vm-naald { transform: rotate(22deg); }
+.vm-cta .vm-naald path { stroke: var(--wit); }
+.vm-cta .vm-meter circle { fill: var(--wit); }
+.vm-cta p { margin: 0 0 0.5rem; max-width: 40rem; }
+.vm-cta .podcast-label { color: var(--oker); }
+.vm-cta .podcast-titel { color: var(--wit); font-size: clamp(1.4rem, 3vw, 1.8rem); }
+.vm-cta .knop { margin-top: 0.6rem; }
+@media (max-width: 46rem) { .vm-cta { grid-template-columns: 1fr; padding: 1.5rem 1.3rem; } .vm-cta .vm-meter { max-width: 10rem; justify-self: start; } }
