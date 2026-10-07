@@ -1484,3 +1484,6 @@ html { scroll-behavior: smooth; }
 :is(.kerncijfers, .bouwblokken, .kenmerken, .invalshoeken) > div:has(> .ico) > :is(strong, h3, .getal) { margin: 0; line-height: 1.15; }
 .kerncijfers { gap: 0.7rem 0.8rem; }
 .invalshoeken > div:has(> .ico) > p { margin-bottom: 0; }
+
+/* Langere openingszin op de homepage: iets kleiner en breder, zodat hij op vier regels past */
+.hero-twee h1 { font-size: clamp(1.8rem, 3.3vw, 2.6rem); max-width: 17.5em; }
