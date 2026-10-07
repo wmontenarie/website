@@ -1281,3 +1281,9 @@ html { scroll-behavior: smooth; }
   .menu .menu-kal-groep > .menu-knop { width: 1.6rem; }
   #submenu-kalender { left: auto; right: 0; min-width: 0; white-space: nowrap; }
 }
+
+/* Kerncijfers onder elkaar: getal links, uitleg rechts (scenario's) */
+.kerncijfers.rijen { grid-template-columns: 1fr; gap: 0.7rem; }
+.kerncijfers.rijen > div { flex-direction: row; align-items: center; gap: 1.2rem; }
+.kerncijfers.rijen .getal { flex: none; width: 9.6rem; white-space: nowrap; }
+@media (max-width: 30rem) { .kerncijfers.rijen > div { flex-direction: column; align-items: flex-start; gap: 0.2rem; } .kerncijfers.rijen .getal { width: auto; } }
