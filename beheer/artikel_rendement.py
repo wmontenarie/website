@@ -58,7 +58,7 @@ MAIN = '''<main>
       <p>Zij bekeken bestaand onderzoek en bezochten tien Amerikaanse organisaties waar het vitaliteitsprogramma aantoonbaar resultaat had. Daaronder waren Johnson &amp; Johnson, Chevron, softwarebedrijf SAS en het ziekenhuis MD Anderson Cancer Center. Ze spraken ongeveer 300 mensen: directeuren, financieel directeuren, leidinggevenden en medewerkers die wel en niet meededen.</p>
       <figure class="infographic">
         <figcaption><strong>Het onderzoek in vier cijfers</strong></figcaption>
-        <div class="kerncijfers">
+        <div class="kerncijfers compact">
           <div>%(i_gebouw)s<span class="getal">10</span><span>organisaties bezocht</span></div>
           <div>%(i_mensen)s<span class="getal">300</span><span>mensen gesproken, ongeveer</span></div>
           <div>%(i_blok)s<span class="getal">6</span><span>bouwblokken die bij alle tien terugkwamen</span></div>
@@ -85,15 +85,7 @@ MAIN = '''<main>
       <p>De tien organisaties verschilden in grootte en sector. Toch kwamen zes dingen steeds terug.</p>
       <figure class="infographic">
         <figcaption><strong>De zes bouwblokken</strong> Wat de tien organisaties gemeen hadden</figcaption>
-        <ol class="blokken6">
-          <li class="vm-t1"><span class="blok-kop"><span class="blok-nr">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></span><strong>Leiderschap op alle niveaus</strong><span>Directie en leidinggevenden geven het goede voorbeeld.</span></li>
-          <li class="vm-t2"><span class="blok-kop"><span class="blok-nr">2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M16 9h2a2 2 0 0 1 2 2v10M3 21h18M8 7h4M8 11h4M8 15h4"/></svg></span><strong>Identiteit en cultuur</strong><span>Vitaliteit hoort bij de bedrijfsvoering en niet bij een project.</span></li>
-          <li class="vm-t3"><span class="blok-kop"><span class="blok-nr">3</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><strong>Scope, relevantie en kwaliteit</strong><span>Een aanbod dat past bij wat medewerkers nodig hebben.</span></li>
-          <li class="vm-t4"><span class="blok-kop"><span class="blok-nr">4</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7M10 12h11M18 9l3 3-3 3"/></svg></span><strong>Toeganke&shy;lijkheid</strong><span>Meedoen is makkelijk en kost weinig of niets.</span></li>
-          <li class="vm-t5"><span class="blok-kop"><span class="blok-nr">5</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></span><strong>Goede partners</strong><span>Specialistische kennis waar dat nodig is.</span></li>
-          <li class="vm-t6"><span class="blok-kop"><span class="blok-nr">6</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10v4a1 1 0 0 0 1 1h3l6 4V5L7 9H4a1 1 0 0 0-1 1zM17 8a5 5 0 0 1 0 8"/></svg></span><strong>Communicatie</strong><span>Vaak en via verschillende kanalen.</span></li>
-        </ol>
-        <p class="blokken-voet">Geen van de zes werkt op zichzelf.</p>
+[[WIEL]]        <p class="blokken-voet">Geen van de zes werkt op zichzelf.</p>
         <p class="bron-regel">Naar Berry, Mirabito en Baun, Harvard Business Review (2010)</p>
       </figure>
       <p>Ik werk ze uit in <a href="zes-bouwblokken-vitaliteitsbeleid">Zes bouwblokken voor vitaliteitsbeleid dat werkt</a>.</p>
@@ -158,4 +150,31 @@ MAIN = '''<main>
   </article>
 </main>
 '''
+# Infographic: wiel met zes segmenten, de namen staan links en rechts ernaast
+import math
+BLOKKEN = [
+ ('Leiderschap op alle niveaus', 'Directie en leidinggevenden geven het goede voorbeeld.', '<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>', '#3d6fb5', '#fff'),
+ ('Identiteit en cultuur', 'Vitaliteit hoort bij de bedrijfsvoering en niet bij een project.', '<path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M16 9h2a2 2 0 0 1 2 2v10M3 21h18M8 7h4M8 11h4M8 15h4"/>', '#e8742c', '#fff'),
+ ('Scope, relevantie en kwaliteit', 'Een aanbod dat past bij wat medewerkers nodig hebben.', '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>', '#3aa5b2', '#fff'),
+ ('Toegankelijkheid', 'Meedoen is makkelijk en kost weinig of niets.', '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7M10 12h11M18 9l3 3-3 3"/>', '#7a6bb8', '#fff'),
+ ('Goede partners', 'Specialistische kennis waar dat nodig is.', '<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>', '#f0a830', '#18213a'),
+ ('Communicatie', 'Vaak en via verschillende kanalen.', '<path d="M3 10v4a1 1 0 0 0 1 1h3l6 4V5L7 9H4a1 1 0 0 0-1 1zM17 8a5 5 0 0 1 0 8"/>', '#4f9d69', '#fff'),
+]
+def wiel():
+    cx = cy = 110; R = 104; r = 56; spleet = 2.2
+    punt = lambda straal, graden: (cx + straal * math.sin(math.radians(graden)), cy - straal * math.cos(math.radians(graden)))
+    h = '        <div class="wiel6">\n          <svg class="wiel6-beeld" viewBox="0 0 220 220" aria-hidden="true" focusable="false">'
+    for i, (naam, tekst, pad, kleur, lijn) in enumerate(BLOKKEN):
+        a0 = i * 60 + spleet; a1 = (i + 1) * 60 - spleet
+        (x0, y0), (x1, y1), (x2, y2), (x3, y3) = punt(R, a0), punt(R, a1), punt(r, a1), punt(r, a0)
+        h += '<path d="M%.1f %.1fA%d %d 0 0 1 %.1f %.1fL%.1f %.1fA%d %d 0 0 0 %.1f %.1fZ" fill="%s"/>' % (x0, y0, R, R, x1, y1, x2, y2, r, r, x3, y3, kleur)
+        mx, my = punt((R + r) / 2, i * 60 + 30)
+        h += '<g transform="translate(%.1f %.1f) scale(1.05)" fill="none" stroke="%s" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">%s</g>' % (mx - 12.6, my - 12.6, lijn, pad)
+    h += '<circle cx="110" cy="110" r="47" fill="#23406e"/><text x="110" y="105" text-anchor="middle" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="14.5" font-weight="700" fill="#fff">Vitaliteit</text><text x="110" y="123" text-anchor="middle" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="14.5" font-weight="700" fill="#f0a830">die werkt</text>'
+    h += '</svg>\n          <ol class="wiel6-lijst">\n'
+    for i, (naam, tekst, pad, kleur, lijn) in enumerate(BLOKKEN):
+        h += '            <li class="vm-t%d"><span class="wiel6-nr">%d</span><span class="wiel6-tekst"><strong>%s</strong><span>%s</span></span></li>\n' % (i + 1, i + 1, naam, tekst)
+    return h + '          </ol>\n        </div>\n'
+MAIN = MAIN.replace('[[WIEL]]', wiel())
+assert '%' not in wiel()
 maak(SLUG, TITEL, H1, BESCHR, VRAGEN, MAIN, ICO, uit=sys.argv[1] if len(sys.argv) > 1 else None)

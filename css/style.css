@@ -1447,3 +1447,32 @@ html { scroll-behavior: smooth; }
 .blokken-voet { margin: 0.7rem 0 0; padding: 0.7rem 1rem; background: var(--spar); color: var(--wit); border-radius: 0.9rem; text-align: center; font-weight: 600; max-width: none; }
 @media (max-width: 40rem) { .blokken6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .blokken6 strong { font-size: 0.95rem; } }
 @media (max-width: 24rem) { .blokken6 { grid-template-columns: 1fr; } }
+
+/* Kerncijfers compact: het cijfer staat naast het icoon */
+.kerncijfers.compact { gap: 0.7rem 0.8rem; }
+.kerncijfers.compact > div { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0.25rem 0.7rem; padding: 0.7rem 0.9rem; }
+.kerncijfers.compact .ico { margin-bottom: 0; width: 2.3rem; height: 2.3rem; }
+.kerncijfers.compact .getal { line-height: 1; }
+.kerncijfers.compact > div > span:last-child { grid-column: 1 / -1; }
+
+/* Infographic: wiel met zes bouwblokken */
+.wiel6 { display: grid; grid-template-columns: minmax(0, 1fr) 13.5rem minmax(0, 1fr); gap: 0.9rem 1.1rem; align-items: center; }
+.wiel6-beeld { grid-column: 2; grid-row: 1 / span 3; width: 100%; height: auto; }
+.wiel6-lijst { display: contents; }
+.wiel6-lijst li { display: flex; gap: 0.6rem; align-items: flex-start; margin: 0; font-size: 0.86rem; line-height: 1.35; color: var(--inkt); }
+.wiel6-lijst li:nth-child(1) { grid-column: 3; grid-row: 1; }
+.wiel6-lijst li:nth-child(2) { grid-column: 3; grid-row: 2; }
+.wiel6-lijst li:nth-child(3) { grid-column: 3; grid-row: 3; }
+.wiel6-lijst li:nth-child(4) { grid-column: 1; grid-row: 3; }
+.wiel6-lijst li:nth-child(5) { grid-column: 1; grid-row: 2; }
+.wiel6-lijst li:nth-child(6) { grid-column: 1; grid-row: 1; }
+.wiel6-lijst li:nth-child(n+4) { flex-direction: row-reverse; text-align: right; }
+.wiel6-nr { flex: none; display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--k-d); color: var(--wit); font-weight: 700; font-size: 0.95rem; box-shadow: 0 0 0 3px var(--k-t); }
+.wiel6-tekst { display: flex; flex-direction: column; gap: 0.1rem; }
+.wiel6-tekst strong { font-size: 0.98rem; line-height: 1.2; color: var(--k-d); }
+@media (max-width: 40rem) {
+  .wiel6 { grid-template-columns: 1fr; gap: 0.8rem; }
+  .wiel6-beeld { grid-column: 1; grid-row: auto; max-width: 13rem; justify-self: center; }
+  .wiel6-lijst { display: grid; gap: 0.7rem; list-style: none; margin: 0; padding: 0; }
+  .wiel6-lijst li:nth-child(n) { grid-column: auto; grid-row: auto; flex-direction: row; text-align: left; }
+}
