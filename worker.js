@@ -22,6 +22,17 @@ const BEVEILIGING = {
   'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
 };
 
+// Thema's van de vitaliteitsmeter, in de volgorde van de pagina
+const METER_THEMAS = {
+  inzicht: 'Inzicht en cijfers',
+  werkdruk: 'Werkdruk en herstel',
+  energie: 'Energie en werkplezier',
+  leiderschap: 'Leiderschap',
+  beleid: 'Beleid en organisatie',
+  gedrag: 'Gezond gedrag en omgeving'
+};
+function meterNiveau(score) { return score < 40 ? 'hier ligt werk' : score < 70 ? 'in ontwikkeling' : 'staat stevig'; }
+
 const WHITEPAPERS = {
   'businesscase-vitaliteit': 'De businesscase voor vitaliteit',
   'werkdruk-verlagen': 'Werkdruk verlagen',
@@ -167,9 +178,10 @@ async function verstuur(request, env, url) {
   const slug = v('whitepaper', 60);
   const isWhitepaper = soort === 'whitepaper' && Object.prototype.hasOwnProperty.call(WHITEPAPERS, slug);
   const isNieuwsbrief = soort === 'nieuwsbrief';
-  const goed = isWhitepaper ? '/bedankt-' + slug : isNieuwsbrief ? '/nieuwsbrief-bedankt' : '/contact?verzonden=1#formulier';
+  const isMeter = soort === 'meter';
+  const goed = isWhitepaper ? '/bedankt-' + slug : isNieuwsbrief ? '/nieuwsbrief-bedankt' : isMeter ? '/vitaliteitsmeter' : '/contact?verzonden=1#formulier';
   // Bij een whitepaper krijgt de bezoeker de download ook als het versturen mislukt
-  const mis = isWhitepaper ? goed : isNieuwsbrief ? '/contact?mislukt=1#nieuwsbrief' : '/contact?mislukt=1#formulier';
+  const mis = isWhitepaper || isMeter ? goed : isNieuwsbrief ? '/contact?mislukt=1#nieuwsbrief' : '/contact?mislukt=1#formulier';
 
   if (!eigenSite(request, url)) return klaar(false, mis, 403, 'herkomst');
   // Onzichtbaar veld dat alleen spamrobots invullen: doe alsof het gelukt is
@@ -219,6 +231,31 @@ async function verstuur(request, env, url) {
     }
     lang = tekst(f.get('uitdagingen'), 4000);
     if (lang) lang = 'Uitdagingen en waar diegene naar op zoek is:\n' + lang;
+  } else if (isMeter) {
+    // Alleen hele getallen van 0 tot en met 100 tellen als score
+    const score = (naam) => { const w = v(naam, 4); return /^\d{1,3}$/.test(w) && +w <= 100 ? +w : null; };
+    const organisatie = v('organisatie', 160);
+    const totaal = score('totaal');
+    const regels = [];
+    for (const id in METER_THEMAS) {
+      const s = score('score_' + id);
+      if (s === null) return klaar(false, mis, 400, 'invoer');
+      regels.push(METER_THEMAS[id] + ': ' + s + ' (' + meterNiveau(s) + ')');
+    }
+    if (totaal === null) return klaar(false, mis, 400, 'invoer');
+    onderwerp = 'Vitaliteitsmeter ingevuld: ' + naam + (organisatie ? ', ' + organisatie : '') + ' (totaal ' + totaal + ')';
+    rij('Naam', naam);
+    rij('Organisatie', organisatie);
+    rij('Functie', v('functie', 160));
+    rij('E-mail', email);
+    if (f.get('nieuwsbrief')) {
+      const lijst = await laposta(env, request, email, naam.split(' ')[0]);
+      rij('Wil artikelen per e-mail', lijst.ok ? 'Ja, op de lijst Nieuwsbrief gezet' : 'Ja, maar ' + zelfToevoegen(lijst));
+    } else {
+      rij('Wil artikelen per e-mail', 'Nee');
+    }
+    lang = 'Totaalscore: ' + totaal + ' van 100 (' + meterNiveau(totaal) + ')\n\nScore per thema:\n' + regels.join('\n');
+    slot = 'Deze persoon heeft de vitaliteitsmeter ingevuld en het rapport met eerste stappen bekeken. Beantwoord deze mail om ' + naam + ' te antwoorden.';
   } else {
     const waarover = v('onderwerp', 80) || 'Bericht';
     onderwerp = 'Nieuw bericht via de website: ' + waarover + ' (' + naam + ')';
