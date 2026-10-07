@@ -1476,3 +1476,11 @@ html { scroll-behavior: smooth; }
   .wiel6-lijst { display: grid; gap: 0.7rem; list-style: none; margin: 0; padding: 0; }
   .wiel6-lijst li:nth-child(n) { grid-column: auto; grid-row: auto; flex-direction: row; text-align: left; }
 }
+
+/* Alle blokken met een icoon compact: icoon links, cijfer of titel ernaast, uitleg eronder */
+:is(.kerncijfers, .bouwblokken, .kenmerken, .invalshoeken) > div:has(> .ico) { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; align-content: start; gap: 0.3rem 0.7rem; padding: 0.75rem 0.95rem; }
+:is(.kerncijfers, .bouwblokken, .kenmerken, .invalshoeken) > div:has(> .ico) > .ico { margin-bottom: 0; width: 2.3rem; height: 2.3rem; }
+:is(.kerncijfers, .bouwblokken, .kenmerken, .invalshoeken) > div:has(> .ico) > :nth-child(n+3) { grid-column: 1 / -1; margin-top: 0; }
+:is(.kerncijfers, .bouwblokken, .kenmerken, .invalshoeken) > div:has(> .ico) > :is(strong, h3, .getal) { margin: 0; line-height: 1.15; }
+.kerncijfers { gap: 0.7rem 0.8rem; }
+.invalshoeken > div:has(> .ico) > p { margin-bottom: 0; }
