@@ -1417,3 +1417,33 @@ html { scroll-behavior: smooth; }
 .vm-cta .podcast-titel { color: var(--wit); font-size: clamp(1.4rem, 3vw, 1.8rem); }
 .vm-cta .knop { margin-top: 0.6rem; }
 @media (max-width: 46rem) { .vm-cta { grid-template-columns: 1fr; padding: 1.5rem 1.3rem; } .vm-cta .vm-meter { max-width: 10rem; justify-self: start; } }
+
+/* Infographic: opbrengsten in drie rijen */
+.rendement { display: grid; gap: 0.7rem; }
+.rendement > div { display: grid; grid-template-columns: 9.6rem 8.6rem minmax(0, 1fr); background: var(--k-t); border-radius: 0.9rem; overflow: hidden; }
+.rend-kop { display: flex; flex-direction: column; justify-content: center; gap: 0.45rem; padding: 0.9rem 1rem; background: var(--k-d); box-shadow: inset -5px 0 0 var(--k); color: var(--wit); font-weight: 700; font-size: 1rem; line-height: 1.2; }
+.rend-kop svg { width: 1.9rem; height: 1.9rem; }
+.rend-getal { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0.6rem 0.4rem; font-size: 2.1rem; font-weight: 700; line-height: 1.05; color: var(--k-d); letter-spacing: -0.01em; }
+.rend-getal small { font-size: 1.05rem; font-weight: 700; margin-top: 0.15rem; }
+.rend-tekst { display: flex; flex-direction: column; justify-content: center; gap: 0.4rem; padding: 0.8rem 1rem 0.8rem 0.3rem; font-size: 0.92rem; line-height: 1.35; color: var(--inkt); }
+.rend-extra { font-size: 0.85rem; color: var(--grijs); padding-top: 0.4rem; border-top: 1px solid rgba(24, 33, 58, 0.12); }
+.rend-extra b { color: var(--k-d); }
+@media (max-width: 36rem) {
+  .rendement > div { grid-template-columns: 1fr; }
+  .rend-kop { flex-direction: row; align-items: center; padding: 0.6rem 1rem; }
+  .rend-kop svg { width: 1.4rem; height: 1.4rem; }
+  .rend-getal { align-items: flex-start; text-align: left; padding: 0.7rem 1rem 0; flex-direction: row; align-items: baseline; gap: 0.4rem; justify-content: flex-start; }
+  .rend-tekst { padding: 0.3rem 1rem 0.9rem; }
+}
+
+/* Infographic: zes bouwblokken als genummerde blokken */
+.blokken6 { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; }
+.blokken6 li { display: flex; flex-direction: column; gap: 0.3rem; margin: 0; padding: 0 0 0.9rem; background: var(--k-t); border-radius: 0.9rem; overflow: hidden; font-size: 0.88rem; line-height: 1.35; color: var(--inkt); }
+.blok-kop { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.85rem; background: var(--k-d); color: var(--wit); box-shadow: inset 0 -4px 0 var(--k); }
+.blok-nr { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+.blok-kop svg { width: 1.5rem; height: 1.5rem; }
+.blokken6 strong { padding: 0.45rem 0.85rem 0; font-size: 1rem; line-height: 1.25; color: var(--k-d); hyphens: auto; overflow-wrap: break-word; }
+.blokken6 li > span:last-child { padding: 0 0.85rem; }
+.blokken-voet { margin: 0.7rem 0 0; padding: 0.7rem 1rem; background: var(--spar); color: var(--wit); border-radius: 0.9rem; text-align: center; font-weight: 600; max-width: none; }
+@media (max-width: 40rem) { .blokken6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .blokken6 strong { font-size: 0.95rem; } }
+@media (max-width: 24rem) { .blokken6 { grid-template-columns: 1fr; } }
