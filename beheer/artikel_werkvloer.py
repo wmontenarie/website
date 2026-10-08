@@ -3,9 +3,9 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from artikel_basis import maak
 SLUG = 'vitaliteit-op-de-werkvloer'
-TITEL = 'Vitaliteit op de werkvloer: wat werkt en tien tips'
-H1 = 'Vitaliteit op de werkvloer: wat werkt en tien tips'
-BESCHR = 'Vitaliteit op de werkvloer is meer dan fruit en een sportweek. Wat volgens onderzoek werkt, en tien tips voor werkgevers en leidinggevenden.'
+TITEL = 'Vitaliteit op de werkvloer: wat werkt en elf tips'
+H1 = 'Vitaliteit op de werkvloer: wat werkt en elf tips'
+BESCHR = 'Vitaliteit op de werkvloer is meer dan fruit en een sportweek. Wat volgens onderzoek werkt, en elf tips voor werkgevers en leidinggevenden.'
 
 VRAGEN = [
  ('Wat is vitaliteit op de werkvloer?', 'De energie, veerkracht en motivatie waarmee mensen hun werk doen. Die hangt af van het werk zelf, van de leidinggevende en van de leefstijl van de medewerker.'),
@@ -62,14 +62,14 @@ MAIN = '''<main>
       </ul>
       <p>De les is niet dat leefstijl er niet toe doet. De les is dat een aanbod voor de medewerker weinig verandert als het werk en het leiderschap hetzelfde blijven. In <a href="https://www.hr2day.com/nieuws/vitaliteit-op-de-werkvloer-vraagt-meer-dan-een-fruitschaal-en-een-welzijnsweek/" target="_blank" rel="noopener">de podcast van HR2day</a> vertelde ik daar meer over.</p>
 
-      <h2>Tien tips voor vitaliteit op de werkvloer</h2>
+      <h2>Elf tips voor vitaliteit op de werkvloer</h2>
       <p>De tips zijn verdeeld over de drie bronnen van energie.</p>
       <figure class="infographic">
-        <figcaption><strong>Tien tips</strong> Op drie niveaus</figcaption>
+        <figcaption><strong>Elf tips</strong> Op drie niveaus</figcaption>
         <div class="kenmerken">
-          <div>%(i_gebouw)s<strong>Organisatie</strong><span>Tip 1 tot en met 5</span></div>
-          <div>%(i_kompas)s<strong>Leiding&shy;gevende</strong><span>Tip 6 tot en met 8</span></div>
-          <div>%(i_mens)s<strong>Medewerker</strong><span>Tip 9 en 10</span></div>
+          <div>%(i_gebouw)s<strong>Organisatie</strong><span>Tip 1 tot en met 6</span></div>
+          <div>%(i_kompas)s<strong>Leiding&shy;gevende</strong><span>Tip 7 tot en met 9</span></div>
+          <div>%(i_mens)s<strong>Medewerker</strong><span>Tip 10 en 11</span></div>
         </div>
       </figure>
 
@@ -79,22 +79,23 @@ MAIN = '''<main>
         <li><strong>Schrap iets.</strong> Elk team kiest één overleg, rapportage of regel die kan stoppen of korter kan.</li>
         <li><strong>Maak pauzes normaal.</strong> Plan geen vergaderingen van een uur achter elkaar. Laat ze vijf of tien minuten eerder eindigen.</li>
         <li><strong>Maak staan en bewegen makkelijk.</strong> Zit-sta-bureaus, wandeloverleg, een trap die je wilt nemen. Dan hoeft niemand daar apart tijd voor te maken.</li>
+        <li><strong>Maak gezond eten makkelijk.</strong> Zorg voor gezonde keuzes in het bedrijfsrestaurant en de automaten, en bij borrels en lunches. Wat makkelijk te pakken is, wordt vaker gekozen.</li>
         <li><strong>Meet waar je staat.</strong> Begin met een meting, dan weet je later wat het heeft opgeleverd. Met de gratis <a href="../vitaliteitsmeter">vitaliteitsmeter</a> heb je in vijf minuten een eerste beeld.</li>
       </ol>
       <h3>Leidinggevende</h3>
-      <ol start="6">
+      <ol start="7">
         <li><strong>Geef het goede voorbeeld.</strong> Een leidinggevende die zelf pauze neemt en 's avonds niet mailt, maakt het voor het team normaal.</li>
         <li><strong>Vraag naar energie.</strong> Maak het een vaste vraag in het werkoverleg en in het één-op-één gesprek. Vroege signalen herken je zo eerder.</li>
         <li><strong>Geef regelruimte.</strong> Laat mensen zelf bepalen hoe ze hun werk doen en wanneer. Bijna de helft heeft daar nu te weinig ruimte voor.</li>
       </ol>
       <h3>Medewerker</h3>
-      <ol start="9">
-        <li><strong>Bied leefstijl aan als aanvulling.</strong> Een inspiratiesessie over slaap, bewegen of stress helpt mensen op weg. Maar het is een aanvulling op tip 1 tot en met 8, geen vervanging.</li>
+      <ol start="10">
+        <li><strong>Bied leefstijl aan als aanvulling.</strong> Een inspiratiesessie over slaap, bewegen of stress helpt mensen op weg. Maar het is een aanvulling op tip 1 tot en met 9, geen vervanging.</li>
         <li><strong>Laat medewerkers meedenken.</strong> Vraag wat zij nodig hebben. Zij weten het best waar het knelt.</li>
       </ol>
 
       <h2>Van tips naar beleid</h2>
-      <p>Tien tips zijn een begin. Ze worden pas beleid als ze samenhangen, een doel hebben en iemand er eigenaar van is. Hoe je dat aanpakt lees je in <a href="vitaliteitsbeleid-opzetten-stappenplan">Vitaliteitsbeleid opzetten: stappenplan en voorbeeld</a>. Welke onderdelen er volgens onderzoek in horen lees je in <a href="zes-bouwblokken-vitaliteitsbeleid">Vitaliteitsbeleid: zes bouwblokken die werken</a>.</p>
+      <p>Elf tips zijn een begin. Ze worden pas beleid als ze samenhangen, een doel hebben en iemand er eigenaar van is. Hoe je dat aanpakt lees je in <a href="vitaliteitsbeleid-opzetten-stappenplan">Vitaliteitsbeleid opzetten: stappenplan en voorbeeld</a>. Welke onderdelen er volgens onderzoek in horen lees je in <a href="zes-bouwblokken-vitaliteitsbeleid">Vitaliteitsbeleid: zes bouwblokken die werken</a>.</p>
 
       <section class="vragen" aria-labelledby="vragen-kop">
         <h2 id="vragen-kop">Veelgestelde vragen over vitaliteit op de werkvloer</h2>
