@@ -2,7 +2,7 @@
 SCHAAL = ['Helemaal niet', 'Nauwelijks', 'Deels', 'Grotendeels', 'Helemaal']
 THEMAS = [
  dict(id='inzicht', naam='Inzicht en cijfers', vraag='Weet je waar je staat?', basis='Bouwblok scope, relevantie en kwaliteit. De businesscase.',
-  stellingen=['We weten hoeveel verzuim onze organisatie per jaar kost.',
+  stellingen=['We weten hoeveel het verzuim onze organisatie per jaar kost.',
               'We weten in welke teams of functies het verzuim zit en wat de oorzaken zijn.',
               'We meten minstens één keer per jaar hoe medewerkers hun werkdruk en werkplezier ervaren.',
               'De directie bespreekt minstens twee keer per jaar de cijfers over verzuim en vitaliteit.'],
