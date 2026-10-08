@@ -5,7 +5,11 @@ THEMAS = [
   stellingen=['We weten hoeveel het verzuim onze organisatie per jaar kost.',
               'We weten in welke teams of functies het verzuim zit en wat de oorzaken zijn.',
               'We meten minstens één keer per jaar hoe medewerkers hun werkdruk en werkplezier ervaren.',
+              'Directie en leidinggevenden ondernemen actie op de uitkomsten van die meting.',
               'De directie bespreekt minstens twee keer per jaar de cijfers over verzuim en vitaliteit.'],
+  # Vervolgstelling: de stelling op deze plek (tellend vanaf 0) komt alleen in beeld als de stelling ervoor
+  # niet met 'Helemaal niet' is beantwoord. Wie niet meet, krijgt de stelling over de uitkomsten dus niet.
+  vervolg=[3],
   laag='Je stuurt nu vooral op gevoel. Zonder cijfers is het lastig om budget en steun te krijgen.',
   midden='Er zijn cijfers maar ze sturen nog niet. De volgende stap is ze vast op de agenda zetten.',
   hoog='Je weet waar je staat en wat het kost. Dat is een goede basis om op te sturen.',
@@ -69,6 +73,7 @@ TOTAAL = {'laag': 'Vitaliteit hangt nu af van losse initiatieven. Er is veel te 
           'hoog': 'Vitaliteit heeft een vaste plek. Kijk waar je nog kunt aanscherpen.'}
 for t in THEMAS:
     assert len(t['stellingen']) in (4, 5) and len(t['stappen']) == 3
+    assert all(0 < v < len(t['stellingen']) and v - 1 not in t.get('vervolg', []) for v in t.get('vervolg', []))
     for s in t['stellingen'] + t['stappen'] + [t['laag'], t['midden'], t['hoog']]:
         assert '—' not in s and '–' not in s
 AANTAL = sum(len(t['stellingen']) for t in THEMAS)

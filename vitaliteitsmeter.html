@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vitaliteitsmeter: gratis vitaliteitsscan voor organisaties</title>
-<meta name="description" content="Hoe vitaal is je organisatie? Beantwoord 25 stellingen en zie direct je score op zes thema&#x27;s. Gratis vitaliteitsmeter voor directie, HR en leidinggevenden.">
+<meta name="description" content="Hoe vitaal is je organisatie? Beantwoord 26 stellingen en zie direct je score op zes thema&#x27;s. Gratis vitaliteitsmeter voor directie, HR en leidinggevenden.">
 <meta property="og:title" content="Vitaliteitsmeter voor organisaties">
-<meta property="og:description" content="Hoe vitaal is je organisatie? Beantwoord 25 stellingen en zie direct je score op zes thema&#x27;s. Gratis vitaliteitsmeter voor directie, HR en leidinggevenden.">
+<meta property="og:description" content="Hoe vitaal is je organisatie? Beantwoord 26 stellingen en zie direct je score op zes thema&#x27;s. Gratis vitaliteitsmeter voor directie, HR en leidinggevenden.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="nl_NL">
 <meta property="og:site_name" content="Walter Montenarie">
@@ -16,7 +16,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is de vitaliteitsmeter gratis?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Invullen en je scores bekijken is gratis. Voor het rapport met eerste stappen per thema vraag ik je naam, organisatie en e-mailadres."}}, {"@type": "Question", "name": "Voor wie is de vitaliteitsmeter?", "acceptedAnswer": {"@type": "Answer", "text": "Voor directeuren, HR-managers en leidinggevenden. Je beantwoordt de stellingen over je eigen organisatie of afdeling."}}, {"@type": "Question", "name": "Is dit een gevalideerd meetinstrument?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. De meter is gebaseerd op wetenschappelijke modellen en geeft een indicatie. De grenzen tussen de drie niveaus heb ik zelf gekozen. Er is geen vergelijking met andere organisaties."}}, {"@type": "Question", "name": "Wat gebeurt er met mijn antwoorden?", "acceptedAnswer": {"@type": "Answer", "text": "Je antwoorden blijven in je browser. Vraag je het rapport aan dan ontvang ik je naam, organisatie, e-mailadres en de scores per thema."}}, {"@type": "Question", "name": "Hoe lang duurt het invullen?", "acceptedAnswer": {"@type": "Answer", "text": "Ongeveer vijf minuten. Het zijn 25 stellingen verdeeld over zes thema's."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is de vitaliteitsmeter gratis?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Invullen en je scores bekijken is gratis. Voor het rapport met eerste stappen per thema vraag ik je naam, organisatie en e-mailadres."}}, {"@type": "Question", "name": "Voor wie is de vitaliteitsmeter?", "acceptedAnswer": {"@type": "Answer", "text": "Voor directeuren, HR-managers en leidinggevenden. Je beantwoordt de stellingen over je eigen organisatie of afdeling."}}, {"@type": "Question", "name": "Is dit een gevalideerd meetinstrument?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. De meter is gebaseerd op wetenschappelijke modellen en geeft een indicatie. De grenzen tussen de drie niveaus heb ik zelf gekozen. Er is geen vergelijking met andere organisaties."}}, {"@type": "Question", "name": "Wat gebeurt er met mijn antwoorden?", "acceptedAnswer": {"@type": "Answer", "text": "Je antwoorden blijven in je browser. Vraag je het rapport aan dan ontvang ik je naam, organisatie, e-mailadres en de scores per thema."}}, {"@type": "Question", "name": "Hoe lang duurt het invullen?", "acceptedAnswer": {"@type": "Answer", "text": "Ongeveer vijf minuten. Het zijn 26 stellingen verdeeld over zes thema's."}}]}</script>
 <link rel="icon" href="img/logo-beeldmerk.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,9 +74,9 @@
     <div class="wrap">
       <div>
         <h1>Vitaliteitsmeter voor organisaties</h1>
-        <p class="intro">Hoe vitaal is jouw organisatie? Beantwoord 25 stellingen en zie direct waar je staat en welk thema aandacht vraagt.</p>
+        <p class="intro">Hoe vitaal is jouw organisatie? Beantwoord 26 stellingen en zie direct waar je staat en welk thema aandacht vraagt.</p>
         <ul class="vm-feiten">
-          <li><strong>25</strong> stellingen</li>
+          <li><strong>26</strong> stellingen</li>
           <li><strong>5</strong> minuten</li>
           <li><strong>6</strong> thema's</li>
         </ul>
@@ -109,134 +109,139 @@
             <div class="vm-keuzes"><label><input type="radio" name="s3" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s3" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s3" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s3" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s3" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
-          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s4">
-            <p id="vm-s4"><span class="vm-nr">4</span>De directie bespreekt minstens twee keer per jaar de cijfers over verzuim en vitaliteit.</p>
+          <div class="vm-stelling" data-vervolg="s3" hidden role="radiogroup" aria-labelledby="vm-s4">
+            <p id="vm-s4"><span class="vm-nr">4</span>Directie en leidinggevenden ondernemen actie op de uitkomsten van die meting.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s4" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s4" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s4" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s4" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s4" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
+            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
+          </div>
+          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s5">
+            <p id="vm-s5"><span class="vm-nr">5</span>De directie bespreekt minstens twee keer per jaar de cijfers over verzuim en vitaliteit.</p>
+            <div class="vm-keuzes"><label><input type="radio" name="s5" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s5" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s5" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s5" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s5" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
         </fieldset>
         <fieldset class="vm-thema vm-t2" data-thema="werkdruk" hidden>
           <legend><span class="vm-rond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span><span><span class="vm-thema-nr">Thema 2 van 6</span><span class="vm-thema-naam">Werkdruk en herstel</span><span class="vm-thema-vraag">Is het werk te doen?</span></span></legend>
           <p class="vm-uitleg">Kies bij elke stelling in hoeverre die klopt voor jouw organisatie of afdeling.</p>
-          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s5">
-            <p id="vm-s5"><span class="vm-nr">5</span>Werkdruk is een vast onderwerp in het teamoverleg.</p>
-            <div class="vm-keuzes"><label><input type="radio" name="s5" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s5" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s5" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s5" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s5" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
-            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
-          </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s6">
-            <p id="vm-s6"><span class="vm-nr">6</span>Medewerkers kunnen hun werk doen in de tijd die ervoor staat.</p>
+            <p id="vm-s6"><span class="vm-nr">6</span>Werkdruk is een vast onderwerp in het teamoverleg.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s6" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s6" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s6" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s6" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s6" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s7">
-            <p id="vm-s7"><span class="vm-nr">7</span>Bij te hoge werkdruk stellen we prioriteiten en schrappen we werk.</p>
+            <p id="vm-s7"><span class="vm-nr">7</span>Medewerkers kunnen hun werk doen in de tijd die ervoor staat.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s7" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s7" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s7" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s7" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s7" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s8">
-            <p id="vm-s8"><span class="vm-nr">8</span>Er is ruimte voor pauzes en herstel tijdens en na het werk.</p>
+            <p id="vm-s8"><span class="vm-nr">8</span>Bij te hoge werkdruk stellen we prioriteiten en schrappen we werk.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s8" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s8" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s8" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s8" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s8" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
+            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
+          </div>
+          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s9">
+            <p id="vm-s9"><span class="vm-nr">9</span>Er is ruimte voor pauzes en herstel tijdens en na het werk.</p>
+            <div class="vm-keuzes"><label><input type="radio" name="s9" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s9" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s9" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s9" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s9" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
         </fieldset>
         <fieldset class="vm-thema vm-t3" data-thema="energie" hidden>
           <legend><span class="vm-rond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L5 14h6l-1 8 8-12h-6z"/></svg></span><span><span class="vm-thema-nr">Thema 3 van 6</span><span class="vm-thema-naam">Energie en werkplezier</span><span class="vm-thema-vraag">Geeft het werk energie?</span></span></legend>
           <p class="vm-uitleg">Kies bij elke stelling in hoeverre die klopt voor jouw organisatie of afdeling.</p>
-          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s9">
-            <p id="vm-s9"><span class="vm-nr">9</span>Medewerkers hebben invloed op hoe zij hun werk doen.</p>
-            <div class="vm-keuzes"><label><input type="radio" name="s9" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s9" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s9" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s9" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s9" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
-            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
-          </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s10">
-            <p id="vm-s10"><span class="vm-nr">10</span>Collega&#x27;s steunen elkaar en voelen zich verbonden met hun team.</p>
+            <p id="vm-s10"><span class="vm-nr">10</span>Medewerkers hebben invloed op hoe zij hun werk doen.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s10" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s10" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s10" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s10" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s10" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s11">
-            <p id="vm-s11"><span class="vm-nr">11</span>Medewerkers doen werk dat past bij hun kwaliteiten en kunnen zich ontwikkelen.</p>
+            <p id="vm-s11"><span class="vm-nr">11</span>Collega&#x27;s steunen elkaar en voelen zich verbonden met hun team.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s11" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s11" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s11" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s11" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s11" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s12">
-            <p id="vm-s12"><span class="vm-nr">12</span>Medewerkers krijgen waardering voor wat zij doen.</p>
+            <p id="vm-s12"><span class="vm-nr">12</span>Medewerkers doen werk dat past bij hun kwaliteiten en kunnen zich ontwikkelen.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s12" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s12" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s12" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s12" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s12" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
+            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
+          </div>
+          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s13">
+            <p id="vm-s13"><span class="vm-nr">13</span>Medewerkers krijgen waardering voor wat zij doen.</p>
+            <div class="vm-keuzes"><label><input type="radio" name="s13" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s13" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s13" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s13" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s13" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
         </fieldset>
         <fieldset class="vm-thema vm-t4" data-thema="leiderschap" hidden>
           <legend><span class="vm-rond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span><span class="vm-thema-nr">Thema 4 van 6</span><span class="vm-thema-naam">Leiderschap</span><span class="vm-thema-vraag">Geven leidinggevenden het voorbeeld?</span></span></legend>
           <p class="vm-uitleg">Kies bij elke stelling in hoeverre die klopt voor jouw organisatie of afdeling.</p>
-          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s13">
-            <p id="vm-s13"><span class="vm-nr">13</span>Directie en leidinggevenden geven zelf het goede voorbeeld bij vitaliteit.</p>
-            <div class="vm-keuzes"><label><input type="radio" name="s13" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s13" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s13" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s13" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s13" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
-            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
-          </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s14">
-            <p id="vm-s14"><span class="vm-nr">14</span>Leidinggevenden herkennen signalen van overbelasting bij hun medewerkers.</p>
+            <p id="vm-s14"><span class="vm-nr">14</span>Directie en leidinggevenden geven zelf het goede voorbeeld bij vitaliteit.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s14" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s14" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s14" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s14" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s14" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s15">
-            <p id="vm-s15"><span class="vm-nr">15</span>Leidinggevenden voeren op tijd het gesprek over werkdruk en vitaliteit.</p>
+            <p id="vm-s15"><span class="vm-nr">15</span>Leidinggevenden herkennen signalen van overbelasting bij hun medewerkers.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s15" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s15" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s15" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s15" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s15" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s16">
-            <p id="vm-s16"><span class="vm-nr">16</span>Leidinggevenden krijgen training en ondersteuning om dat goed te doen.</p>
+            <p id="vm-s16"><span class="vm-nr">16</span>Leidinggevenden voeren op tijd het gesprek over werkdruk en vitaliteit.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s16" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s16" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s16" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s16" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s16" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
+            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
+          </div>
+          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s17">
+            <p id="vm-s17"><span class="vm-nr">17</span>Leidinggevenden krijgen training en ondersteuning om dat goed te doen.</p>
+            <div class="vm-keuzes"><label><input type="radio" name="s17" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s17" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s17" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s17" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s17" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
         </fieldset>
         <fieldset class="vm-thema vm-t5" data-thema="beleid" hidden>
           <legend><span class="vm-rond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/></svg></span><span><span class="vm-thema-nr">Thema 5 van 6</span><span class="vm-thema-naam">Beleid en organisatie</span><span class="vm-thema-vraag">Heeft vitaliteit een vaste plek?</span></span></legend>
           <p class="vm-uitleg">Kies bij elke stelling in hoeverre die klopt voor jouw organisatie of afdeling.</p>
-          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s17">
-            <p id="vm-s17"><span class="vm-nr">17</span>We hebben gezondheids- of vitaliteitsbeleid opgesteld.</p>
-            <div class="vm-keuzes"><label><input type="radio" name="s17" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s17" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s17" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s17" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s17" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
-            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
-          </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s18">
-            <p id="vm-s18"><span class="vm-nr">18</span>Dat beleid heeft doelen die passen bij onze organisatie.</p>
+            <p id="vm-s18"><span class="vm-nr">18</span>We hebben gezondheids- of vitaliteitsbeleid opgesteld.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s18" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s18" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s18" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s18" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s18" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s19">
-            <p id="vm-s19"><span class="vm-nr">19</span>Eén persoon is verantwoordelijk voor vitaliteit en heeft daar tijd en mandaat voor.</p>
+            <p id="vm-s19"><span class="vm-nr">19</span>Dat beleid heeft doelen die passen bij onze organisatie.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s19" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s19" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s19" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s19" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s19" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s20">
-            <p id="vm-s20"><span class="vm-nr">20</span>Vitaliteit heeft een vast budget.</p>
+            <p id="vm-s20"><span class="vm-nr">20</span>Eén persoon is verantwoordelijk voor vitaliteit en heeft daar tijd en mandaat voor.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s20" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s20" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s20" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s20" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s20" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s21">
-            <p id="vm-s21"><span class="vm-nr">21</span>Vitaliteit is een vast onderdeel van de planning en van de gesprekken met medewerkers.</p>
+            <p id="vm-s21"><span class="vm-nr">21</span>Vitaliteit heeft een vast budget.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s21" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s21" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s21" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s21" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s21" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
+            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
+          </div>
+          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s22">
+            <p id="vm-s22"><span class="vm-nr">22</span>Vitaliteit is een vast onderdeel van de planning en van de gesprekken met medewerkers.</p>
+            <div class="vm-keuzes"><label><input type="radio" name="s22" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s22" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s22" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s22" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s22" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
         </fieldset>
         <fieldset class="vm-thema vm-t6" data-thema="gedrag" hidden>
           <legend><span class="vm-rond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span><span class="vm-thema-nr">Thema 6 van 6</span><span class="vm-thema-naam">Gezond gedrag en omgeving</span><span class="vm-thema-vraag">Is gezond kiezen makkelijk?</span></span></legend>
           <p class="vm-uitleg">Kies bij elke stelling in hoeverre die klopt voor jouw organisatie of afdeling.</p>
-          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s22">
-            <p id="vm-s22"><span class="vm-nr">22</span>Medewerkers weten welk vitaliteitsaanbod er is en krijgen tijd om mee te doen.</p>
-            <div class="vm-keuzes"><label><input type="radio" name="s22" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s22" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s22" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s22" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s22" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
-            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
-          </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s23">
-            <p id="vm-s23"><span class="vm-nr">23</span>De werkomgeving maakt gezond gedrag makkelijk. Denk aan gezond eten en ruimte om te bewegen.</p>
+            <p id="vm-s23"><span class="vm-nr">23</span>Medewerkers weten welk vitaliteitsaanbod er is en krijgen tijd om mee te doen.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s23" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s23" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s23" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s23" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s23" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s24">
-            <p id="vm-s24"><span class="vm-nr">24</span>We kiezen maatregelen die wetenschappelijk onderbouwd zijn.</p>
+            <p id="vm-s24"><span class="vm-nr">24</span>De werkomgeving maakt gezond gedrag makkelijk. Denk aan gezond eten en ruimte om te bewegen.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s24" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s24" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s24" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s24" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s24" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
           <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s25">
-            <p id="vm-s25"><span class="vm-nr">25</span>We communiceren regelmatig over vitaliteit en delen ervaringen van collega&#x27;s.</p>
+            <p id="vm-s25"><span class="vm-nr">25</span>We kiezen maatregelen die wetenschappelijk onderbouwd zijn.</p>
             <div class="vm-keuzes"><label><input type="radio" name="s25" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s25" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s25" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s25" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s25" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
+            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
+          </div>
+          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s26">
+            <p id="vm-s26"><span class="vm-nr">26</span>We communiceren regelmatig over vitaliteit en delen ervaringen van collega&#x27;s.</p>
+            <div class="vm-keuzes"><label><input type="radio" name="s26" value="1"><span class="n">1</span><span class="t">Helemaal niet</span></label><label><input type="radio" name="s26" value="2"><span class="n">2</span><span class="t">Nauwelijks</span></label><label><input type="radio" name="s26" value="3"><span class="n">3</span><span class="t">Deels</span></label><label><input type="radio" name="s26" value="4"><span class="n">4</span><span class="t">Grotendeels</span></label><label><input type="radio" name="s26" value="5"><span class="n">5</span><span class="t">Helemaal</span></label></div>
             <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>
           </div>
         </fieldset>
@@ -327,7 +332,7 @@
         <h3>Wat gebeurt er met mijn antwoorden?</h3>
         <p>Je antwoorden blijven in je browser. Vraag je het rapport aan dan ontvang ik je naam, organisatie, e-mailadres en de scores per thema.</p>
         <h3>Hoe lang duurt het invullen?</h3>
-        <p>Ongeveer vijf minuten. Het zijn 25 stellingen verdeeld over zes thema&#x27;s.</p>
+        <p>Ongeveer vijf minuten. Het zijn 26 stellingen verdeeld over zes thema&#x27;s.</p>
       </section>
     </div>
   </section>
@@ -362,7 +367,25 @@
     groep.querySelectorAll('label').forEach(function (l) { l.classList.toggle('gekozen', l.querySelector('input').checked); });
     e.target.closest('.vm-stelling').classList.remove('open');
     fout.hidden = true;
+    vervolg();
   });
+
+  // Vervolgstellingen: alleen in beeld als de stelling ervoor met meer dan 'Helemaal niet' is beantwoord.
+  // Een verborgen stelling telt niet mee in de score. De nummers lopen daarna weer door.
+  function vervolg() {
+    form.querySelectorAll('.vm-stelling[data-vervolg]').forEach(function (s) {
+      var bron = form.querySelector('input[name="' + s.getAttribute('data-vervolg') + '"]:checked');
+      var weg = !bron || +bron.value < 2;
+      if (weg && !s.hidden) {
+        s.querySelectorAll('input').forEach(function (i) { i.checked = false; });
+        s.querySelectorAll('.gekozen').forEach(function (l) { l.classList.remove('gekozen'); });
+        s.classList.remove('open');
+      }
+      s.hidden = weg;
+    });
+    var n = 0;
+    form.querySelectorAll('.vm-stelling').forEach(function (s) { if (!s.hidden) s.querySelector('.vm-nr').textContent = ++n; });
+  }
 
   function toon() {
     themas.forEach(function (t, i) { t.hidden = i !== stap; });
@@ -374,6 +397,7 @@
   function compleet(t) {
     var ok = true, eerste = null;
     t.querySelectorAll('.vm-stelling').forEach(function (s) {
+      if (s.hidden) return;
       var gekozen = !!s.querySelector('input:checked');
       s.classList.toggle('open', !gekozen);
       if (!gekozen) { ok = false; if (!eerste) eerste = s; }
@@ -470,11 +494,11 @@
   document.getElementById('vm-print').addEventListener('click', function () { window.print(); });
   document.getElementById('vm-opnieuw').addEventListener('click', function () {
     form.reset(); form.querySelectorAll('.gekozen').forEach(function (l) { l.classList.remove('gekozen'); });
-    scores = null; stap = 0; toon();
+    scores = null; stap = 0; vervolg(); toon();
     document.getElementById('vm-rapport').hidden = true; document.getElementById('vm-poort').hidden = false;
     uitslag.hidden = true; form.hidden = false; naar(form);
   });
-  toon();
+  vervolg(); toon();
 })();
 </script>
 <script src="js/menu.js" defer></script>

@@ -38,14 +38,16 @@ VRAGEN = [
 nr = 0; themas = ''
 for i, t in enumerate(THEMAS):
     st = ''
-    for s in t['stellingen']:
+    for j, s in enumerate(t['stellingen']):
         nr += 1
+        # Een vervolgstelling is verborgen tot de stelling ervoor met meer dan 'Helemaal niet' is beantwoord
+        extra = ' data-vervolg="s%d" hidden' % (nr - 1) if j in t.get('vervolg', []) else ''
         keuzes = ''.join('<label><input type="radio" name="s%d" value="%d"><span class="n">%d</span><span class="t">%s</span></label>' % (nr, k + 1, k + 1, SCHAAL[k]) for k in range(5))
-        st += ('          <div class="vm-stelling" role="radiogroup" aria-labelledby="vm-s%d">\n            <p id="vm-s%d"><span class="vm-nr">%d</span>%s</p>\n'
-               '            <div class="vm-keuzes">%s</div>\n            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>\n          </div>\n') % (nr, nr, nr, E(s), keuzes)
+        st += ('          <div class="vm-stelling"%s role="radiogroup" aria-labelledby="vm-s%d">\n            <p id="vm-s%d"><span class="vm-nr">%d</span>%s</p>\n'
+               '            <div class="vm-keuzes">%s</div>\n            <p class="vm-uiteinden" aria-hidden="true"><span>Helemaal niet</span><span>Helemaal</span></p>\n          </div>\n') % (extra, nr, nr, nr, E(s), keuzes)
     themas += ('        <fieldset class="vm-thema vm-t%d" data-thema="%s"%s>\n          <legend><span class="vm-rond">%s</span><span><span class="vm-thema-nr">Thema %d van 6</span><span class="vm-thema-naam">%s</span><span class="vm-thema-vraag">%s</span></span></legend>\n'
                '          <p class="vm-uitleg">Kies bij elke stelling in hoeverre die klopt voor jouw organisatie of afdeling.</p>\n%s        </fieldset>\n') % (i + 1, t['id'], '' if i == 0 else ' hidden', ico(t['id']), i + 1, E(t['naam']), E(t['vraag']), st)
-assert nr == AANTAL == 25
+assert nr == AANTAL == 26
 
 DATA = dict(themas=[dict(id=t['id'], naam=t['naam'], laag=t['laag'], midden=t['midden'], hoog=t['hoog'], stappen=t['stappen'], links=t['links'], ico=ICO[t['id']]) for t in THEMAS],
             totaal=TOTAAL, niveaus=dict(laag='Hier ligt werk', midden='In ontwikkeling', hoog='Staat stevig'))
@@ -178,7 +180,25 @@ SCRIPT = '''<script>
     groep.querySelectorAll('label').forEach(function (l) { l.classList.toggle('gekozen', l.querySelector('input').checked); });
     e.target.closest('.vm-stelling').classList.remove('open');
     fout.hidden = true;
+    vervolg();
   });
+
+  // Vervolgstellingen: alleen in beeld als de stelling ervoor met meer dan 'Helemaal niet' is beantwoord.
+  // Een verborgen stelling telt niet mee in de score. De nummers lopen daarna weer door.
+  function vervolg() {
+    form.querySelectorAll('.vm-stelling[data-vervolg]').forEach(function (s) {
+      var bron = form.querySelector('input[name="' + s.getAttribute('data-vervolg') + '"]:checked');
+      var weg = !bron || +bron.value < 2;
+      if (weg && !s.hidden) {
+        s.querySelectorAll('input').forEach(function (i) { i.checked = false; });
+        s.querySelectorAll('.gekozen').forEach(function (l) { l.classList.remove('gekozen'); });
+        s.classList.remove('open');
+      }
+      s.hidden = weg;
+    });
+    var n = 0;
+    form.querySelectorAll('.vm-stelling').forEach(function (s) { if (!s.hidden) s.querySelector('.vm-nr').textContent = ++n; });
+  }
 
   function toon() {
     themas.forEach(function (t, i) { t.hidden = i !== stap; });
@@ -190,6 +210,7 @@ SCRIPT = '''<script>
   function compleet(t) {
     var ok = true, eerste = null;
     t.querySelectorAll('.vm-stelling').forEach(function (s) {
+      if (s.hidden) return;
       var gekozen = !!s.querySelector('input:checked');
       s.classList.toggle('open', !gekozen);
       if (!gekozen) { ok = false; if (!eerste) eerste = s; }
@@ -286,11 +307,11 @@ SCRIPT = '''<script>
   document.getElementById('vm-print').addEventListener('click', function () { window.print(); });
   document.getElementById('vm-opnieuw').addEventListener('click', function () {
     form.reset(); form.querySelectorAll('.gekozen').forEach(function (l) { l.classList.remove('gekozen'); });
-    scores = null; stap = 0; toon();
+    scores = null; stap = 0; vervolg(); toon();
     document.getElementById('vm-rapport').hidden = true; document.getElementById('vm-poort').hidden = false;
     uitslag.hidden = true; form.hidden = false; naar(form);
   });
-  toon();
+  vervolg(); toon();
 })();
 </script>
 <script src="js/menu.js" defer></script>
