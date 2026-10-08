@@ -11,6 +11,7 @@ Elk script draai je vanuit de hoofdmap van de repository:
 | `python3 beheer/meter_pagina.py` | `vitaliteitsmeter.html` | `meter_inhoud.py` (thema's, stellingen, uitslagteksten) |
 | `python3 beheer/artikel_businesscase.py` | `artikelen/businesscase-vitaliteit-maken.html` | het script zelf |
 | `python3 beheer/artikel_rendement.py` | `artikelen/rendement-vitaliteitsprogramma-hbr-onderzoek.html` | het script zelf |
+| `python3 beheer/artikel_werkvloer.py` | `artikelen/vitaliteit-op-de-werkvloer.html` | het script zelf |
 | `python3 beheer/artikel_verzuim.py` | `artikelen/verzuim-terugdringen-maatregelen.html` | het script zelf |
 
 Belangrijk:
