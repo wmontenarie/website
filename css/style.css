@@ -1493,3 +1493,36 @@ html { scroll-behavior: smooth; }
 
 /* Langere openingszin op de homepage: iets kleiner en breder, zodat hij op vier regels past */
 .hero-twee h1 { font-size: clamp(1.8rem, 3.3vw, 2.6rem); max-width: 17.5em; }
+
+/* Weekaanbod: speciaal tarief Week van de Werkstress */
+.weekaanbod { background: var(--spar); color: var(--wit); border-radius: 1.25rem; padding: 1.8rem; margin: 2.5rem 0; scroll-margin-top: 6rem; }
+.weekaanbod h2 { margin-top: 0.2rem; color: var(--wit); }
+.weekaanbod a:not(.knop) { color: var(--wit); }
+.weekaanbod-label { display: inline-block; margin: 0; background: var(--oker); color: var(--inkt); font-family: var(--kop); font-weight: 700; font-size: 0.82rem; padding: 0.25rem 0.7rem; border-radius: 999px; }
+.weekaanbod-kaarten { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; margin: 1.2rem 0; }
+.weekaanbod-kaarten > div { background: var(--wit); color: var(--inkt); border-radius: 1rem; padding: 1.2rem 1.3rem; display: flex; flex-direction: column; }
+.weekaanbod-kaarten h3 { margin: 0; color: var(--spar); }
+.weekaanbod-kaarten .sub { margin: 0.2rem 0 0.6rem; color: var(--grijs); font-size: 0.9rem; }
+.weekaanbod-kaarten p { margin-top: 0; }
+.weekaanbod-kaarten .weekprijs { display: flex; align-items: baseline; gap: 0.6rem; margin: 0 0 0.35rem; font-family: var(--kop); }
+.weekaanbod-kaarten .weekprijs span { min-width: 5.5rem; color: var(--grijs); font-size: 0.9rem; }
+.weekaanbod-kaarten .weekprijs s { color: var(--grijs); }
+.weekaanbod-kaarten .weekprijs strong { color: var(--spar); font-size: 1.25rem; }
+.weekaanbod-kaarten .meer { margin-top: auto; padding-top: 0.6rem; color: var(--spar-licht); font-family: var(--kop); font-weight: 600; }
+.weekaanbod .klein { opacity: 0.85; }
+.weekaanbod .hero-knoppen .knop { background: var(--oker); color: var(--inkt); border-color: var(--oker); }
+.weekaanbod .hero-knoppen .knop.omlijnd { background: transparent; color: var(--wit); border-color: var(--wit); }
+.weekaanbod.kort { padding: 1.1rem 1.4rem; margin: 0 0 2rem; }
+.weekaanbod.kort p:last-child { margin: 0.6rem 0 0; }
+.weekaanbod-kaarten .weekprijs s, .weekaanbod-kaarten .weekprijs strong { white-space: nowrap; }
+.weekaanbod-kaarten .weekprijs { flex-wrap: wrap; }
+.weekaanbod p.klein { color: var(--wit); opacity: 0.85; }
+.weekaanbod-label { margin-bottom: 0.4rem; }
+aside.weekaanbod.kort { display: block; }
+.weekaanbod-kaarten .weekprijs { gap: 0 0.6rem; margin-bottom: 0.55rem; }
+.weekaanbod-kaarten .weekprijs span { flex-basis: 100%; min-width: 0; font-size: 0.82rem; }
+.weekaanbod-label { display: block; width: fit-content; }
+.weekaanbod.kort > p:last-child { max-width: none; margin-left: 0; float: none; width: auto; }
+aside.weekaanbod { column-count: auto; columns: auto; }
+.weekaanbod .weekaanbod-kaarten a.meer { color: var(--spar-licht); }
+.weekaanbod-kaarten .meer { font-size: 0.95rem; }

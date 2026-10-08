@@ -109,7 +109,7 @@
       </aside>
     </div>
   </section>
-  <span class="anker" id="offerte"></span><span class="anker" id="spreker"></span><span class="anker" id="advies"></span>
+  <span class="anker" id="offerte"></span><span class="anker" id="spreker"></span><span class="anker" id="advies"></span><span class="anker" id="werkstressweek"></span>
   <section class="sectie wit" id="formulier">
     <div class="wrap">
       <h2>Stuur een bericht</h2>
@@ -126,6 +126,7 @@
           <select id="cf-onderwerp" name="onderwerp">
             <option value="Kennismaking">Kennismaking</option>
             <option value="Offerte training">Offerte voor een training</option>
+            <option value="Week van de Werkstress">Sessie in de Week van de Werkstress</option>
             <option value="Spreker boeken">Spreker boeken</option>
             <option value="Advies of interim">Advies of interim-opdracht</option>
             <option value="Anders">Iets anders</option>
@@ -178,7 +179,7 @@
 (function () {
   // Het onderwerp staat achter het hekje (contact#offerte). Oude links met ?onderwerp= blijven werken.
   var q = new URLSearchParams(location.search);
-  var map = { offerte: 'Offerte training', spreker: 'Spreker boeken', advies: 'Advies of interim' };
+  var map = { offerte: 'Offerte training', spreker: 'Spreker boeken', advies: 'Advies of interim', werkstressweek: 'Week van de Werkstress' };
   var sel = document.getElementById('cf-onderwerp');
   function kiesOnderwerp() {
     var p = location.hash.replace('#', '');
