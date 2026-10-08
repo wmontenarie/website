@@ -93,7 +93,7 @@ MAIN = '''<main>
       </ul>
 
       <h2>Van maatregelen naar beleid</h2>
-      <p>Zeven losse maatregelen worden pas een aanpak als ze samenhangen en als je ze volhoudt. Begin met een meting. Met de gratis <a href="../vitaliteitsmeter">vitaliteitsmeter</a> zie je in vijf minuten waar je organisatie staat. Wil je de directie overtuigen, maak dan een <a href="businesscase-vitaliteit-maken">businesscase</a>. Hoe je de verandering in de cultuur verankert lees je in <a href="van-verzuim-naar-energie-kotter">Van verzuim naar energie</a>.</p>
+      <p>Zeven losse maatregelen worden pas een aanpak als ze samenhangen en als je ze volhoudt. Begin met een meting. Met de gratis <a href="../vitaliteitsmeter">vitaliteitsmeter</a> zie je in vijf minuten waar je organisatie staat. Wil je de directie overtuigen, maak dan een <a href="businesscase-vitaliteit-maken">businesscase</a>. Hoe je de verandering in de cultuur verankert lees je in <a href="van-verzuim-naar-energie-kotter">Cultuurverandering met het 8-stappenmodel van Kotter</a>.</p>
 
       <section class="vragen" aria-labelledby="vragen-kop">
         <h2 id="vragen-kop">Veelgestelde vragen over verzuim terugdringen</h2>
@@ -115,7 +115,7 @@ MAIN = '''<main>
         <ul>
           <li><a href="gemiddeld-verzuim-is-niet-normaal">Gemiddeld verzuim is niet normaal</a></li>
           <li><a href="businesscase-vitaliteit-maken">Businesscase vitaliteit maken in vijf stappen</a></li>
-          <li><a href="van-verzuim-naar-energie-kotter">Van verzuim naar energie met het 8-stappenmodel van Kotter</a></li>
+          <li><a href="van-verzuim-naar-energie-kotter">Cultuurverandering met het 8-stappenmodel van Kotter</a></li>
         </ul>
       </aside>
       <div class="artikel-cta">
