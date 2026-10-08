@@ -1054,7 +1054,7 @@ a[href^="tel:"] { text-decoration: none; }
 .oplevert li { background: var(--wit); padding: 1.3rem 1.4rem 1.3rem 3.6rem; position: relative; font-weight: 600; }
 .oplevert li::before { content: ""; position: absolute; left: 1.3rem; top: 1.35rem; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--c4); }
 .oplevert li::after { content: ""; position: absolute; left: 1.87rem; top: 1.68rem; width: 0.4rem; height: 0.75rem; border-right: 2.5px solid #fff; border-bottom: 2.5px solid #fff; transform: rotate(40deg); }
-.waarom { font-size: 1.3rem; line-height: 1.5; max-width: 44rem; }
+.waarom { font-size: 1.3rem; line-height: 1.5; max-width: 64rem; }
 .drie-stappen { max-width: 40rem; margin: 1.5rem 0 2rem; }
 @media (max-width: 46rem) { .herken, .oplevert { grid-template-columns: 1fr; } }
 .aanpak-knop { margin-top: 2rem; }
