@@ -1529,3 +1529,10 @@ aside.weekaanbod { column-count: auto; columns: auto; }
 .aanbod-knop { margin: 0 0 2rem; }
 .aanbod-knop .knop { display: inline-flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
 .aanbod-tag { background: var(--oker); color: var(--inkt); border-radius: 999px; padding: 0.15rem 0.6rem; font-size: 0.8rem; font-weight: 700; }
+
+/* Plan van aanpak op één pagina */
+.plan-blad { margin: 0; display: grid; gap: 0.5rem; }
+.plan-blad > div { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 0.4rem 1rem; padding: 0.7rem 0.9rem; background: var(--mineraal); border-radius: 0.7rem; }
+.plan-blad dt { font-family: var(--kop); font-weight: 700; color: var(--spar); }
+.plan-blad dd { margin: 0; }
+@media (max-width: 560px) { .plan-blad > div { grid-template-columns: 1fr; } }
