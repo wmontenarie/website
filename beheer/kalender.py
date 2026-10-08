@@ -135,7 +135,7 @@ DAGEN = [
  ('2027-06-14', '', D, 'zorg', 'Wereld Bloeddonordag', 'Dank aan bloeddonoren en een oproep om donor te worden.', 'https://www.who.int/campaigns/world-blood-donor-day'),
  ('2027-06-21', '', D, 'bewegen', 'Internationale Dag van de Yoga', 'Aandacht voor yoga als manier om lichaam en geest gezond te houden.', 'https://www.un.org/en/observances/yoga-day'),
  ('2027-06-26', '', D, 'ziekte', 'Internationale Dag tegen Drugsmisbruik', 'Aandacht voor het voorkomen van verslaving en de gevolgen van drugsgebruik.', 'https://www.un.org/en/observances/end-drug-abuse-day'),
- ('2027-07-24', '', D, 'leefstijl', 'Internationale Dag van de Zelfzorg', 'Aandacht voor wat je zelf elke dag kunt doen voor je gezondheid.', 'https://isfglobal.org/international-self-care-day/'),
+ ('2027-07-24', '', D, 'leefstijl', 'Internationale Dag van de Zelfzorg', 'Aandacht voor wat je zelf elke dag kunt doen voor je gezondheid.', 'https://www.selfcarefederation.org/news-events/happy-international-self-care-day-2026'),
  ('2027-07-28', '', D, 'ziekte', 'Wereld Hepatitis Dag', 'Aandacht voor leverontsteking door hepatitis, testen en behandeling.', 'https://www.who.int/campaigns/world-hepatitis-day'),
  ('2027-09-10', '', D, 'mentaal', 'Wereld Suïcidepreventiedag', 'Aandacht voor het voorkomen van zelfdoding en het bespreekbaar maken ervan.', 'https://www.who.int/campaigns/world-suicide-prevention-day'),
  ('2027-09-11', '', D, 'ziekte', 'Wereld Eerste Hulp Dag', 'Aandacht voor het belang van eerste hulp kunnen verlenen.', 'https://www.rodekruis.nl/'),
