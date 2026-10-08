@@ -1362,7 +1362,12 @@ html { scroll-behavior: smooth; }
 .vm-spoor { height: 0.9rem; background: var(--k-t); border-radius: 999px; overflow: hidden; margin: 0.35rem 0; }
 .vm-spoor i { display: block; height: 100%; background: var(--k); border-radius: 999px; }
 .vm-balken p { margin: 0; font-size: 0.95rem; color: var(--grijs); max-width: none; }
-.vm-aandacht { font-family: var(--kop); font-weight: 700; color: var(--spar); background: var(--c2-t); border-radius: 0.9rem; padding: 0.8rem 1.1rem; margin: 1.5rem 0 0; max-width: none; }
+.vm-aandacht { font-family: var(--kop); font-weight: 700; color: var(--spar); background: var(--c2-t); border-radius: 0.9rem; padding: 0.9rem 1.1rem 1.1rem; margin: 1.5rem 0 0; max-width: none; }
+.vm-aandacht p { margin: 0; max-width: none; }
+.vm-aanbod { margin-top: 0.8rem; padding-top: 0.8rem; border-top: 2px solid var(--wit); font-weight: 400; color: var(--inkt); font-size: 0.98rem; }
+.vm-aanbod .vm-kopje { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--c2-d); }
+.vm-aanbod .vm-aanbod-naam { font-size: 1.1rem; font-weight: 700; color: var(--spar); margin-top: 0.15rem; }
+.vm-aanbod .knop { margin-top: 0.8rem; font-size: 0.92rem; padding: 0.6rem 1.1rem; }
 .vm-poort { margin-top: 2rem; background: var(--c1-t); border-radius: 1.25rem; padding: 1.6rem 1.8rem; }
 .vm-poort[hidden], .vm-rapport[hidden], .vm-uitslag[hidden], .vm[hidden] { display: none; }
 .vm-poort h3 { margin: 0 0 0.4rem; font-size: 1.4rem; }

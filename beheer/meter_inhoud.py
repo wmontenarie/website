@@ -1,7 +1,21 @@
 # Inhoud van de vitaliteitsmeter voor organisaties. Wordt gebruikt voor het voorstel en later voor de pagina.
 SCHAAL = ['Helemaal niet', 'Nauwelijks', 'Deels', 'Grotendeels', 'Helemaal']
+# Aanbod dat in de uitslag direct onder het thema met de laagste score staat. De teksten komen van de pagina's
+# Trainingen en Diensten. Verandert daar de naam of de tekst, pas die dan ook hier aan.
+AANBOD = {
+ 'advies': dict(soort='Passend aanbod', naam='Strategisch advies', tekst='Je krijgt een businesscase van vitaliteit die laat zien wat het oplevert.',
+                link='diensten#strategisch-advies', knop='Bekijk strategisch advies'),
+ 'werkdruk': dict(soort='Passende training', naam='Training werkdruk verlagen', tekst='Na twee korte sessies weet je team waar de werkdruk vandaan komt en is het al bezig met een eigen plan.',
+                  link='trainingen#werkdruk', knop='Bekijk de training'),
+ 'bevlogenheid': dict(soort='Passende training', naam='Verminder stress, verhoog bevlogenheid', tekst='Je team ontdekt wat in het werk energie geeft en wat energie kost. Daarna maakt het afspraken om stress te verlagen.',
+                      link='trainingen#bevlogenheid', knop='Bekijk de training'),
+ 'kotter': dict(soort='Passende training', naam='Cultuurverandering met het 8-stappenmodel van Kotter', tekst='In vier dagdelen maakt je team met de acht stappen van Kotter een eigen veranderplan.',
+                link='trainingen#cultuurverandering', knop='Bekijk de training'),
+ 'inspiratie': dict(soort='Passende training', naam='Inspiratiesessies vitaliteit', tekst='In een uur krijgen je mensen kennis, een zelftest en tips waar ze dezelfde dag mee kunnen beginnen.',
+                    link='trainingen#workshops', knop='Bekijk de inspiratiesessies'),
+}
 THEMAS = [
- dict(id='inzicht', naam='Inzicht en cijfers', vraag='Weet je waar je staat?', basis='Bouwblok scope, relevantie en kwaliteit. De businesscase.',
+ dict(id='inzicht', aanbod='advies', naam='Inzicht en cijfers', vraag='Weet je waar je staat?', basis='Bouwblok scope, relevantie en kwaliteit. De businesscase.',
   stellingen=['We weten hoeveel het verzuim onze organisatie per jaar kost.',
               'We weten in welke teams of functies het verzuim zit en wat de oorzaken zijn.',
               'We meten minstens één keer per jaar hoe medewerkers hun werkdruk en werkplezier ervaren.',
@@ -15,7 +29,7 @@ THEMAS = [
   hoog='Je weet waar je staat en wat het kost. Dat is een goede basis om op te sturen.',
   stappen=['Bereken wat verzuim nu kost met de verzuimrekentool.', 'Zoek uit in welke teams en functies het verzuim zit.', 'Spreek af welke cijfers de directie elk half jaar ziet.'],
   links=[('Verzuimrekentool', 'tools#rekentool-kop'), ('Artikel: Businesscase vitaliteit', 'artikelen/businesscase-vitaliteit-maken'), ('Whitepaper: De businesscase voor vitaliteit', 'whitepaper-businesscase-vitaliteit')]),
- dict(id='werkdruk', naam='Werkdruk en herstel', vraag='Is het werk te doen?', basis='JD-R-model: stressbronnen en herstel.',
+ dict(id='werkdruk', aanbod='werkdruk', naam='Werkdruk en herstel', vraag='Is het werk te doen?', basis='JD-R-model: stressbronnen en herstel.',
   stellingen=['Werkdruk is een vast onderwerp in het teamoverleg.',
               'Medewerkers kunnen hun werk doen in de tijd die ervoor staat.',
               'Bij te hoge werkdruk stellen we prioriteiten en schrappen we werk.',
@@ -25,7 +39,7 @@ THEMAS = [
   hoog='Werkdruk is bespreekbaar en jullie grijpen in als het te veel wordt.',
   stappen=['Zet werkdruk op de agenda van elk teamoverleg.', 'Maak samen een lijst van werk dat kan stoppen.', 'Spreek af wat je doet als het te veel wordt.'],
   links=[('Artikel: Moet je je druk maken over werkdruk?', 'artikelen/moet-je-je-druk-maken-over-werkdruk'), ('Whitepaper: Werkdruk verlagen', 'whitepaper-werkdruk-verlagen'), ('Training Werkdruk verlagen', 'trainingen#werkdruk')]),
- dict(id='energie', naam='Energie en werkplezier', vraag='Geeft het werk energie?', basis='JD-R-model: energiebronnen. Het ABC van autonomie, binding en competentie.',
+ dict(id='energie', aanbod='bevlogenheid', naam='Energie en werkplezier', vraag='Geeft het werk energie?', basis='JD-R-model: energiebronnen. Het ABC van autonomie, binding en competentie.',
   stellingen=['Medewerkers hebben invloed op hoe zij hun werk doen.',
               'Collega\'s steunen elkaar en voelen zich verbonden met hun team.',
               'Medewerkers doen werk dat past bij hun kwaliteiten en kunnen zich ontwikkelen.',
@@ -35,7 +49,7 @@ THEMAS = [
   hoog='Medewerkers halen energie uit hun werk. Dat beschermt tegen uitval.',
   stappen=['Vraag in elk team wat energie geeft en wat energie kost.', 'Geef medewerkers meer zeggenschap over hoe zij hun werk doen.', 'Maak ontwikkeling een vast onderwerp in gesprekken.'],
   links=[('Artikel: Bevlogenheid is geen luxe', 'artikelen/bevlogenheid-is-geen-luxe'), ('Het JD-R-model', 'tools#jdr-model'), ('Training Verminder stress, verhoog bevlogenheid', 'trainingen#bevlogenheid')]),
- dict(id='leiderschap', naam='Leiderschap', vraag='Geven leidinggevenden het voorbeeld?', basis='Bouwblok leiderschap op alle niveaus.',
+ dict(id='leiderschap', aanbod='bevlogenheid', naam='Leiderschap', vraag='Geven leidinggevenden het voorbeeld?', basis='Bouwblok leiderschap op alle niveaus.',
   stellingen=['Directie en leidinggevenden geven zelf het goede voorbeeld bij vitaliteit.',
               'Leidinggevenden herkennen signalen van overbelasting bij hun medewerkers.',
               'Leidinggevenden voeren op tijd het gesprek over werkdruk en vitaliteit.',
@@ -45,7 +59,7 @@ THEMAS = [
   hoog='Leidinggevenden geven het voorbeeld en voeren het gesprek op tijd.',
   stappen=['Bespreek in het managementteam welk voorbeeld jullie geven.', 'Train leidinggevenden in signalen herkennen en het gesprek voeren.', 'Maak vitaliteit een vast onderwerp in het overleg van leidinggevenden.'],
   links=[('Artikel: Burn-out voorkomen in je team', 'artikelen/burn-out-voorkomen-in-je-team'), ('Whitepaper: Burn-out signaleren', 'whitepaper-burn-out-signaleren'), ('Coaching voor leidinggevenden', 'diensten#coaching')]),
- dict(id='beleid', naam='Beleid en organisatie', vraag='Heeft vitaliteit een vaste plek?', basis='Bouwblok identiteit en cultuur. Verankeren volgens Kotter.',
+ dict(id='beleid', aanbod='kotter', naam='Beleid en organisatie', vraag='Heeft vitaliteit een vaste plek?', basis='Bouwblok identiteit en cultuur. Verankeren volgens Kotter.',
   stellingen=['We hebben gezondheids- of vitaliteitsbeleid opgesteld.',
               'Dat beleid heeft doelen die passen bij onze organisatie.',
               'Eén persoon is verantwoordelijk voor vitaliteit en heeft daar tijd en mandaat voor.',
@@ -56,7 +70,7 @@ THEMAS = [
   hoog='Vitaliteit heeft een eigenaar, doelen en budget. Het hoort bij de bedrijfsvoering.',
   stappen=['Wijs één eigenaar aan met tijd en mandaat.', 'Leg twee of drie meetbare doelen vast.', 'Geef vitaliteit een vaste plek in de begroting en de planning.'],
   links=[('Artikel: Vitaliteitsbeleid opzetten', 'artikelen/vitaliteitsbeleid-opzetten-stappenplan'), ('Whitepaper: Vitaliteitsbeleid opzetten', 'whitepaper-vitaliteitsbeleid-opzetten'), ('Strategisch advies', 'diensten#strategisch-advies')]),
- dict(id='gedrag', naam='Gezond gedrag en omgeving', vraag='Is gezond kiezen makkelijk?', basis='Bouwblokken toegankelijkheid, kwaliteit en communicatie.',
+ dict(id='gedrag', aanbod='inspiratie', naam='Gezond gedrag en omgeving', vraag='Is gezond kiezen makkelijk?', basis='Bouwblokken toegankelijkheid, kwaliteit en communicatie.',
   stellingen=['Medewerkers weten welk vitaliteitsaanbod er is en krijgen tijd om mee te doen.',
               'De werkomgeving maakt gezond gedrag makkelijk. Denk aan gezond eten en ruimte om te bewegen.',
               'We kiezen maatregelen die wetenschappelijk onderbouwd zijn.',
@@ -74,6 +88,6 @@ TOTAAL = {'laag': 'Vitaliteit hangt nu af van losse initiatieven. Er is veel te 
 for t in THEMAS:
     assert len(t['stellingen']) in (4, 5) and len(t['stappen']) == 3
     assert all(0 < v < len(t['stellingen']) and v - 1 not in t.get('vervolg', []) for v in t.get('vervolg', []))
-    for s in t['stellingen'] + t['stappen'] + [t['laag'], t['midden'], t['hoog']]:
+    for s in t['stellingen'] + t['stappen'] + [t['laag'], t['midden'], t['hoog']] + [AANBOD[t['aanbod']][k] for k in ('soort', 'naam', 'tekst', 'knop')]:
         assert '—' not in s and '–' not in s
 AANTAL = sum(len(t['stellingen']) for t in THEMAS)

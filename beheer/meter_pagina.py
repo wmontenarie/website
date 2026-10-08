@@ -49,7 +49,7 @@ for i, t in enumerate(THEMAS):
                '          <p class="vm-uitleg">Kies bij elke stelling in hoeverre die klopt voor jouw organisatie of afdeling.</p>\n%s        </fieldset>\n') % (i + 1, t['id'], '' if i == 0 else ' hidden', ico(t['id']), i + 1, E(t['naam']), E(t['vraag']), st)
 assert nr == AANTAL == 26
 
-DATA = dict(themas=[dict(id=t['id'], naam=t['naam'], laag=t['laag'], midden=t['midden'], hoog=t['hoog'], stappen=t['stappen'], links=t['links'], ico=ICO[t['id']]) for t in THEMAS],
+DATA = dict(themas=[dict(id=t['id'], naam=t['naam'], aanbod=AANBOD[t['aanbod']], laag=t['laag'], midden=t['midden'], hoog=t['hoog'], stappen=t['stappen'], links=t['links'], ico=ICO[t['id']]) for t in THEMAS],
             totaal=TOTAAL, niveaus=dict(laag='Hier ligt werk', midden='In ontwikkeling', hoog='Staat stevig'))
 
 MAIN = '''<main>
@@ -93,7 +93,15 @@ MAIN = '''<main>
         </div>
         <h3>Je score per thema</h3>
         <ul class="vm-balken" id="vm-balken"></ul>
-        <p class="vm-aandacht" id="vm-aandacht"></p>
+        <div class="vm-aandacht">
+          <p id="vm-aandacht"></p>
+          <div class="vm-aanbod">
+            <p class="vm-kopje" id="vm-aanbod-soort"></p>
+            <p class="vm-aanbod-naam" id="vm-aanbod-naam"></p>
+            <p id="vm-aanbod-tekst"></p>
+            <a class="knop omlijnd" id="vm-aanbod-link" href="trainingen">Bekijk de training</a>
+          </div>
+        </div>
 
         <div class="vm-poort" id="vm-poort">
           <div>
@@ -254,6 +262,11 @@ SCRIPT = '''<script>
       lijst.appendChild(li);
     });
     document.getElementById('vm-aandacht').textContent = 'Het thema dat nu de meeste aandacht vraagt: ' + DATA.themas[laagste].naam + '.';
+    var ab = DATA.themas[laagste].aanbod, al = document.getElementById('vm-aanbod-link');
+    document.getElementById('vm-aanbod-soort').textContent = ab.soort;
+    document.getElementById('vm-aanbod-naam').textContent = ab.naam;
+    document.getElementById('vm-aanbod-tekst').textContent = ab.tekst;
+    al.textContent = ab.knop; al.href = ab.link;
     form.hidden = true; uitslag.hidden = false; naar(uitslag);
     if (window.console) console.log('Vitaliteitsmeter: uitslag getoond');
   }
