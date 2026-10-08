@@ -1536,3 +1536,4 @@ aside.weekaanbod { column-count: auto; columns: auto; }
 .plan-blad dt { font-family: var(--kop); font-weight: 700; color: var(--spar); }
 .plan-blad dd { margin: 0; }
 @media (max-width: 560px) { .plan-blad > div { grid-template-columns: 1fr; } }
+.kerncijfers.vijf > div:last-child { grid-column: 1 / -1; }
