@@ -1085,6 +1085,7 @@ html { scroll-behavior: smooth; }
 /* ---- veelgestelde vragen en uitgebreide trainingsbeschrijving ---- */
 .vragen { border-top: 1px solid var(--lijn); margin-top: 2.5rem; padding-top: 0.5rem; }
 .artikel .vragen h3 { display: block; font-size: 1.12rem; margin: 1.4rem 0 0.3rem; color: var(--spar); }
+.vragen h3 { margin: 1.6rem 0 0.3rem; }
 .vragen p { margin: 0; }
 .aanbod-meer { border-top: 1px solid var(--lijn); margin: 1.4rem 0; padding-top: 0.4rem; }
 .aanbod-meer h3 { font-size: 1.15rem; margin: 1.4rem 0 0.6rem; color: var(--spar); }
