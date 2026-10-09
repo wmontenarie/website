@@ -19,7 +19,7 @@ const BEVEILIGING = {
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Strict-Transport-Security': 'max-age=31536000',
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+  'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://ajax.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
 };
 
 // Thema's van de vitaliteitsmeter, in de volgorde van de pagina
@@ -65,6 +65,12 @@ export default {
       // De inhoudsregels gelden alleen voor pagina's, niet voor pdf's en afbeeldingen
       if (naam === 'Content-Security-Policy' && !isPagina) continue;
       kopie.headers.set(naam, BEVEILIGING[naam]);
+    }
+    // Lettertypen en afbeeldingen mag de browser bewaren, dan hoeft hij ze bij een volgend bezoek niet opnieuw op te halen.
+    // Lettertypen een jaar (een gewijzigd bestand krijgt een nieuwe naam), afbeeldingen een week.
+    if (antwoord.status === 200 || antwoord.status === 304) {
+      if (url.pathname.startsWith('/fonts/')) kopie.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+      else if (url.pathname.startsWith('/img/')) kopie.headers.set('Cache-Control', 'public, max-age=604800');
     }
     // De whitepapers zelf hoeven niet in Google te komen, de downloadpagina's wel
     if (url.pathname.startsWith('/downloads/')) kopie.headers.set('X-Robots-Tag', 'noindex');
