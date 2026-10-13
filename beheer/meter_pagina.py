@@ -328,6 +328,7 @@ SCRIPT = '''<script>
 })();
 </script>
 <script src="js/menu.js" defer></script>
+<script src="js/analytics.js" defer></script>
 </body>
 </html>
 '''
