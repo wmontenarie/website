@@ -1610,3 +1610,12 @@ aside.weekaanbod { column-count: auto; columns: auto; }
 .vl-dagdelen .opdracht b { display: block; color: var(--inkt); }
 @media (max-width: 60rem) { .vl-dagdelen { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 40rem) { .vl-zinnen, .vl-dagdelen { grid-template-columns: 1fr; } .vl-vragen { padding: 1rem 1.1rem; } }
+
+/* Eigen pagina training vitaal leiderschap */
+.kruimel { font-family: var(--kop); font-size: 0.9rem; color: var(--grijs); margin: 0 0 1rem; }
+.vl-pagina .aanbod-kop h1 { margin-bottom: 0.5rem; }
+.vl-pagina .aanbod-meer h2 { font-size: 1.3rem; margin: 1.6rem 0 0.6rem; }
+.vl-andere { margin-top: 1.5rem; }
+.kop-link { color: inherit; text-decoration: none; }
+.kop-link:hover { text-decoration: underline; }
+.geen-breuk { white-space: nowrap; }
