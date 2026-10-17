@@ -14,6 +14,11 @@ Elk script draai je vanuit de hoofdmap van de repository:
 | `python3 beheer/artikel_werkvloer.py` | `artikelen/vitaliteit-op-de-werkvloer.html` | het script zelf |
 | `python3 beheer/artikel_verzuim.py` | `artikelen/verzuim-terugdringen-maatregelen.html` | het script zelf |
 | `python3 beheer/artikel_chronisch.py` | `artikelen/werken-met-chronische-aandoening.html` | het script zelf |
+| `python3 beheer/artikel_mentaal.py` | `artikelen/mentale-gezondheid-werk-leidinggevende.html` | het script zelf |
+| `python3 beheer/artikel_werkstress_volhouden.py` | `artikelen/werkstress-aanpakken-na-de-week.html` | het script zelf |
+| `python3 beheer/artikel_mantelzorg.py` | `artikelen/mantelzorger-in-je-team.html` | het script zelf |
+| `python3 beheer/artikel_overgang.py` | `artikelen/overgang-op-het-werk.html` | het script zelf |
+| `python3 beheer/artikel_herstel.py` | `artikelen/herstel-en-rust-op-het-werk.html` | het script zelf |
 
 Belangrijk:
 
