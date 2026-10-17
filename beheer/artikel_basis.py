@@ -13,10 +13,10 @@ def maak(SLUG, TITEL, H1, BESCHR, VRAGEN, MAIN, ICO, DATUM='2026-10-07', uit=Non
     # deelknoppen en nieuwsbriefblok overnemen
     deel = re.search(r'      <aside class="deel".*?</aside>\n', basis, re.S).group(0)
     nb = re.search(r'      <aside class="nb-blok".*?</aside>\n', basis, re.S).group(0)
-    oud_titel = 'Vitaliteitsbeleid opzetten: een stappenplan'
+    oud_titel = html.unescape(re.search(r'<h1>(.*?)</h1>', basis).group(1))
     q = lambda s: urllib.parse.quote(s, safe='')
     deel = deel.replace(q(oud_titel), q(H1)).replace(OUD_SLUG, SLUG)
-    assert q(oud_titel) not in deel and OUD_SLUG not in deel and deel.count(SLUG) == 6, deel.count(SLUG)
+    assert deel.count(q(H1)) == 4 and q(oud_titel) not in deel and OUD_SLUG not in deel and deel.count(SLUG) == 6, deel.count(SLUG)
 
     art = {"@context": "https://schema.org", "@type": "Article", "headline": H1, "description": BESCHR, "inLanguage": "nl", "datePublished": DATUM, "dateModified": DATUM,
            "author": {"@type": "Person", "name": "Walter Montenarie", "jobTitle": "Adviseur duurzame inzetbaarheid", "sameAs": ["https://www.linkedin.com/in/montenarie/"]},

@@ -101,7 +101,7 @@ MAIN = '''<main>
           <div>%(i_mens)s<strong>Medewerker</strong><span>Leefstijl, omgaan met stress, herstel en eigen regie</span></div>
         </div>
       </figure>
-      <p>Tel alle kosten mee: externe begeleiding, interne coördinatie en de tijd van medewerkers en leidinggevenden. Hoe je van maatregelen beleid maakt lees je in <a href="vitaliteitsbeleid-opzetten-stappenplan">Vitaliteitsbeleid opzetten: een stappenplan</a>.</p>
+      <p>Tel alle kosten mee: externe begeleiding, interne coördinatie en de tijd van medewerkers en leidinggevenden. Hoe je van maatregelen beleid maakt lees je in <a href="vitaliteitsbeleid-opzetten-stappenplan">Vitaliteitsbeleid opzetten: stappenplan en voorbeeld</a>.</p>
 
       <h3>Stap 4: bereken het omslagpunt</h3>
       <p>Het omslagpunt is de daling van het verzuim waarbij de investering is terugverdiend. Je deelt de investering per jaar door de waarde van één procentpunt verzuim.</p>
