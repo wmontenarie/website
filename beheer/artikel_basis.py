@@ -19,8 +19,8 @@ def maak(SLUG, TITEL, H1, BESCHR, VRAGEN, MAIN, ICO, DATUM='2026-10-07', uit=Non
     assert deel.count(q(H1)) == 4 and q(oud_titel) not in deel and OUD_SLUG not in deel and deel.count(SLUG) == 6, deel.count(SLUG)
 
     art = {"@context": "https://schema.org", "@type": "Article", "headline": H1, "description": BESCHR, "inLanguage": "nl", "datePublished": DATUM, "dateModified": DATUM,
-           "author": {"@type": "Person", "name": "Walter Montenarie", "jobTitle": "Adviseur duurzame inzetbaarheid", "sameAs": ["https://www.linkedin.com/in/montenarie/"]},
-           "publisher": {"@type": "Organization", "name": "Walter Montenarie"}, "mainEntityOfPage": URL, "image": "https://waltermontenarie.com/img/deelafbeelding-2.jpg"}
+           "author": {"@type": "Person", "@id": "https://waltermontenarie.com/over-mij#walter", "name": "Walter Montenarie", "url": "https://waltermontenarie.com/over-mij", "jobTitle": "Adviseur duurzame inzetbaarheid", "sameAs": ["https://www.linkedin.com/in/montenarie/"]},
+           "publisher": {"@type": "Organization", "@id": "https://waltermontenarie.com/#organisatie", "name": "Walter Montenarie", "url": "https://waltermontenarie.com/"}, "mainEntityOfPage": URL, "image": "https://waltermontenarie.com/img/deelafbeelding-2.jpg"}
     faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": v, "acceptedAnswer": {"@type": "Answer", "text": a}} for v, a in VRAGEN]}
     kop = re.sub(r'<title>.*?</title>', '<title>%s</title>' % TITEL, kop)
     kop = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="%s">' % BESCHR, kop)

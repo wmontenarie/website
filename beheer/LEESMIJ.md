@@ -8,6 +8,7 @@ Elk script draai je vanuit de hoofdmap van de repository:
 | Script | Bouwt | Inhoud aanpassen in |
 |---|---|---|
 | `python3 beheer/kalender.py` | `kalender.html` | de lijsten EVENTS, EVENTS_VOLGT, DAGEN en DAGEN_VOLGT bovenin `kalender.py` |
+| `python3 beheer/llms.py` | `llms.txt` (samenvatting van de site voor AI-zoekmachines) | de teksten in het script; de artikelen komen uit `artikelen.html`. Draai dit opnieuw na elk nieuw artikel |
 | `python3 beheer/meter_pagina.py` | `vitaliteitsmeter.html` | `meter_inhoud.py` (thema's, stellingen, uitslagteksten) |
 | `python3 beheer/artikel_businesscase.py` | `artikelen/businesscase-vitaliteit-maken.html` | het script zelf |
 | `python3 beheer/artikel_rendement.py` | `artikelen/rendement-vitaliteitsprogramma-hbr-onderzoek.html` | het script zelf |
