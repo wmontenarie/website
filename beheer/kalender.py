@@ -3,7 +3,7 @@ import datetime as dt, html, re, json
 
 import os
 W = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '')
-GECONTROLEERD = '12 oktober 2026'
+GECONTROLEERD = '19 oktober 2026'
 MND = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december']
 MK = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec']
 
@@ -16,18 +16,21 @@ EVENTS = [
  ('2026-10-08', '2026-10-08', 'leefstijl', 'Hét Leefstijl Symposium', 'Almelo, Erve Asito en online', 'Symposium over leefstijl in de dagelijkse zorgpraktijk, met onder meer ademhaling, slaap en vrouwengezondheid.', 'Zorgprofessionals en leefstijlcoaches', 'https://www.leefstijlsymposium.nl/'),
  ('2026-10-10', '2026-10-10', 'leefstijl', 'Slaapsymposium DREAMING', 'Maarssen, InnStyle', 'Nascholing over slaap en slaapzorg.', 'Zorgprofessionals en bedrijfsartsen', 'https://events.slaapoefentherapie.nl/'),
  ('2026-10-20', '2026-10-23', 'leefstijl', 'Sleep Europe 2026', 'Maastricht, MECC', 'Europees wetenschappelijk congres over slaaponderzoek en slaapgeneeskunde. Engelstalig.', 'Onderzoekers en artsen', 'https://www.mecc.nl/events/sleep-europe-2026/'),
+ ('2026-10-28', '2026-10-28', 'werk', 'De toekomstbestendige verpleegkundige', 'Ede, ReeHorst', 'Congres over werkdruk, werkgeluk, grenzen stellen en duurzame inzetbaarheid van verpleegkundigen.', 'Verpleegkundigen, verzorgenden en andere zorgprofessionals', 'https://congressen.nursing.nl/event/toekomstbestendige-verpleegkundige/'),
  ('2026-10-30', '2026-10-30', 'leefstijl', 'Congres Voeding', 'Ede, ReeHorst', 'Congres over voeding bij het voorkomen en behandelen van chronische ziekten.', 'Huisartsen, diëtisten en andere zorgprofessionals', 'https://congressen.huisarts.bsl.nl/event/congres-voeding/'),
  ('2026-10-30', '2026-10-30', 'leefstijl', 'Congres Slaapstoornissen', 'Veenendaal, Van der Valk', 'Congres over wat werkt bij slaapproblemen in verschillende levensfasen.', 'Artsen, bedrijfsartsen, psychologen en leefstijlcoaches', 'https://congressen.huisarts.bsl.nl/event/slaapstoornissen/'),
  ('2026-10-30', '2026-10-30', 'leefstijl', 'Leefstijlcongres Van Vragen naar Doen', 'Den Haag', 'Regionaal congres over leefstijl in de paramedische praktijk.', 'Paramedici en leefstijlcoaches in Haaglanden', 'https://www.fysiogroephaaglanden.nl/leefstijlcongres-van-vragen-naar-doen'),
- ('2026-11-02', '2026-11-05', 'leefstijl', 'Kennisweek Sport & Bewegen', 'Utrecht en online', 'Kennisweek over bewegen in het dagelijks leven, beleid en gedragsverandering.', 'Beleidsadviseurs, leefstijlcoaches en buurtsportcoaches', 'https://www.beweegalliantie.nl/actueel/agenda/kennisweek-sport-bewegen'),
+ ('2026-11-02', '2026-11-05', 'leefstijl', 'Kennisweek Sport & Bewegen', 'Utrecht, Galgenwaard en online', 'Kennisweek over bewegen in het dagelijks leven, beleid en gedragsverandering.', 'Beleidsadviseurs, leefstijlcoaches en buurtsportcoaches', 'https://www.beweegalliantie.nl/actueel/agenda/kennisweek-sport-bewegen'),
  ('2026-11-03', '2026-11-03', 'werk', 'Nationaal Arbocongres', 'Baarn, Vuursche Lodge', 'Congres over arbowetgeving, de RI&E, psychosociale arbeidsbelasting en psychische klachten op het werk.', 'Arboprofessionals, preventiemedewerkers, HR en OR', 'https://www.rendementco.nl/id94-nationaal-arbo-congres.html'),
  ('2026-11-04', '2026-11-04', 'zorg', 'Mobile Healthcare Event', 'Rotterdam, Ahoy', 'Congres over digitale zorg en de juiste zorg op de juiste plek.', 'Bestuurders, managers en artsen in de zorg', 'https://www.mobilehealthcareplatform.nl/congres/info/'),
  ('2026-11-04', '2026-11-05', 'leefstijl', 'Nationaal Prehabilitatie Congres', 'Drachten, De Lawei', 'Congres over patiënten fitter maken voor een ingreep met beweging, voeding en mentale voorbereiding.', 'Artsen, fysiotherapeuten en diëtisten', 'https://congresscare.com/en/congress/6e-nationaal-prehabilitatie-congres-2026'),
  ('2026-11-09', '2026-11-09', 'leefstijl', 'Jaarevent Beweegalliantie en JOGG', 'Baarn, Vuursche Lodge', 'Middag over een leefomgeving die uitnodigt tot bewegen, met voorbeelden uit de praktijk.', 'Gemeenten, organisaties en bedrijven', 'https://www.beweegalliantie.nl/actueel/agenda/jaarevent-hoe-maken-we-bewegen-in-onze-leefomgeving-vanzelfsprekend'),
  ('2026-11-10', '2026-11-10', 'werk', 'Mental Meetup: De kracht van werk', "'s-Hertogenbosch, Podium Azijnfabriek", 'Bijeenkomst van Missie Mentaal in de Week van de Werkstress over wat werk geeft en wat helpt om mentaal gezond te werken.', 'Werkgevers, HR en professionals in mentale gezondheid', 'https://missiementaal.com/agenda/save-the-date-mental-meetup-de-kracht-van-werk'),
  ('2026-11-14', '2026-11-15', 'leefstijl', 'HOLOLIFE Summit Amsterdam', 'Halfweg, SugarFactory', 'Tweedaags Engelstalig evenement over langer gezond leven, voeding en technologie voor gezondheid.', 'Publiek, artsen en ondernemers', 'https://ams2026.hololifesummit.com/'),
+ ('2026-11-18', '2026-11-18', 'werk', 'Festival van de Bevlogenheid', 'Amersfoort, Prodentfabriek', 'Festival van de LAD en Stichting Challenge & Support over bevlogen en duurzaam inzetbaar blijven, als zorgprofessional en als team.', 'Artsen, verpleegkundigen, HR en leidinggevenden in de zorg', 'https://festivalvandebevlogenheid.yellenge.nl/'),
  ('2026-11-20', '2026-11-20', 'werk', 'WAOP Conference 2026', 'Rotterdam, Postillion WTC', 'Wetenschappelijke conferentie over werk en welzijn. Thema: Making Minds Matter at Work. Engelstalig.', 'Onderzoekers, A&O-psychologen en HR', 'https://www.eventbrite.com/e/waop-conference-2026-tickets-1984780347448'),
- ('2026-11-24', '2026-11-24', 'werk', 'HR, Arbo en Salarisnet Kennisfestival', 'Nieuwegein, NBC Congrescentrum', 'Kennisdag met sessies over onder meer vitaliteit, verzuim, het voorkomen van burn-out en de RI&E.', 'HR, arboprofessionals, leidinggevenden en OR', 'https://arbo-academy.nl/events/arbo-kennisfestival'),
+ ('2026-11-24', '2026-11-24', 'werk', 'Arbo Kennisfestival', 'Nieuwegein, NBC Congrescentrum', 'Kennisdag met sessies over onder meer vitaliteit, verzuim, het voorkomen van burn-out en de RI&E.', 'HR, arboprofessionals, leidinggevenden en OR', 'https://arbo-academy.nl/events/arbo-kennisfestival'),
+ ('2026-11-24', '2026-11-24', 'werk', 'Jaarcongres HRM en het Onderwijs', 'Utrecht, Mereveld', 'Jaarcongres over de menskracht van morgen, met aandacht voor welzijn, energie en loopbaanbewust HRM.', 'HR, bestuurders en schoolleiders in het onderwijs', 'https://www.hrmenhetonderwijs.nl/'),
  ('2026-11-26', '2026-11-27', 'werk', "Workers' Health Surveillance Conference", 'Amsterdam, Amsterdam UMC', 'Internationale conferentie over het nut van periodiek gezondheidsonderzoek bij werkenden, met op 27 november de Heijermanslezing. Grotendeels Engelstalig.', 'Bedrijfsartsen, arboprofessionals en onderzoekers', 'https://www.vumc.nl/educatie/onze-opleidingen/opleidingsdetail/workers-health-surveillance-conference.htm'),
  ('2026-12-01', '2026-12-01', 'leefstijl', 'Congres Bouwen aan de Sociale Riolering', 'Den Haag, Provinciehuis', 'Dagcongres van het Institute for Positive Health over Positieve Gezondheid in de woon- en leefomgeving.', 'Gemeenten en maatschappelijke organisaties', 'https://www.iph.nl/evenementen/1-december-2026-congres-bouwen-aan-de-sociale-riolering/'),
  ('2026-12-02', '2026-12-03', 'leefstijl', 'Gezondheidstop 2026', 'Groningen, Forum Groningen en Martinikerk', 'Landelijke top van de beweging GezondheidsTransitie over samen werken aan een gezonder Nederland. De open dag is 3 december.', 'Bestuurders en professionals uit zorg, werkgevers, overheid en kennisinstellingen', 'https://www.rug.nl/aletta/calendar/gezondheidstop-2026'),
@@ -51,13 +54,14 @@ EVENTS = [
  ('2027-04-13', '2027-04-15', 'zorg', 'Zorg & ict', 'Utrecht, Jaarbeurs', 'Driedaagse vakbeurs over technologie en digitale zorg.', 'Zorgprofessionals, ICT en zorgbestuurders', 'https://www.zorg-en-ict.nl/'),
  ('2027-04-21', '2027-04-22', 'werk', 'WorkPlace Xperience', 'Utrecht, Jaarbeurs', 'Beurs over de gezonde en prettige werkomgeving.', 'Facilitair managers en HR', 'https://www.workplacexperience.nl/'),
  ('2027-05-18', '2027-05-18', 'werk', 'Nationale Conferentie Vitaliteit 2027', 'Hilversum, NEV Campus', 'Kennisconferentie van het Nederlands Expertisecentrum Vitaliteit over preventie die werkt en het meten en borgen van vitaliteitsbeleid.', 'HR, directeuren, arboprofessionals en OR', 'https://conferentievitaliteit.nl/'),
+ ('2027-05-20', '2027-05-20', 'werk', 'Wellbeing at Work Summit Europe', 'Amsterdam', 'Internationale top over welzijn op het werk, met leiderschap, verbinding en zingeving als thema. Engelstalig.', 'HR directeuren, leidinggevenden en wellbeing managers', 'https://wellbeingatwork.world/summit/wellbeing-at-work-europe-summit-2026-amsterdam/'),
+ ('2027-05-27', '2027-05-28', 'werk', 'BG-dagen voor bedrijfsartsen', 'Locatie volgt', 'Jaarlijkse wetenschappelijke dagen van de NVAB over bedrijfsgeneeskunde en gezond werken.', 'Bedrijfsartsen en arboprofessionals', 'https://nvab-online.nl/bg-dagen/'),
  ('2027-06-21', '2027-06-24', 'zorg', 'HLTH Europe', 'Amsterdam, RAI', 'Internationaal Engelstalig evenement over innovatie in gezondheid en zorg.', 'Zorgbestuurders, bedrijven en investeerders', 'https://hlth.com/events/europe/'),
  ('2027-09-17', '2027-09-17', 'werk', 'Aftrap Nationale Vitaliteitsweek', 'Eindhoven', 'Bijeenkomst op vrijdagmiddag als start van de Nationale Vitaliteitsweek.', 'Werkgevers, HR en vitaliteitscoördinatoren', 'https://www.nationalevitaliteitsweek.nl/'),
  ('2027-09-28', '2027-09-28', 'werk', 'Jaarcongres HRM in de Zorg', "'s-Hertogenbosch, Congrescentrum 1931", 'Jaarcongres over HR in de zorg, met thema\'s als behoud van personeel, werkdruk en duurzame inzetbaarheid.', 'HR, bestuurders en managers in de zorg', 'https://www.hrmindezorg.nl/'),
 ]
 # (naam, wanneer meestal, organisator, link)
 EVENTS_VOLGT = [
- ('BG-dagen voor bedrijfsartsen', 'mei', 'NVAB', 'https://nvab-online.nl/bg-dagen/'),
  ('Landelijk Congres Mentale Gezondheid', 'juni', 'Missie Mentaal', 'https://missiementaal.com/landelijk-congres-mentale-gezondheid'),
  ('Congres Dag van de preventie', 'mei', 'Zorgvisie', 'https://congressen.zorgvisie.nl/event/congres-dag-van-de-preventie/'),
  ('Doorzaam congres over duurzame inzetbaarheid in de uitzendbranche', 'maart', 'Doorzaam', 'https://www.doorzaam.nl/over-doorzaam/congres/'),
@@ -65,6 +69,8 @@ EVENTS_VOLGT = [
  ('Congres Van zorg naar bewegen', 'juni', 'Kenniscentrum Sport & Bewegen', 'https://www.kenniscentrumsportenbewegen.nl/congres-van-zorg-naar-bewegen/'),
  ('Nationaal Arbocongres 2027', 'november', 'Rendement', 'https://www.rendementco.nl/id94-nationaal-arbo-congres.html'),
  ('Hét Leefstijl Symposium 2027', 'oktober', 'Stichting TWINZ', 'https://www.leefstijlsymposium.nl/'),
+ ('Congres Re-integratie die werkt', 'juni', 'NVAB en Universiteit Maastricht', 'https://nvab-online.nl/agenda/congres-re-integratie-die-werkt-2026-06-18-0930/'),
+ ('OR + HR Live', 'oktober', 'OR + HR Live', 'https://hrlive.nl'),
 ]
 
 # ---------------------------------------------------------------- 2. Dagen en weken van
