@@ -114,9 +114,12 @@ MAIN = '''<main>
             <input type="text" name="_honey" class="verborgen" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="veld-rij">
               <div class="veld"><label for="vm-naam">Naam</label><input id="vm-naam" type="text" name="naam" autocomplete="name" required></div>
-              <div class="veld"><label for="vm-email">E-mailadres</label><input id="vm-email" type="email" name="email" autocomplete="email" required></div>
+              <div class="veld"><label for="vm-organisatie">Organisatie</label><input id="vm-organisatie" type="text" name="organisatie" autocomplete="organization" required></div>
             </div>
-            <div class="veld"><label for="vm-organisatie">Organisatie</label><input id="vm-organisatie" type="text" name="organisatie" autocomplete="organization" required></div>
+            <div class="veld-rij">
+              <div class="veld"><label for="vm-email">E-mailadres</label><input id="vm-email" type="email" name="email" autocomplete="email" required></div>
+              <div class="veld"><label for="vm-functie">Functie <span class="optioneel">(optioneel)</span></label><input id="vm-functie" type="text" name="functie" autocomplete="organization-title"></div>
+            </div>
             <label class="vinkje"><input type="checkbox" name="nieuwsbrief" value="Ja"> Ik ontvang ook graag nieuwe artikelen per e-mail</label>
             <button class="knop" type="submit">Bekijk je eerste stappen</button>
             <p class="klein">Je antwoorden blijven in je browser. Ik ontvang je naam, organisatie, e-mailadres en de scores per thema. Ik kan je een keer benaderen over de uitslag. Lees meer in de <a href="privacy">privacyverklaring</a>.</p>
