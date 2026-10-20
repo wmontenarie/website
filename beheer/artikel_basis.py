@@ -1,12 +1,14 @@
 # Gedeelde bouwfunctie voor nieuwe artikelen, met een bestaand artikel als sjabloon.
 import re, json, html, sys, urllib.parse
 import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 W = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '')
 def ico_svg(pad): return '<span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">%s</svg></span>' % pad
 def maak(SLUG, TITEL, H1, BESCHR, VRAGEN, MAIN, ICO, DATUM='2026-10-07', uit=None):
     URL = 'https://waltermontenarie.com/artikelen/' + SLUG
     assert len(TITEL) <= 60 and len(BESCHR) <= 155 and len(H1) <= 70, (len(TITEL), len(BESCHR), len(H1))
-    basis = open(W + 'artikelen/vitaliteitsbeleid-opzetten-stappenplan.html', encoding='utf-8').read()
+    from artikel_extra import ontdoe, verrijk
+    basis = ontdoe(open(W + 'artikelen/vitaliteitsbeleid-opzetten-stappenplan.html', encoding='utf-8').read())
     OUD_SLUG = 'vitaliteitsbeleid-opzetten-stappenplan'
     kop = basis[:basis.index('<main>')]
     voet = basis[basis.index('</main>') + len('</main>\n'):]
@@ -35,9 +37,12 @@ def maak(SLUG, TITEL, H1, BESCHR, VRAGEN, MAIN, ICO, DATUM='2026-10-07', uit=Non
 
     vragen = '\n'.join('        <h3>%s</h3>\n        <p>%s</p>' % (v, a) for v, a in VRAGEN)
     main = MAIN % dict(h1=H1, vragen=vragen, deel=deel, nb=nb, **{'i_' + k: ico_svg(v) for k, v in ICO.items()})
+    standaard = not uit
     uit = uit or W + 'artikelen/' + SLUG + '.html'
     open(uit, 'w', encoding='utf-8').write(kop + main + voet)
     tekst = re.sub(r'<[^>]+>', ' ', re.sub(r'<(aside|section class="bronnen")[\s\S]*?</(aside|section)>', '', main))
     print('geschreven', uit, '| woorden', len(tekst.split()))
     for teken in ('—', '–'):
         assert teken not in main, 'streepje in tekst'
+    if standaard:
+        verrijk(uit)

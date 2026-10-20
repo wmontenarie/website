@@ -29,6 +29,7 @@ def meter(extra=''):
 
 VRAGEN = [
  ('Is de vitaliteitsmeter gratis?', 'Ja. Invullen en je scores bekijken is gratis. Voor het rapport met eerste stappen per thema vraag ik je naam, organisatie en e-mailadres.'),
+ ('Is dit een vitaliteitsscan?', 'Ja. Het is een korte vitaliteitsscan voor de organisatie. Je vult hem zelf in over je organisatie of afdeling. Het is geen vragenlijst voor medewerkers.'),
  ('Voor wie is de vitaliteitsmeter?', 'Voor directeuren, HR-managers en leidinggevenden. Je beantwoordt de stellingen over je eigen organisatie of afdeling.'),
  ('Is dit een gevalideerd meetinstrument?', 'Nee. De meter is gebaseerd op wetenschappelijke modellen en geeft een indicatie. De grenzen tussen de drie niveaus heb ik zelf gekozen. Er is geen vergelijking met andere organisaties.'),
  ('Wat gebeurt er met mijn antwoorden?', 'Je antwoorden blijven in je browser. Vraag je het rapport aan dan ontvang ik je naam, organisatie, e-mailadres en de scores per thema.'),
@@ -57,7 +58,7 @@ MAIN = '''<main>
     <div class="wrap">
       <div>
         <h1>Vitaliteitsmeter voor organisaties</h1>
-        <p class="intro">Hoe vitaal is jouw organisatie? Beantwoord %(aantal)d stellingen en zie direct waar je staat en welk thema aandacht vraagt.</p>
+        <p class="intro">Hoe vitaal is jouw organisatie? Doe de gratis vitaliteitsscan: beantwoord %(aantal)d stellingen en zie direct waar je staat en welk thema aandacht vraagt.</p>
         <ul class="vm-feiten">
           <li><strong>%(aantal)d</strong> stellingen</li>
           <li><strong>5</strong> minuten</li>
@@ -113,12 +114,9 @@ MAIN = '''<main>
             <input type="text" name="_honey" class="verborgen" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="veld-rij">
               <div class="veld"><label for="vm-naam">Naam</label><input id="vm-naam" type="text" name="naam" autocomplete="name" required></div>
-              <div class="veld"><label for="vm-organisatie">Organisatie</label><input id="vm-organisatie" type="text" name="organisatie" autocomplete="organization" required></div>
-            </div>
-            <div class="veld-rij">
               <div class="veld"><label for="vm-email">E-mailadres</label><input id="vm-email" type="email" name="email" autocomplete="email" required></div>
-              <div class="veld"><label for="vm-functie">Functie <span class="optioneel">(optioneel)</span></label><input id="vm-functie" type="text" name="functie" autocomplete="organization-title"></div>
             </div>
+            <div class="veld"><label for="vm-organisatie">Organisatie</label><input id="vm-organisatie" type="text" name="organisatie" autocomplete="organization" required></div>
             <label class="vinkje"><input type="checkbox" name="nieuwsbrief" value="Ja"> Ik ontvang ook graag nieuwe artikelen per e-mail</label>
             <button class="knop" type="submit">Bekijk je eerste stappen</button>
             <p class="klein">Je antwoorden blijven in je browser. Ik ontvang je naam, organisatie, e-mailadres en de scores per thema. Ik kan je een keer benaderen over de uitslag. Lees meer in de <a href="privacy">privacyverklaring</a>.</p>

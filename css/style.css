@@ -1178,7 +1178,7 @@ html { scroll-behavior: smooth; }
 
 /* ---- onderwerpen op de pagina Spreker: eerste onderwerp over de volle breedte ---- */
 .bouwblokken.onderwerpen > div:first-child { grid-column: 1 / -1; }
-.bouwblokken.onderwerpen > div:last-child { grid-column: auto; }
+.bouwblokken.onderwerpen > div:last-child { grid-column: 1 / -1; }
 .bouwblokken.onderwerpen > div:first-child span + span { margin-top: 0.3rem; }
 
 /* ---- kalender ---- */
@@ -1623,3 +1623,64 @@ aside.weekaanbod { column-count: auto; columns: auto; }
 @media (max-width: 52rem) { .kenmerken.vier { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 26rem) { .kenmerken.vier { grid-template-columns: 1fr; } }
 .vl-invalshoek { font-family: var(--kop); font-weight: 600; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem); line-height: 1.35; color: var(--spar); border-left: 5px solid var(--oker); padding: 0.1rem 0 0.1rem 0.9rem; margin: 0.3rem 0 1rem; }
+
+/* ---- nieuwsbrief: wat erin staat en een voorbeeld ---- */
+.nb-inhoud { margin: 0.6rem 0 0; padding-left: 1.2rem; font-family: var(--tekst); }
+.nb-inhoud li { margin: 0.15rem 0; }
+.nb-tekst p.nb-voorbeeld { margin-top: 0.5rem; font-family: var(--kop); font-weight: 600; font-size: 0.95rem; }
+.wrap.smal { max-width: 46rem; }
+.nb-mail { margin: 2rem 0; background: var(--wit); border: 1px solid var(--lijn); border-top: 5px solid var(--oker); border-radius: 1rem; overflow: hidden; box-shadow: 0 8px 24px rgba(24, 33, 58, 0.06); }
+.nb-mail-kop { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.6rem; border-bottom: 1px solid var(--lijn); font-family: var(--kop); color: var(--grijs); font-size: 0.9rem; }
+.nb-mail-kop strong { color: var(--spar); font-size: 1.05rem; }
+.nb-mail-romp { padding: 1.2rem 1.6rem 1.6rem; }
+.nb-mail-romp h2 { margin-top: 0.4rem; }
+.nb-mail-romp h3 { margin-top: 1.6rem; }
+.nb-mail-kern { border-left: 5px solid var(--oker); padding: 0.3rem 0 0.3rem 1rem; margin: 1.6rem 0; font-family: var(--kop); font-weight: 700; font-size: 1.15rem; color: var(--spar); line-height: 1.4; }
+.nb-mail-wp { background: var(--spar); color: #dbe5f5; border-radius: 1rem; padding: 1.2rem 1.4rem; margin: 1.6rem 0; }
+.nb-mail-wp .podcast-label { color: var(--oker); margin: 0; }
+.nb-mail-wp .podcast-titel { color: var(--wit); margin: 0.2rem 0 0.4rem; }
+.nb-mail-wp .knop { background: var(--oker); color: var(--inkt); }
+.nb-mail-groet { margin-top: 1.6rem; }
+@media (max-width: 36rem) { .nb-mail-kop, .nb-mail-romp { padding-left: 1.1rem; padding-right: 1.1rem; } }
+
+/* ---- artikelen: blok over de auteur ---- */
+.auteur { display: flex; gap: 1.2rem; align-items: flex-start; margin: 2.5rem 0 1.5rem; padding: 1.3rem 1.4rem; background: var(--mineraal); border-radius: 1rem; border-left: 5px solid var(--oker); }
+.auteur img { width: 96px; height: 96px; border-radius: 50%; flex: none; object-fit: cover; }
+.auteur p { margin: 0 0 0.6rem; font-size: 0.98rem; }
+.auteur .auteur-naam { font-family: var(--kop); font-weight: 700; font-size: 1.1rem; color: var(--spar); margin-bottom: 0.3rem; }
+.auteur-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.2rem; font-family: var(--kop); font-weight: 600; }
+.artikel .kruimel { margin-bottom: 0.4rem; }
+@media (max-width: 36rem) { .auteur { flex-direction: column; } .auteur img { width: 80px; height: 80px; } }
+
+/* ---- themapagina's ---- */
+.thema-hulp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.thema-blok { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--wit); border: 1px solid var(--lijn); border-top: 4px solid var(--c4); border-radius: 1rem; padding: 1.1rem; text-decoration: none; color: var(--grijs); font-size: 0.92rem; line-height: 1.4; transition: box-shadow 0.15s; }
+.thema-blok:hover { box-shadow: 0 6px 18px rgba(24, 33, 58, 0.08); }
+.thema-blok.wp { border-top-color: var(--oker); }
+.thema-blok img { width: 64px; height: auto; border-radius: 4px; flex: none; box-shadow: 0 2px 6px rgba(24, 33, 58, 0.15); }
+.thema-blok > span:last-child { display: flex; flex-direction: column; gap: 0.25rem; }
+.thema-blok strong { font-family: var(--kop); color: var(--spar); font-size: 1.05rem; line-height: 1.3; }
+.thema-blok .podcast-label { font-size: 0.72rem; }
+.thema-blok .lees { font-family: var(--kop); font-weight: 600; color: var(--spar); margin-top: 0.2rem; }
+.thema-andere { margin-top: 2rem; font-family: var(--kop); }
+.thema-andere a, .themas-rij a { display: inline-block; margin: 0.25rem 0.4rem 0.25rem 0; padding: 0.35rem 0.85rem; border-radius: 999px; background: var(--c1-t); color: var(--spar); text-decoration: none; font-weight: 600; font-size: 0.92rem; }
+.thema-andere a:hover, .themas-rij a:hover { background: var(--spar); color: var(--wit); }
+.themas-rij { margin: 1rem 0 0; font-family: var(--kop); }
+.themas-rij span { font-weight: 700; margin-right: 0.4rem; }
+@media (max-width: 56rem) { .thema-hulp { grid-template-columns: 1fr; } }
+
+/* ---- ankermenu op trainingspagina ---- */
+.anker-menu { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1.2rem 0; font-family: var(--kop); }
+.anker-menu a { padding: 0.35rem 0.85rem; border-radius: 999px; border: 1.5px solid var(--lijn); color: var(--spar); text-decoration: none; font-weight: 600; font-size: 0.92rem; background: var(--wit); }
+.anker-menu a:hover { border-color: var(--spar); }
+[id="programma"], [id="investering"], [id="waarom-kotter"], [id="vragen"] { scroll-margin-top: 5rem; }
+
+/* ---- vaste knop voor een gratis gesprek, alleen op mobiel ---- */
+.mobiel-gesprek { display: none; }
+@media (max-width: 48rem) {
+  .mobiel-gesprek { display: block; position: fixed; left: 0.75rem; right: 0.75rem; bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px)); z-index: 50; padding: 0.85rem 1rem; border-radius: 999px; background: var(--oker); color: var(--inkt); font-family: var(--kop); font-weight: 700; font-size: 1rem; text-align: center; text-decoration: none; box-shadow: 0 0.5rem 1.5rem rgba(24, 33, 58, 0.25); }
+  .mobiel-gesprek:hover, .mobiel-gesprek:focus { background: #f5b84f; color: var(--inkt); }
+  body.met-mobiel-gesprek { padding-bottom: 4.5rem; }
+}
+.artikelen-kop .kruimel, .artikelen-kop .kruimel a { color: rgba(255, 255, 255, 0.82); }
+.artikelen-kop .themas-rij span { color: var(--wit); }

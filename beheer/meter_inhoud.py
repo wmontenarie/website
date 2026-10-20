@@ -9,8 +9,8 @@ AANBOD = {
                   link='trainingen#werkdruk', knop='Bekijk de training'),
  'bevlogenheid': dict(soort='Passende training', naam='Verminder stress, verhoog bevlogenheid', tekst='Je team ontdekt wat in het werk energie geeft en wat energie kost. Daarna maakt het afspraken om stress te verlagen.',
                       link='trainingen#bevlogenheid', knop='Bekijk de training'),
- 'kotter': dict(soort='Passende training', naam='Cultuurverandering met het 8-stappenmodel van Kotter', tekst='In vier dagdelen maakt je team met de acht stappen van Kotter een eigen veranderplan.',
-                link='trainingen#cultuurverandering', knop='Bekijk de training'),
+ 'kotter': dict(soort='Passende training', naam='Training cultuurverandering', tekst='In vier dagdelen maakt je team met de acht stappen van Kotter een eigen veranderplan.',
+                link='training-cultuurverandering', knop='Bekijk de training'),
  'inspiratie': dict(soort='Passende training', naam='Inspiratiesessies vitaliteit', tekst='In een uur krijgen je mensen kennis, een zelftest en tips waar ze dezelfde dag mee kunnen beginnen.',
                     link='trainingen#workshops', knop='Bekijk de inspiratiesessies'),
 }

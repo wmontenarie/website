@@ -132,3 +132,17 @@
     } else { klaar(false); }
   });
 })();
+
+// Vaste knop "Plan een gratis gesprek" onderin het scherm op mobiel
+(function () {
+  if (document.querySelector('.mobiel-gesprek')) return;
+  var engels = (document.documentElement.lang || '').indexOf('en') === 0;
+  var a = document.createElement('a');
+  a.className = 'mobiel-gesprek';
+  a.href = 'https://calendly.com/walter-montenarie/30min';
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.textContent = engels ? 'Book a free call' : 'Plan een gratis gesprek';
+  document.body.appendChild(a);
+  document.body.classList.add('met-mobiel-gesprek');
+})();
