@@ -5,6 +5,7 @@
 THEMAS = [
     {
         'slug': 'werkdruk',
+        'wat': ('Wat is werkdruk?', 'Werkdruk is de verhouding tussen wat het werk van je vraagt en wat je aankunt. Een drukke week is geen probleem: werkdruk hoort bij werk. Het wordt een probleem als de druk te hoog is en te lang duurt zonder dat je herstelt. Te hoge werkdruk is de meest genoemde oorzaak van verzuim door het werk.'),
         'naam': 'Werkdruk',
         'titel': 'Werkdruk verlagen: artikelen, whitepaper en training',
         'h1': 'Werkdruk',
@@ -19,6 +20,7 @@ THEMAS = [
     },
     {
         'slug': 'burn-out-en-verzuim',
+        'wat': ('Wat is het verschil tussen burn-out en verzuim?', 'Verzuim is alle afwezigheid door ziekte. Burn-out is een van de oorzaken: uitputting door langdurige stress zonder herstel. Psychische klachten zoals overspannenheid en burn-out zijn de oorzaak bij vier op de tien gevallen van langdurig verzuim. Ze komen zelden onverwacht, dus wie de signalen herkent kan uitval vaak voorkomen.'),
         'naam': 'Burn-out en verzuim',
         'titel': 'Burn-out en verzuim: artikelen, whitepaper en tools',
         'h1': 'Burn-out en verzuim',
@@ -34,6 +36,7 @@ THEMAS = [
     },
     {
         'slug': 'vitaliteitsbeleid',
+        'wat': ('Wat is vitaliteitsbeleid?', 'Vitaliteitsbeleid is de manier waarop een organisatie ervoor zorgt dat medewerkers gezond, met energie en met plezier kunnen werken. Het gaat over meer dan leefstijl: werkdruk, leiderschap en cultuur horen er net zo goed bij. Beleid heeft een doel, een eigenaar en een meting. Losse activiteiten zoals fruit op het werk zijn nog geen beleid.'),
         'naam': 'Vitaliteitsbeleid',
         'titel': 'Vitaliteitsbeleid: artikelen, whitepapers en vitaliteitsscan',
         'h1': 'Vitaliteitsbeleid',
@@ -48,6 +51,7 @@ THEMAS = [
     },
     {
         'slug': 'cultuurverandering',
+        'wat': ('Wat is cultuurverandering?', "Cultuur is hoe het in een organisatie gaat als niemand kijkt: wat normaal is, wat mag en wat niet. Bij cultuurverandering verander je die vanzelfsprekendheden, bijvoorbeeld hoe je omgaat met werkdruk en herstel. Het 8-stappenmodel van Kotter helpt om zo'n verandering stap voor stap vorm te geven, van urgentie tot verankering."),
         'naam': 'Cultuurverandering',
         'titel': 'Cultuurverandering: artikelen, model van Kotter en training',
         'h1': 'Cultuurverandering',

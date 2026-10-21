@@ -1684,3 +1684,6 @@ aside.weekaanbod { column-count: auto; columns: auto; }
 }
 .artikelen-kop .kruimel, .artikelen-kop .kruimel a { color: rgba(255, 255, 255, 0.82); }
 .artikelen-kop .themas-rij span { color: var(--wit); }
+.thema-wat { background: var(--wit); border-left: 5px solid var(--oker); border-radius: 1rem; padding: 1.2rem 1.4rem; margin-bottom: 1.4rem; max-width: 54rem; }
+.thema-wat h2 { margin: 0 0 0.4rem; font-size: 1.3rem; }
+.thema-wat p { margin: 0; }

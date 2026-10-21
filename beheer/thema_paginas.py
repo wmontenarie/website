@@ -37,6 +37,10 @@ for t in THEMAS:
   </section>
   <section class="sectie artikelen-lijst">
     <div class="wrap">
+      <div class="thema-wat">
+        <h2>{t['wat'][0]}</h2>
+        <p>{t['wat'][1]}</p>
+      </div>
       <div class="thema-hulp">
         <a class="thema-blok wp" href="{wp[0]}"><img src="{wp[3]}" width="560" height="793" alt="Omslag van de whitepaper {wp[1]}" loading="lazy"><span><span class="podcast-label">Gratis whitepaper</span><strong>{wp[1]}</strong><span>{wp[2]}</span><span class="lees">Download de whitepaper</span></span></a>
         <a class="thema-blok" href="{tr[0]}">{I_GROEP}<span><span class="podcast-label">Training</span><strong>{tr[1]}</strong><span>{tr[2]}</span><span class="lees">Bekijk de training</span></span></a>
@@ -58,6 +62,7 @@ for t in THEMAS:
 '''
     url = 'https://waltermontenarie.com/' + t['slug']
     LD = [
+        {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": t['wat'][0], "acceptedAnswer": {"@type": "Answer", "text": t['wat'][1]}}]},
         {"@context": "https://schema.org", "@type": "CollectionPage", "name": t['h1'], "description": t['beschr'], "url": url, "inLanguage": "nl",
          "hasPart": [{"@type": "Article", "url": "https://waltermontenarie.com/artikelen/" + s} for s in t['artikelen'] + t['ook']]},
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [

@@ -1,6 +1,9 @@
 # Bouwt llms.txt: een korte samenvatting van de site voor AI-zoekmachines zoals ChatGPT, Perplexity en Claude.
 # De lijst met artikelen komt uit artikelen.html. Opnieuw uitvoeren na een nieuw artikel.
 import re, html, os
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from meter_inhoud import AANTAL
 W = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '')
 B = 'https://waltermontenarie.com'
 
@@ -25,7 +28,7 @@ regels = ['# Walter Montenarie, adviseur duurzame inzetbaarheid', '',
  '- [Spreker](%s/spreker): keynote, interactieve lezing, webinar of dagvoorzitter over vitaliteit, verzuim, werkstress en burn-out' % B, '',
  '## Gratis hulpmiddelen', '',
  '- [Tools](%s/tools): rekentool verzuimkosten, het JD-R-model en het 8-stappenmodel van Kotter' % B,
- '- [Vitaliteitsmeter](%s/vitaliteitsmeter): 24 stellingen over vitaliteit in je organisatie, met uitslag per thema' % B,
+ '- [Vitaliteitsmeter](%s/vitaliteitsmeter): %d stellingen over vitaliteit in je organisatie, gratis vitaliteitsscan met uitslag per thema' % (B, AANTAL),
  '- [Vitaliteitskalender](%s/kalender): evenementen en dagen en weken over gezondheid en werk in Nederland' % B,
  '- [Whitepapers](%s/whitepapers): businesscase vitaliteit, werkdruk verlagen, vitaliteitsbeleid opzetten en burn-out signaleren' % B, '',
  '## Artikelen', '']
