@@ -3,7 +3,7 @@ import datetime as dt, html, re, json
 
 import os
 W = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '')
-GECONTROLEERD = '19 oktober 2026'
+GECONTROLEERD = '26 oktober 2026'
 MND = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december']
 MK = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec']
 
@@ -26,14 +26,19 @@ EVENTS = [
  ('2026-11-04', '2026-11-05', 'leefstijl', 'Nationaal Prehabilitatie Congres', 'Drachten, De Lawei', 'Congres over patiënten fitter maken voor een ingreep met beweging, voeding en mentale voorbereiding.', 'Artsen, fysiotherapeuten en diëtisten', 'https://congresscare.com/en/congress/6e-nationaal-prehabilitatie-congres-2026'),
  ('2026-11-09', '2026-11-09', 'leefstijl', 'Jaarevent Beweegalliantie en JOGG', 'Baarn, Vuursche Lodge', 'Middag over een leefomgeving die uitnodigt tot bewegen, met voorbeelden uit de praktijk.', 'Gemeenten, organisaties en bedrijven', 'https://www.beweegalliantie.nl/actueel/agenda/jaarevent-hoe-maken-we-bewegen-in-onze-leefomgeving-vanzelfsprekend'),
  ('2026-11-10', '2026-11-10', 'werk', 'Mental Meetup: De kracht van werk', "'s-Hertogenbosch, Podium Azijnfabriek", 'Bijeenkomst van Missie Mentaal in de Week van de Werkstress over wat werk geeft en wat helpt om mentaal gezond te werken.', 'Werkgevers, HR en professionals in mentale gezondheid', 'https://missiementaal.com/agenda/save-the-date-mental-meetup-de-kracht-van-werk'),
+ ('2026-11-11', '2026-11-12', 'leefstijl', 'ELIS Innovation Summit 2026', 'Eindhoven, Melt at Avular', 'Engelstalige top over een gezonde, actieve leefstijl onder het motto Fit for life, fit for the job, ook gericht op vitaliteit op het werk.', 'Werkgevers, overheden en kennisinstellingen', 'https://elisinnovationhub.com/summit/'),
+ ('2026-11-12', '2026-11-12', 'werk', 'Netwerkbijeenkomst Slimmer werken, Slimmer leven', 'Eindhoven, High Tech Campus', 'Netwerkmiddag van DE STAP naar gezonder op het werk over vitale medewerkers en gezonder werken.', 'Werkgevers, HR en vitaliteitscoördinatoren', 'https://www.destapnaargezonder.nl/netwerkbijeenkomst-slimmer-werken-slimmer-leven/'),
  ('2026-11-14', '2026-11-15', 'leefstijl', 'HOLOLIFE Summit Amsterdam', 'Halfweg, SugarFactory', 'Tweedaags Engelstalig evenement over langer gezond leven, voeding en technologie voor gezondheid.', 'Publiek, artsen en ondernemers', 'https://ams2026.hololifesummit.com/'),
  ('2026-11-18', '2026-11-18', 'werk', 'Festival van de Bevlogenheid', 'Amersfoort, Prodentfabriek', 'Festival van de LAD en Stichting Challenge & Support over bevlogen en duurzaam inzetbaar blijven, als zorgprofessional en als team.', 'Artsen, verpleegkundigen, HR en leidinggevenden in de zorg', 'https://festivalvandebevlogenheid.yellenge.nl/'),
  ('2026-11-20', '2026-11-20', 'werk', 'WAOP Conference 2026', 'Rotterdam, Postillion WTC', 'Wetenschappelijke conferentie over werk en welzijn. Thema: Making Minds Matter at Work. Engelstalig.', 'Onderzoekers, A&O-psychologen en HR', 'https://www.eventbrite.com/e/waop-conference-2026-tickets-1984780347448'),
  ('2026-11-24', '2026-11-24', 'werk', 'Arbo Kennisfestival', 'Nieuwegein, NBC Congrescentrum', 'Kennisdag met sessies over onder meer vitaliteit, verzuim, het voorkomen van burn-out en de RI&E.', 'HR, arboprofessionals, leidinggevenden en OR', 'https://arbo-academy.nl/events/arbo-kennisfestival'),
+ ('2026-11-24', '2026-11-24', 'werk', 'HR Kennisfestival', 'Nieuwegein, NBC Congrescentrum', 'Kennisdag met sessies over verzuim, mentaal verzuim, vitaliteit, duurzame inzetbaarheid en arbeidsrecht.', 'HR, arboprofessionals en salarisprofessionals', 'https://pwacademy.nl/events/hr-kennisfestival'),
  ('2026-11-24', '2026-11-24', 'werk', 'Jaarcongres HRM en het Onderwijs', 'Utrecht, Mereveld', 'Jaarcongres over de menskracht van morgen, met aandacht voor welzijn, energie en loopbaanbewust HRM.', 'HR, bestuurders en schoolleiders in het onderwijs', 'https://www.hrmenhetonderwijs.nl/'),
  ('2026-11-26', '2026-11-27', 'werk', "Workers' Health Surveillance Conference", 'Amsterdam, Amsterdam UMC', 'Internationale conferentie over het nut van periodiek gezondheidsonderzoek bij werkenden, met op 27 november de Heijermanslezing. Grotendeels Engelstalig.', 'Bedrijfsartsen, arboprofessionals en onderzoekers', 'https://www.vumc.nl/educatie/onze-opleidingen/opleidingsdetail/workers-health-surveillance-conference.htm'),
  ('2026-12-01', '2026-12-01', 'leefstijl', 'Congres Bouwen aan de Sociale Riolering', 'Den Haag, Provinciehuis', 'Dagcongres van het Institute for Positive Health over Positieve Gezondheid in de woon- en leefomgeving.', 'Gemeenten en maatschappelijke organisaties', 'https://www.iph.nl/evenementen/1-december-2026-congres-bouwen-aan-de-sociale-riolering/'),
+ ('2026-12-01', '2026-12-01', 'zorg', 'Congres Vrouw en Leiderschap in de Zorg', 'Utrecht, Van der Valk', 'Congres van Skipr over zichtbaarheid, invloed en authentiek leiderschap van vrouwen in de zorg, met aandacht voor veerkracht.', 'Vrouwelijke leidinggevenden, bestuurders en professionals in de zorg', 'https://events.skipr.nl/event/vrouw-en-leiderschap/'),
  ('2026-12-02', '2026-12-03', 'leefstijl', 'Gezondheidstop 2026', 'Groningen, Forum Groningen en Martinikerk', 'Landelijke top van de beweging GezondheidsTransitie over samen werken aan een gezonder Nederland. De open dag is 3 december.', 'Bestuurders en professionals uit zorg, werkgevers, overheid en kennisinstellingen', 'https://www.rug.nl/aletta/calendar/gezondheidstop-2026'),
+ ('2026-12-03', '2026-12-03', 'leefstijl', 'ERGO Healthy Ageing Summit', 'Rotterdam, De Doelen', 'Nieuwe jaarlijkse bijeenkomst van Erasmus MC over gezond ouder worden en preventie die vroeg begint.', 'Zorgprofessionals, onderzoekers en beleidsmakers', 'https://hetcongresbureau.nl/evenement/ergo-healthy-ageing-summit/'),
  ('2027-01-26', '2027-01-28', 'zorg', 'ICT&health World Conference 2027', 'Maastricht, MECC', 'Driedaagse internationale conferentie over digitale zorg en de verandering van de zorg.', 'Zorgprofessionals, bestuurders en beleidsmakers', 'https://www.icthealth.nl/events/icthealth-world-conference-2027'),
  ('2027-01-29', '2027-01-29', 'leefstijl', 'Jaarcongres Vrouw & Gezondheid', 'Woerden, Van der Valk', 'Congres over de gezondheid van vrouwen, waaronder de overgang, migraine en hart- en vaatziekten.', 'Huisartsen, bedrijfsartsen en praktijkondersteuners', 'https://congressen.huisarts.bsl.nl/event/vrouw-en-gezondheid/'),
  ('2027-02-02', '2027-02-02', 'werk', 'OR Arbo', 'Amersfoort, Leerhotel Het Klooster', 'Arbocongres voor de medezeggenschap met workshops over werkdruk, verzuim, duurzame inzetbaarheid en de RI&E.', 'OR-leden en preventiemedewerkers', 'https://performa-or.nl/product/or-arbo/'),
@@ -48,6 +53,7 @@ EVENTS = [
  ('2027-03-12', '2027-03-12', 'werk', 'Nationale Vitaliteitsdag', 'Zeist, Better Meetings', 'Congresdag over leiderschap en de vitale organisatie. Thema: Leiderschap in Balans.', 'HR, directeuren en managers', 'https://www.nationalevitaliteitsdag.nl/'),
  ('2027-03-18', '2027-03-18', 'zorg', 'Health Valley Event', 'Nijmegen, De Vasim', 'Congres en netwerkdag over innovatie in zorg en welzijn.', 'Zorgprofessionals, ondernemers en onderzoekers', 'https://www.healthvalley.nl/nl/events/health-valley-event-2027/'),
  ('2027-03-23', '2027-03-23', 'leefstijl', 'Verbindingsdag Positieve Gezondheid', 'Cuijk, Inspyrium', 'Dag van het Institute for Positive Health om elkaar te ontmoeten en kennis te delen.', 'Professionals die met Positieve Gezondheid werken', 'https://www.iph.nl/evenementen/23-maart-2027-samen-op-pad-met-positieve-gezondheid-verbindingsdag-iph/'),
+ ('2027-03-23', '2027-03-23', 'zorg', 'Congres MeToo in de Zorg', 'Veenendaal, De Basiliek', 'Congres over sociale veiligheid en het voorkomen van grensoverschrijdend gedrag in de zorg, met nadruk op cultuurverandering.', 'Bestuurders, leidinggevenden en beleidsmakers in de zorg', 'https://metooindezorgcongres.nl/'),
  ('2027-04-07', '2027-04-08', 'werk', 'NVvA Symposium', 'Locatie volgt', 'Tweedaags symposium over arbeidshygiëne en gezond werken.', 'Arbeidshygiënisten en arboprofessionals', 'https://arbeidshygiene.nl/symposium/'),
  ('2027-04-08', '2027-04-08', 'werk', 'Landelijke VGWM-Dag', 'Nieuwegein, NBC Congrescentrum', 'Dag over veiligheid, gezondheid, welzijn en milieu voor de medezeggenschap.', 'OR-leden en VGWM-commissies', 'https://ornetacademy.nl/events/landelijke-vgwm-dag'),
  ('2027-04-13', '2027-04-15', 'werk', 'Zorg & HR', 'Utrecht, Jaarbeurs', 'Vakbeurs over personeel in de zorg: tekorten, werkdruk, werkplezier, vitaliteit en leiderschap.', 'HR en leidinggevenden in de zorg', 'https://www.zorg-en-hr.nl/'),
@@ -56,9 +62,11 @@ EVENTS = [
  ('2027-05-18', '2027-05-18', 'werk', 'Nationale Conferentie Vitaliteit 2027', 'Hilversum, NEV Campus', 'Kennisconferentie van het Nederlands Expertisecentrum Vitaliteit over preventie die werkt en het meten en borgen van vitaliteitsbeleid.', 'HR, directeuren, arboprofessionals en OR', 'https://conferentievitaliteit.nl/'),
  ('2027-05-20', '2027-05-20', 'werk', 'Wellbeing at Work Summit Europe', 'Amsterdam', 'Internationale top over welzijn op het werk, met leiderschap, verbinding en zingeving als thema. Engelstalig.', 'HR directeuren, leidinggevenden en wellbeing managers', 'https://wellbeingatwork.world/summit/wellbeing-at-work-europe-summit-2026-amsterdam/'),
  ('2027-05-27', '2027-05-28', 'werk', 'BG-dagen voor bedrijfsartsen', 'Locatie volgt', 'Jaarlijkse wetenschappelijke dagen van de NVAB over bedrijfsgeneeskunde en gezond werken.', 'Bedrijfsartsen en arboprofessionals', 'https://nvab-online.nl/bg-dagen/'),
+ ('2027-06-15', '2027-06-15', 'werk', 'HR in Motion 2027', 'Nieuwegein, NBC Congrescentrum', 'Jaarlijkse HR-dag van Rendement over actuele HR-trends, met keuzesessies en direct toepasbare actiepunten.', 'HR-managers, HR-professionals en leidinggevenden', 'https://hrinmotion.nl/'),
  ('2027-06-21', '2027-06-24', 'zorg', 'HLTH Europe', 'Amsterdam, RAI', 'Internationaal Engelstalig evenement over innovatie in gezondheid en zorg.', 'Zorgbestuurders, bedrijven en investeerders', 'https://hlth.com/events/europe/'),
  ('2027-09-17', '2027-09-17', 'werk', 'Aftrap Nationale Vitaliteitsweek', 'Eindhoven', 'Bijeenkomst op vrijdagmiddag als start van de Nationale Vitaliteitsweek.', 'Werkgevers, HR en vitaliteitscoördinatoren', 'https://www.nationalevitaliteitsweek.nl/'),
  ('2027-09-28', '2027-09-28', 'werk', 'Jaarcongres HRM in de Zorg', "'s-Hertogenbosch, Congrescentrum 1931", 'Jaarcongres over HR in de zorg, met thema\'s als behoud van personeel, werkdruk en duurzame inzetbaarheid.', 'HR, bestuurders en managers in de zorg', 'https://www.hrmindezorg.nl/'),
+ ('2027-10-14', '2027-10-14', 'werk', 'HR Live 2027', 'Den Haag, Fokker Terminal', 'Groot HR-event van Performa over duurzame inzetbaarheid, wellbeing, talentontwikkeling en de toekomst van werk.', 'HR-professionals en HR-managers', 'https://hrlive.nl/'),
 ]
 # (naam, wanneer meestal, organisator, link)
 EVENTS_VOLGT = [
@@ -70,7 +78,9 @@ EVENTS_VOLGT = [
  ('Nationaal Arbocongres 2027', 'november', 'Rendement', 'https://www.rendementco.nl/id94-nationaal-arbo-congres.html'),
  ('Hét Leefstijl Symposium 2027', 'oktober', 'Stichting TWINZ', 'https://www.leefstijlsymposium.nl/'),
  ('Congres Re-integratie die werkt', 'juni', 'NVAB en Universiteit Maastricht', 'https://nvab-online.nl/agenda/congres-re-integratie-die-werkt-2026-06-18-0930/'),
- ('OR + HR Live', 'oktober', 'OR + HR Live', 'https://hrlive.nl'),
+ ('Landelijk Festival Duurzame Inzetbaarheid', 'november', 'CNV, FNV en AWVN', 'https://www.cnv.nl/agenda/landelijk-festival-duurzame-inzetbaarheid/'),
+ ('Happy Brain Congres: van verzuim naar vitaliteit', 'eind januari', 'Happy Brain Clinics', 'https://happybrainclinics.com/congres-2026/'),
+ ('Hanze HR Congres in de Zorg', 'juni', 'Hanzehogeschool', 'https://hanzehrcongresindezorg.nl/'),
 ]
 
 # ---------------------------------------------------------------- 2. Dagen en weken van
@@ -177,6 +187,14 @@ DAGEN = [
  ('2027-10-29', '', D, 'ziekte', 'Wereld Beroertedag', 'Aandacht voor het herkennen en voorkomen van een beroerte.', 'https://www.world-stroke.org/world-stroke-day-campaign'),
  ('2027-10-29', '', D, 'zorg', 'Internationale Dag van Zorg en Ondersteuning', 'Erkenning van betaalde en onbetaalde zorg voor anderen.', 'https://www.un.org/en/observances/care-and-support-day'),
  ('2027-10-31', '', D, 'mentaal', 'Dag van de Stilte', 'Dag om stil te staan bij rust en stilte in een drukke tijd.', 'https://dagvandestilte.nl/', ('artikelen/herstel-en-rust-op-het-werk', 'Lees mijn artikel over herstel en rust')),
+ ('2027-11-01', '', D, 'voeding', 'Wereld Veganisme Dag', 'Aandacht voor plantaardig eten.', 'https://www.vegansociety.com/'),
+ ('2027-11-01', '', D, 'werk', 'Dag van de BHV', 'Waardering voor bedrijfshulpverleners die zorgen voor veiligheid op het werk.', 'https://www.101bhv.nl/dag-van-de-bhv/'),
+ ('2027-11-01', '2027-11-30', 'maand', 'ziekte', 'Movember', 'Maand waarin mannen een snor laten staan om aandacht te vragen voor de gezondheid van mannen.', 'https://nl.movember.com/'),
+ ('2027-11-03', '', D, 'mentaal', 'International Stress Awareness Day', 'Aandacht voor stress, de signalen en wat je eraan kunt doen.', 'https://isma.org.uk/'),
+ ('2027-11-10', '', D, 'zorg', 'Dag van de Mantelzorg', 'Waardering voor mensen die naast werk of gezin voor een naaste zorgen.', 'https://www.mantelzorg.nl/', ('artikelen/mantelzorger-in-je-team', 'Lees mijn artikel over de mantelzorger in je team')),
+ ('2027-11-14', '', D, 'ziekte', 'Wereld Diabetes Dag', 'Aandacht voor diabetes, vroege herkenning en leefstijl.', 'https://worlddiabetesday.org/'),
+ ('2027-11-17', '', D, 'ziekte', 'Wereld COPD Dag', 'Aandacht voor de longziekte COPD en een vroege diagnose.', 'https://goldcopd.org/'),
+ ('2027-11-19', '', D, 'leefstijl', 'Internationale Mannendag', 'Aandacht voor de gezondheid en het welzijn van mannen.', 'https://internationalmensday.com/'),
 ]
 # (naam, wanneer meestal, thema, link)
 DAGEN_VOLGT = [
@@ -212,7 +230,7 @@ def nde(jaar, maand, weekdag, n):
 for r in DAGEN:
     s = dt.date.fromisoformat(r[0]); e = dt.date.fromisoformat(r[1]) if r[1] else s
     assert e >= s, r
-    assert dt.date(2026, 10, 1) <= s <= dt.date(2027, 10, 31), r
+    assert dt.date(2026, 10, 1) <= s <= dt.date(2027, 11, 30), r
     assert r[3] in THEMA and r[2] in VORM, r
     if r[4] in REGELS:
         wd, n = REGELS[r[4]]
@@ -221,7 +239,7 @@ assert dt.date(2027, 3, 19).weekday() == 4  # Wereld Slaapdag op vrijdag
 assert dt.date(2027, 2, 10) + dt.timedelta(days=46) == dt.date(2027, 3, 28)  # Aswoensdag + 46 = Pasen
 for r in EVENTS:
     s = dt.date.fromisoformat(r[0]); e = dt.date.fromisoformat(r[1]); assert e >= s and r[2] in SOORT, r
-    assert dt.date(2026, 10, 6) <= s <= dt.date(2027, 10, 31), r
+    assert dt.date(2026, 10, 6) <= s <= dt.date(2027, 11, 30), r
 assert EVENTS == sorted(EVENTS, key=lambda r: (r[0], r[1])), 'events niet op datum'
 assert [x[0] for x in DAGEN] == sorted(x[0] for x in DAGEN), 'dagen niet op datum'
 
@@ -336,7 +354,7 @@ def volgt(rijen, soort):
     return h + '      </ul>'
 
 TITEL = 'Vitaliteitskalender 2026 en 2027 | Walter Montenarie'
-BESCHR = 'Kalender met evenementen over vitaliteit en gezondheid in Nederland en alle dagen en weken van rond gezondheid. Van oktober 2026 tot en met oktober 2027.'
+BESCHR = 'Kalender met evenementen over vitaliteit en gezondheid in Nederland en alle dagen en weken van rond gezondheid. Van oktober 2026 tot en met november 2027.'
 assert len(TITEL) <= 60 and len(BESCHR) <= 160, (len(TITEL), len(BESCHR))
 
 basis = open(W + 'tools.html', encoding='utf-8').read()
@@ -358,7 +376,7 @@ main = '''<main>
     <div class="wrap">
       <div class="kal-kop-tekst">
         <h1>Vitaliteitskalender</h1>
-        <p class="intro">Wil je je activiteiten laten aansluiten op wat er in het land gebeurt? Hier vind je twee overzichten. De evenementen over vitaliteit en gezondheid in Nederland. En de dagen en weken die met gezondheid te maken hebben. Van oktober 2026 tot en met oktober 2027.</p>
+        <p class="intro">Wil je je activiteiten laten aansluiten op wat er in het land gebeurt? Hier vind je twee overzichten. De evenementen over vitaliteit en gezondheid in Nederland. En de dagen en weken die met gezondheid te maken hebben. Van oktober 2026 tot en met november 2027.</p>
       </div>
       %s
       <div class="kal-sprong">
