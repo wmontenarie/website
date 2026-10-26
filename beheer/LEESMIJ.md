@@ -20,6 +20,11 @@ Elk script draai je vanuit de hoofdmap van de repository:
 | `python3 beheer/artikel_mantelzorg.py` | `artikelen/mantelzorger-in-je-team.html` | het script zelf |
 | `python3 beheer/artikel_overgang.py` | `artikelen/overgang-op-het-werk.html` | het script zelf |
 | `python3 beheer/artikel_herstel.py` | `artikelen/herstel-en-rust-op-het-werk.html` | het script zelf |
+| `python3 beheer/artikel_thermostaat.py` | `artikelen/leidinggevende-voorbeeld-werkstress.html` | het script zelf |
+| `python3 beheer/artikel_stress_gesprek.py` | `artikelen/stress-bespreekbaar-maken.html` | het script zelf |
+| `python3 beheer/artikel_mantelzorgbeleid.py` | `artikelen/mantelzorgvriendelijk-werkgeverschap.html` | het script zelf |
+| `python3 beheer/artikel_mannen.py` | `artikelen/mannen-stress-gezondheid-werk.html` | het script zelf |
+| `python3 beheer/artikel_diabetes.py` | `artikelen/diabetes-type-2-voorkomen-werk.html` | het script zelf |
 | `python3 beheer/artikel_extra.py` | kruimelpad, leestijd en blok over de auteur in alle artikelen, plus de leestijd op de kaarten in `artikelen.html` | `AUTEUR` in het script; het thema per artikel in `themas.py`. De artikelscripts doen dit zelf; draai het na een artikel dat met de hand is gemaakt |
 | `python3 beheer/thema_paginas.py` | `werkdruk.html`, `burn-out-en-verzuim.html`, `vitaliteitsbeleid.html`, `cultuurverandering.html` | `themas.py`. De kaarten komen uit `artikelen.html`, dus draai dit opnieuw na een nieuw artikel |
 | `python3 beheer/training_cultuurverandering.py` | `training-cultuurverandering.html` | het script zelf |
