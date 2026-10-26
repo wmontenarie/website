@@ -26,7 +26,7 @@ THEMAS = [
         'h1': 'Burn-out en verzuim',
         'beschr': 'Burn-out voorkomen en verzuim terugdringen: artikelen voor leidinggevenden, een gratis gespreksgids, een training en de verzuimrekentool.',
         'intro': 'Uitval komt zelden onverwacht. Hier lees je hoe je signalen herkent, het gesprek voert en wat werkt om verzuim terug te dringen. Ook voor mensen met een chronische aandoening, mantelzorgers en vrouwen in de overgang.',
-        'artikelen': ['burn-out-voorkomen-in-je-team', 'stress-bespreekbaar-maken', 'mannen-stress-gezondheid-werk', 'verzuim-terugdringen-maatregelen', 'gemiddeld-verzuim-is-niet-normaal',
+        'artikelen': ['burn-out-voorkomen-in-je-team', 'psychisch-verzuim-krapte-arbeidsmarkt', 'stress-bespreekbaar-maken', 'mannen-stress-gezondheid-werk', 'verzuim-terugdringen-maatregelen', 'gemiddeld-verzuim-is-niet-normaal',
                       'presenteisme-onbekende-productiviteitskiller', 'mentale-gezondheid-werk-leidinggevende', 'werken-met-chronische-aandoening',
                       'mantelzorger-in-je-team', 'overgang-op-het-werk', 'onzichtbare-schuld-op-de-balans'],
         'ook': [],
