@@ -3,7 +3,7 @@ import datetime as dt, html, re, json
 
 import os
 W = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '')
-GECONTROLEERD = '26 oktober 2026'
+GECONTROLEERD = '2 november 2026'
 MND = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december']
 MK = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec']
 
@@ -34,6 +34,7 @@ EVENTS = [
  ('2026-11-24', '2026-11-24', 'werk', 'Arbo Kennisfestival', 'Nieuwegein, NBC Congrescentrum', 'Kennisdag met sessies over onder meer vitaliteit, verzuim, het voorkomen van burn-out en de RI&E.', 'HR, arboprofessionals, leidinggevenden en OR', 'https://arbo-academy.nl/events/arbo-kennisfestival'),
  ('2026-11-24', '2026-11-24', 'werk', 'HR Kennisfestival', 'Nieuwegein, NBC Congrescentrum', 'Kennisdag met sessies over verzuim, mentaal verzuim, vitaliteit, duurzame inzetbaarheid en arbeidsrecht.', 'HR, arboprofessionals en salarisprofessionals', 'https://pwacademy.nl/events/hr-kennisfestival'),
  ('2026-11-24', '2026-11-24', 'werk', 'Jaarcongres HRM en het Onderwijs', 'Utrecht, Mereveld', 'Jaarcongres over de menskracht van morgen, met aandacht voor welzijn, energie en loopbaanbewust HRM.', 'HR, bestuurders en schoolleiders in het onderwijs', 'https://www.hrmenhetonderwijs.nl/'),
+ ('2026-11-26', '2026-11-26', 'leefstijl', 'Symposium Waarmakers van Mentale Gezondheid', 'Urmond, Van der Valk Stein-Urmond', 'Regionaal symposium van Gezond Zuid-Limburg over samen werken aan betere mentale gezondheid in de regio.', 'Beleidsmakers, gemeenten en professionals in zorg en welzijn', 'https://www.gezondzuidlimburg.nl/agenda/symposium-waarmakers-van-mentale-gezondheid'),
  ('2026-11-26', '2026-11-27', 'werk', "Workers' Health Surveillance Conference", 'Amsterdam, Amsterdam UMC', 'Internationale conferentie over het nut van periodiek gezondheidsonderzoek bij werkenden, met op 27 november de Heijermanslezing. Grotendeels Engelstalig.', 'Bedrijfsartsen, arboprofessionals en onderzoekers', 'https://www.vumc.nl/educatie/onze-opleidingen/opleidingsdetail/workers-health-surveillance-conference.htm'),
  ('2026-12-01', '2026-12-01', 'leefstijl', 'Congres Bouwen aan de Sociale Riolering', 'Den Haag, Provinciehuis', 'Dagcongres van het Institute for Positive Health over Positieve Gezondheid in de woon- en leefomgeving.', 'Gemeenten en maatschappelijke organisaties', 'https://www.iph.nl/evenementen/1-december-2026-congres-bouwen-aan-de-sociale-riolering/'),
  ('2026-12-01', '2026-12-01', 'zorg', 'Congres Vrouw en Leiderschap in de Zorg', 'Utrecht, Van der Valk', 'Congres van Skipr over zichtbaarheid, invloed en authentiek leiderschap van vrouwen in de zorg, met aandacht voor veerkracht.', 'Vrouwelijke leidinggevenden, bestuurders en professionals in de zorg', 'https://events.skipr.nl/event/vrouw-en-leiderschap/'),
@@ -43,10 +44,11 @@ EVENTS = [
  ('2027-01-29', '2027-01-29', 'leefstijl', 'Jaarcongres Vrouw & Gezondheid', 'Woerden, Van der Valk', 'Congres over de gezondheid van vrouwen, waaronder de overgang, migraine en hart- en vaatziekten.', 'Huisartsen, bedrijfsartsen en praktijkondersteuners', 'https://congressen.huisarts.bsl.nl/event/vrouw-en-gezondheid/'),
  ('2027-02-02', '2027-02-02', 'werk', 'OR Arbo', 'Amersfoort, Leerhotel Het Klooster', 'Arbocongres voor de medezeggenschap met workshops over werkdruk, verzuim, duurzame inzetbaarheid en de RI&E.', 'OR-leden en preventiemedewerkers', 'https://performa-or.nl/product/or-arbo/'),
  ('2027-02-10', '2027-02-10', 'leefstijl', 'Brein college met Erik Scherder', 'Ede, ReeHorst', 'Collegedag over gezonde hersenen, voeding en leefstijl.', 'Zorgprofessionals', 'https://events.bsl.nl/event/brein-college-voorjaar/'),
+ ('2027-02-11', '2027-02-11', 'zorg', 'Congres Agressie en grensoverschrijdend gedrag in de zorg', 'Veenendaal, Van der Valk', 'Congres over het voorkomen en aanpakken van agressie tegen zorgmedewerkers, met aandacht voor grenzen stellen, de-escaleren en nazorg na incidenten.', 'Zorgprofessionals, teamleiders en leidinggevenden in de zorg', 'https://events.bsl.nl/event/agressie-en-grensoverschrijdend-gedrag-in-de-zorg/'),
  ('2027-03-01', '2027-03-04', 'leefstijl', 'Arts en Leefstijl Week', 'Online en Driebergen, Antropia', 'Drie online avonden en een congresdag op 4 maart over leefstijl en preventie in de zorg.', 'Artsen, zorgprofessionals en beleidsmakers', 'https://www.artsenleefstijl.nl/academy/congres'),
  ('2027-03-05', '2027-03-05', 'leefstijl', 'Nationaal Obesitas Congres', 'Barneveld, Midden Nederland Hallen', 'Congres met praktische inzichten voor de zorg bij overgewicht en obesitas.', 'Zorgprofessionals', 'https://www.obesitascongres.nl/'),
  ('2027-03-08', '2027-03-08', 'werk', 'Werkgelukcongres', 'Utrecht', 'Derde editie van het congres voor professionals in werkgeluk, met sprekers en voorbeelden uit de praktijk.', 'HR, leidinggevenden en coaches', 'https://werkgelukcongres.nl/'),
- ('2027-03-10', '2027-03-10', 'werk', '23e TBV Congres', 'Locatie volgt', 'Jaarlijks congres van het Tijdschrift voor Bedrijfs- en Verzekeringsgeneeskunde over werk en gezondheid.', 'Bedrijfsartsen en verzekeringsartsen', 'https://www.tbv-online.nl/agenda/'),
+ ('2027-03-10', '2027-03-10', 'werk', '23e TBV Congres', 'Veenendaal', 'Jaarlijks congres van het Tijdschrift voor Bedrijfs- en Verzekeringsgeneeskunde over werk en gezondheid.', 'Bedrijfsartsen en verzekeringsartsen', 'https://www.tbv-online.nl/agenda/'),
  ('2027-03-11', '2027-03-11', 'leefstijl', 'Nationale Voedingscongres', 'Ede, ReeHorst', 'Jaarlijks congres over voeding en voedingszorg in de praktijk.', 'Diëtisten, verpleegkundigen en artsen', 'https://www.interactiegroep.nl/en/product/nvc/'),
  ('2027-03-11', '2027-03-11', 'zorg', 'Innovation for Health', 'Utrecht, Jaarbeurs', 'Engelstalige conferentie over innovatie in gezondheid en zorg.', 'Ondernemers, onderzoekers en zorgbestuurders', 'https://www.hyphenprojects.nl/i4h/'),
  ('2027-03-12', '2027-03-12', 'leefstijl', 'Congres Leefstijlgeneeskunde in de spreekkamer', 'Utrecht', 'Congres over het toepassen van leefstijlgeneeskunde in de dagelijkse praktijk.', 'Huisartsen en zorgprofessionals in de eerste lijn', 'https://congressen.leefstijl.bsl.nl/'),
@@ -66,6 +68,7 @@ EVENTS = [
  ('2027-06-21', '2027-06-24', 'zorg', 'HLTH Europe', 'Amsterdam, RAI', 'Internationaal Engelstalig evenement over innovatie in gezondheid en zorg.', 'Zorgbestuurders, bedrijven en investeerders', 'https://hlth.com/events/europe/'),
  ('2027-09-17', '2027-09-17', 'werk', 'Aftrap Nationale Vitaliteitsweek', 'Eindhoven', 'Bijeenkomst op vrijdagmiddag als start van de Nationale Vitaliteitsweek.', 'Werkgevers, HR en vitaliteitscoördinatoren', 'https://www.nationalevitaliteitsweek.nl/'),
  ('2027-09-28', '2027-09-28', 'werk', 'Jaarcongres HRM in de Zorg', "'s-Hertogenbosch, Congrescentrum 1931", 'Jaarcongres over HR in de zorg, met thema\'s als behoud van personeel, werkdruk en duurzame inzetbaarheid.', 'HR, bestuurders en managers in de zorg', 'https://www.hrmindezorg.nl/'),
+ ('2027-09-30', '2027-09-30', 'leefstijl', 'Lustrumcongres Care For Cure', 'Houten, Van der Valk', 'Congres over leefstijl als onderdeel van behandeling en zorg, met recente inzichten en ervaringen van vernieuwers in de zorg.', 'Zorgprofessionals, vooral in de apotheek', 'https://careforcure.nl/congres-2027/'),
  ('2027-10-14', '2027-10-14', 'werk', 'HR Live 2027', 'Den Haag, Fokker Terminal', 'Groot HR-event van Performa over duurzame inzetbaarheid, wellbeing, talentontwikkeling en de toekomst van werk.', 'HR-professionals en HR-managers', 'https://hrlive.nl/'),
 ]
 # (naam, wanneer meestal, organisator, link)
@@ -150,6 +153,7 @@ DAGEN = [
  ('2027-05-17', '', D, 'ziekte', 'Wereld Hypertensie Dag', 'Oproep om je bloeddruk te kennen en hoge bloeddruk te voorkomen.', 'https://www.whleague.org/'),
  ('2027-05-19', '', D, 'zorg', 'Wereld Huisartsendag', 'Waardering voor huisartsen en hun rol in de zorg dicht bij huis.', 'https://www.globalfamilydoctor.com/'),
  ('2027-05-24', '2027-05-28', 'week', 'bewegen', 'Nationale Beweegweek', 'Week van het Ouderenfonds waarin ouderen samen in beweging komen.', 'https://ouderenfonds.nl/activiteit/nationale-beweegweek/'),
+ ('2027-05-27', '', D, 'bewegen', 'Fiets naar je Werk Dag', 'Dag waarop werkend Nederland wordt uitgedaagd om op de fiets naar het werk te gaan.', 'https://fietsnaarjewerkdag.fiscfree.nl/'),
  ('2027-05-30', '', D, 'ziekte', 'Wereld MS Dag', 'Aandacht voor multiple sclerose en voor leven en werken met MS.', 'https://worldmsday.org/'),
  ('2027-05-31', '', D, 'leefstijl', 'Wereld Niet Roken Dag', 'Aandacht voor de schade van roken en hulp bij stoppen.', 'https://www.who.int/campaigns/world-no-tobacco-day'),
  ('2027-06-03', '', D, 'bewegen', 'Wereld Fietsdag', 'Aandacht voor de fiets als gezond en duurzaam vervoermiddel.', 'https://www.un.org/en/observances/bicycle-day'),
@@ -195,6 +199,10 @@ DAGEN = [
  ('2027-11-14', '', D, 'ziekte', 'Wereld Diabetes Dag', 'Aandacht voor diabetes, vroege herkenning en leefstijl.', 'https://worlddiabetesday.org/', ('artikelen/diabetes-type-2-voorkomen-werk', 'Lees mijn artikel over diabetes voorkomen op het werk')),
  ('2027-11-17', '', D, 'ziekte', 'Wereld COPD Dag', 'Aandacht voor de longziekte COPD en een vroege diagnose.', 'https://goldcopd.org/'),
  ('2027-11-19', '', D, 'leefstijl', 'Internationale Mannendag', 'Aandacht voor de gezondheid en het welzijn van mannen.', 'https://internationalmensday.com/', ('artikelen/mannen-stress-gezondheid-werk', 'Lees mijn artikel over mannen en gezondheid op het werk')),
+ ('2027-12-01', '', D, 'ziekte', 'Wereld Aids Dag', 'Aandacht voor hiv en aids en voor mensen die ermee leven.', 'https://www.who.int/campaigns/world-aids-day'),
+ ('2027-12-03', '', D, 'werk', 'Internationale Dag van Mensen met een Beperking', 'Aandacht voor gelijke kansen en meedoen, ook op de werkvloer.', 'https://www.un.org/en/observances/day-of-persons-with-disabilities'),
+ ('2027-12-12', '', D, 'zorg', 'Internationale Dag voor Gezondheidszorg voor Iedereen', 'Pleidooi voor toegankelijke en betaalbare zorg voor iedereen.', 'https://www.un.org/en/observances/universal-health-coverage-day'),
+ ('2027-12-21', '', D, 'mentaal', 'Wereld Meditatie Dag', 'Aandacht voor meditatie als hulpmiddel voor rust en mentale gezondheid.', 'https://www.un.org/en/observances/meditation-day'),
 ]
 # (naam, wanneer meestal, thema, link)
 DAGEN_VOLGT = [
@@ -206,7 +214,6 @@ DAGEN_VOLGT = [
  ('Week tegen Eenzaamheid', 'eind september', 'mentaal', 'https://www.eentegeneenzaamheid.nl/gemeenten-en-organisaties/week-tegen-eenzaamheid'),
  ('Week van de Overgang', 'april', 'leefstijl', 'https://overacademie.nl/overzicht/'),
  ('Nationale Week Zonder Vlees & Zuivel', 'maart', 'voeding', 'https://issuekalender.nl/issue/nationale-week-zonder-vlees-en-zuivel/'),
- ('Fiets naar je Werk Dag', 'tweede helft van mei', 'bewegen', 'https://fietsnaarjewerkdag.fiscfree.nl/'),
  ('Nationale Sportweek', 'tweede helft van september', 'bewegen', 'https://nocnsf.nl/nationale-sportweek/ontdek/wat-is-de-nationale-sportweek'),
  ('Steptember', 'september', 'bewegen', 'https://cpnederland.nl/steptember-dagelijks-10-000-stappen-voor-mensen-met-cerebrale-parese/'),
  ('Week van de Jonge Mantelzorger', 'begin juni', 'zorg', 'https://www.weekvandejongemantelzorger.nl/'),
@@ -230,7 +237,7 @@ def nde(jaar, maand, weekdag, n):
 for r in DAGEN:
     s = dt.date.fromisoformat(r[0]); e = dt.date.fromisoformat(r[1]) if r[1] else s
     assert e >= s, r
-    assert dt.date(2026, 10, 1) <= s <= dt.date(2027, 11, 30), r
+    assert dt.date(2026, 10, 1) <= s <= dt.date(2027, 12, 31), r
     assert r[3] in THEMA and r[2] in VORM, r
     if r[4] in REGELS:
         wd, n = REGELS[r[4]]
@@ -239,7 +246,7 @@ assert dt.date(2027, 3, 19).weekday() == 4  # Wereld Slaapdag op vrijdag
 assert dt.date(2027, 2, 10) + dt.timedelta(days=46) == dt.date(2027, 3, 28)  # Aswoensdag + 46 = Pasen
 for r in EVENTS:
     s = dt.date.fromisoformat(r[0]); e = dt.date.fromisoformat(r[1]); assert e >= s and r[2] in SOORT, r
-    assert dt.date(2026, 10, 6) <= s <= dt.date(2027, 11, 30), r
+    assert dt.date(2026, 10, 6) <= s <= dt.date(2027, 12, 31), r
 assert EVENTS == sorted(EVENTS, key=lambda r: (r[0], r[1])), 'events niet op datum'
 assert [x[0] for x in DAGEN] == sorted(x[0] for x in DAGEN), 'dagen niet op datum'
 
@@ -354,7 +361,7 @@ def volgt(rijen, soort):
     return h + '      </ul>'
 
 TITEL = 'Vitaliteitskalender 2026 en 2027 | Walter Montenarie'
-BESCHR = 'Kalender met evenementen over vitaliteit en gezondheid in Nederland en alle dagen en weken van rond gezondheid. Van oktober 2026 tot en met november 2027.'
+BESCHR = 'Kalender met evenementen over vitaliteit en gezondheid in Nederland en alle dagen en weken van rond gezondheid. Van oktober 2026 tot en met december 2027.'
 assert len(TITEL) <= 60 and len(BESCHR) <= 160, (len(TITEL), len(BESCHR))
 
 basis = open(W + 'tools.html', encoding='utf-8').read()
@@ -376,7 +383,7 @@ main = '''<main>
     <div class="wrap">
       <div class="kal-kop-tekst">
         <h1>Vitaliteitskalender</h1>
-        <p class="intro">Wil je je activiteiten laten aansluiten op wat er in het land gebeurt? Hier vind je twee overzichten. De evenementen over vitaliteit en gezondheid in Nederland. En de dagen en weken die met gezondheid te maken hebben. Van oktober 2026 tot en met november 2027.</p>
+        <p class="intro">Wil je je activiteiten laten aansluiten op wat er in het land gebeurt? Hier vind je twee overzichten. De evenementen over vitaliteit en gezondheid in Nederland. En de dagen en weken die met gezondheid te maken hebben. Van oktober 2026 tot en met december 2027.</p>
       </div>
       %s
       <div class="kal-sprong">
