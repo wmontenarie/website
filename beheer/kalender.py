@@ -3,7 +3,7 @@ import datetime as dt, html, re, json
 
 import os
 W = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '')
-GECONTROLEERD = '2 november 2026'
+GECONTROLEERD = '9 november 2026'
 MND = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december']
 MK = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec']
 
@@ -84,6 +84,8 @@ EVENTS_VOLGT = [
  ('Landelijk Festival Duurzame Inzetbaarheid', 'november', 'CNV, FNV en AWVN', 'https://www.cnv.nl/agenda/landelijk-festival-duurzame-inzetbaarheid/'),
  ('Happy Brain Congres: van verzuim naar vitaliteit', 'eind januari', 'Happy Brain Clinics', 'https://happybrainclinics.com/congres-2026/'),
  ('Hanze HR Congres in de Zorg', 'juni', 'Hanzehogeschool', 'https://hanzehrcongresindezorg.nl/'),
+ ('Congres Oplossingen voor de krappe arbeidsmarkt in de zorg', 'juni', 'Zorgvisie', 'https://congressen.zorgvisie.nl/event/oplossingen-krappe-arbeidsmarkt-zorg/'),
+ ('HR Congres Vrouwengezondheid & Leiderschap', 'oktober', 'EnergyPlatform en Coöperatie VGZ', 'https://www.energyplatform.nl/masterclass/hr-congres-vrouwengezondheid-leiderschap'),
 ]
 
 # ---------------------------------------------------------------- 2. Dagen en weken van
